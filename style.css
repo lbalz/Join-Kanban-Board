@@ -1,8 +1,27 @@
 :root {
-    /* Template HTML */
-    --nav-text-clr: #FFFFFF;
+    /* Font Colors */
+    --font-clr-white: #FFFFFF;
+    --font-clr-black: #000000;
+    --font-clr-gray: #42526E;
+    
+    /* Font Colors Hover without Click */
+    --font-clr-blue-hover: #005DFF;
+
+    /* Font Colors Hover with Click (!if needed!) */
+
+    /* Background Colors */
     --nav-bg-clr: #4589FF;
+
+    /* Background Colors Hover without Click */
     --sidebar-hover-clr: #D2E3FF;
-    --sidebar-text-clr: #42526E;
+
+    /* Background Colors Hover with Click */
+
+
+    /* Font Sizes */
+    --fontsize-16px: 16px;
+    --fontsize-19px: 19px;
+    --fontsize-23px: 23px;
+
 
 }
