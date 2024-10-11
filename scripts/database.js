@@ -133,9 +133,22 @@ const customers = [
 ];
 
 async function addUsers() {
+    path = "/users";
     for (let i = 0; i < customers.length; i++) {
         const customer = customers[i];
+
+        data = {
+            name : customer.name,
+            email : customer.email,
+            phone : customer.phone
+        }
         
-        await fetch()
+        await fetch(DATABASE_URL + path + ".json", {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify(data)
+        });
     }
 }
