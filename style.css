@@ -42,7 +42,6 @@ body {
   font-family: "Open-Sans";
 }
 
-/* Header */
 .headerContainer {
 }
 
@@ -108,9 +107,12 @@ body {
 /* Sidebar / Footer */
 .sidebarContainer {
   width: 232px;
-  height: 932px;
+  height: 100vh;
   padding: 66px 0;
   background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .topContainer {
@@ -154,9 +156,24 @@ body {
 
 .bottomContainer {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .bottomText {
+  color: var(--font-clr-gray);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.bottomText:hover {
+  color: var(--font-clr-blue-hover);
 }
