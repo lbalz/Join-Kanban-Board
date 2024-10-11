@@ -16,3 +16,8 @@ const accountColors = {
     light_orange : "#FFBB2B"
 }
 
+
+/**
+ *  POST mit Object.keys nutzen fürs Backend
+ *  PUT zum anpassen von vorhandenen namen etc anpassen
+ */

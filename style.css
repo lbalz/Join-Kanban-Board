@@ -1,3 +1,12 @@
+/* Setting Font */
+@font-face {
+    font-family: "Open-Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/fonts/Open-Sans.ttf) format("truetype");
+}
+
+/* Setting Variables */
 :root {
     /* Font Colors */
     --font-clr-white: #FFFFFF;
@@ -25,3 +34,36 @@
 
 
 }
+
+/* Standard Setting */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Open-Sans";
+}
+
+/* Header */
+.headerContainer {}
+
+.header {}
+
+.headerLeft {}
+
+.headerLogo {}
+
+.headerRight {}
+
+.headerTitle {}
+
+.headerHelpIcon {}
+
+.headerProfileContainer {}
+
+.headerProfile {}
+
+.headerProfileLetter {}
+
+/* Sidebar / Footer */

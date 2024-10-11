@@ -5,17 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Kanban Board</title>
 
-    <link rel="shortcut icon" href="./" type="image/x-icon">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./assets/icons/favicon_blue.png" type="image/x-icon">
+
     <!-- Styles -->
+    <link rel="stylesheet" href="./style.css">
 
     <!-- Scripts -->
-    <script src="./scripts/w3.js"></script>
+    <script src="./script.js"></script>
 </head>
 <body>
-    <div w3-include-html="./templates/header_sidebar_desktop.html"></div>
-
-    <script>
-        w3.includeHTML();
-    </script>
+    <header class="headerContainer">
+        <div class="header">
+            <div class="headerLeft">
+                <img class="headerLogo" src="../assets/icons/logo_full_white.png" alt="join logo">
+            </div>
+    
+            <div class="headerRight">
+                <span class="headerTitle">Kanban Project Management Tool</span>
+                <img class="headerHelpIcon" src="../assets/icons/help_icon.png" alt="help icon">
+                <div class="headerProfileContainer">
+                    <div class="headerProfile">
+                        <span class="headerProfileLetter">G</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
