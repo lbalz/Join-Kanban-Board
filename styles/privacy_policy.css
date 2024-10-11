@@ -1,4 +1,9 @@
 body{
-    margin: 0;
+    margin: 16px;
     font-family: "Open-Sans";
+}
+.textAndArrow{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
