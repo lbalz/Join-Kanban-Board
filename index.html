@@ -18,51 +18,68 @@
 </head>
 
 <body>
-    <header class="headerContainer">
+    <header>
         <div class="header">
             <div class="headerLeft">
                 <img class="headerLogo" src="../assets/icons/logo_full_white.png" alt="join logo">
             </div>
 
             <div class="headerRight">
-                <span class="headerTitle">Kanban Project Management Tool</span>
-                <img class="headerHelpIcon" src="../assets/icons/help_icon.png" alt="help icon">
+                <div class="headerTitleContainer">
+                    <span class="headerTitle">Kanban Project Management Tool</span>
+                </div>
+                <div class="headerHelpIconContainer">
+                    <img class="headerHelpIcon" src="../assets/icons/help_icon.png" alt="help icon">
+                </div>
+                
                 <div class="headerProfileContainer">
                     <div class="headerProfile">
-                        <span class="headerProfileLetter">G</span>
+                        <span class="headerProfileLetter">SM</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <footer class="sidebarContainer">
-        <div class="topContainer">
-            <div class="contentBox">
-                <div class="menuItem">
-                    <img class="icon" src="./assets/icons/summary_icon.svg" alt="Summary icon">
-                    <span class="text">Summary</span>
+    <div class="bottomContent">
+        <footer class="sidebarContainer">
+            <div class="topBottomWrapper">
+                <div class="topContainer">
+                    <!--Sidebar items müssen nochmal umstrukturiert werden,
+                        weil so wie aktuell ist nur der Text clickable, es sollter aber
+                        eher das gesamte div clickable sein. Entweder über eventListeneder lösen
+                        oder struktur anpassen und a tag als div nutzen und dort das icon mit text
+                        hierbei muss aber viel in css angepasst werden, evtl. schaff ich das noch 
+                        am Wochenende LG Lukas :) -->
+                    <div class="menuItem summary">
+                        <img class="icon" src="./assets/icons/summary_icon.svg" alt="Summary icon">
+                        <a class="text" href="./index.html">Summary</a>
+                    </div>
+                    <div class="menuItem">
+                        <img class="icon" src="./assets/icons/add_task_icon.svg" alt="Add Task icon">
+                        <a class="text" href="./pages/add_task.html">Add Task</a>
+                    </div>
+                    <div class="menuItem">
+                        <img class="icon" src="./assets/icons/board_icon.svg" alt="Board icon">
+                        <a class="text" href="./pages/board.html">Board</a>
+                    </div>
+                    <div class="menuItem">
+                        <img class="icon" src="./assets/icons/contact_icon.svg" alt="Contacts icon">
+                        <a class="text" href="./pages/contact.html">Contacts</a>
+                    </div>
                 </div>
-                <div class="menuItem">
-                    <img class="icon" src="./assets/icons/add_task_icon.svg" alt="Add Task icon">
-                    <span class="text">Add Task</span>
-                </div>
-                <div class="menuItem">
-                    <img class="icon" src="./assets/icons/board_icon.svg" alt="Board icon">
-                    <span class="text">Board</span>
-                </div>
-                <div class="menuItem">
-                    <img class="icon" src="./assets/icons/contact_icon.svg" alt="Contacts icon">
-                    <span class="text">Contacts</span>
+        
+                <div class="bottomContainer">
+                    <a href="./pages/privacy_policy.html" class="bottomText">Privacy Policy</a>
+                    <a href="./pages/legal_notice.html" class="bottomText">Legal Notice</a>
                 </div>
             </div>
-        </div>
+        </footer>
 
-        <div class="bottomContainer">
-            <a href="./pages/privacy_policy.html" class="bottomText">Privacy Policy</a>
-            <a href="./pages/legal_notice.html" class="bottomText">Legal Notice</a>
+        <div class="rightContent">
+
         </div>
-    </footer>
+    </div>
 </body>
 
 </html>
