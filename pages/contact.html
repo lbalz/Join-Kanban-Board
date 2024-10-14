@@ -15,9 +15,11 @@
 
     <!-- Scripts -->
     <script src="../script.js"></script>
+    <script src="../scripts/database.js"></script>
+    <script src="../scripts/contacts.js"></script>
 </head>
 
-<body>
+<body onload="loadContactData()">
     <header>
         <div class="header">
             <div class="headerLeft">
@@ -66,7 +68,7 @@
                         </a>
 
                     </div>
-                    <div class="menuItem">
+                    <div class="menuItem currentPage">
                         <a class="menuLink" href="/pages/contact.html">
                             <img class="icon" src="../assets/icons/contact_icon.svg" alt="Contacts icon">
                             <span class="text">Contacts</span>
@@ -83,8 +85,13 @@
 
         <div class="rightContent">
             <div class="contactListContainer">
-                <img class="addNewContactIcon" src="../assets/icons/add_new_contact_icon.svg" alt="add new contact icon"
-                    onclick="handleClick()">
+                <div class="topContactList">
+                    <button class="addNewContactBtn">Add new Contact <img class="addNewContactIcon" src="../assets/icons/person_add.png" alt=""></button>
+                </div>
+
+                <div class="bottomContactList" id="contactList">
+                    
+                </div>
             </div>
 
             <div class="contactDetailsContainer">

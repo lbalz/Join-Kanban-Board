@@ -12,7 +12,8 @@
   --font-clr-white: #ffffff;
   --font-clr-black: #000000;
   --font-clr-gray: #42526e;
-  --font-clr-light-blue: #005dff;
+  --font-clr-blue: #005dff;
+  --font-clr-light-blue: #4589FF;
 
   /* Font Colors Hover without Click */
   --font-clr-blue-hover: #005dff;
@@ -20,11 +21,12 @@
   /* Font Colors Hover with Click (!if needed!) */
 
   /* Background Colors */
-  --nav-bg-clr: #4589ff;
+  --bg-clr-light-blue: #4589ff;
   --bg-clr-white: #ffffff;
 
   /* Background Colors Hover without Click */
   --sidebar-hover-clr: #d2e3ff;
+  --bg-color-blue-hover: #005dff;
 
   /* Background Colors Hover with Click */
 
@@ -45,6 +47,10 @@ body {
   height: 100vh;
 }
 
+.currentPage {
+    background-color: var(--sidebar-hover-clr);
+}
+
 .bottomContent {
   width: 100%;
   height: calc(100vh - 96px);
@@ -56,7 +62,7 @@ body {
   width: 100%;
   height: 96px;
   justify-content: space-between;
-  background-color: var(--nav-bg-clr);
+  background-color: var(--bg-clr-light-blue);
 }
 
 .headerLeft {
@@ -127,11 +133,11 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 24px;
-  border: 2px solid var(--nav-bg-clr);
+  border: 2px solid var(--bg-clr-light-blue);
 }
 
 .headerProfileLetter {
-  color: var(--font-clr-light-blue);
+  color: var(--font-clr-blue);
   font-size: var(--fontsize-19px);
   font-weight: bold;
 }
@@ -140,11 +146,12 @@ body {
 .sidebarContainer {
   width: 200px;
   height: calc(100vh - 96px);
-  background-color: #f8f9fa;
+  background-color: var(--bg-clr-white);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 0 4px rgba(0, 0, 0, 0.16);
 }
 
 .topBottomWrapper {
@@ -235,7 +242,7 @@ body {
 .privacyPolicyClicked {
   width: 100%;
   height: 32px;
-  background-color: var(--nav-bg-clr);
+  background-color: var(--bg-clr-light-blue);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -257,7 +264,7 @@ body {
 .legalNoticeClicked {
   width: 100%;
   height: 32px;
-  background-color: var(--nav-bg-clr);
+  background-color: var(--bg-clr-light-blue);
   display: flex;
   justify-content: center;
   align-items: center;

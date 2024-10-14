@@ -7,7 +7,6 @@ async function loadContactData(path = "/users") {
     let userResponseJson = await userResponse.json();
 
     userData = [];
-    console.log(userResponseJson);
     
     if (userResponseJson) {
         Object.keys(userResponseJson).forEach(key => {
@@ -19,6 +18,7 @@ async function loadContactData(path = "/users") {
             });
         })
         console.log("User-Data Array:", userData);
+        await renderContactList();
     }
 }
 

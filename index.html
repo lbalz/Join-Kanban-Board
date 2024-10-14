@@ -15,9 +15,10 @@
     <!-- Scripts -->
     <script src="./script.js"></script>
     <script src="./scripts/database.js"></script>
+    <script src="./scripts/contacts.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <header>
         <div class="header">
             <div class="headerLeft">
@@ -49,7 +50,7 @@
             <div class="topBottomWrapper">
                 <div class="topContainer">
 
-                    <div class="menuItem">
+                    <div class="menuItem currentPage">
                         <a class="menuLink" href="./index.html">
                             <img class="icon" src="./assets/icons/summary_icon.svg" alt="Summary icon">
                             <span class="text">Summary</span>
