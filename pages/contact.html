@@ -92,24 +92,33 @@
         <div class="rightContent">
             <div class="contactListContainer">
                 <div class="topContactList">
-                    <button class="addNewContactBtn">Add new Contact <img class="addNewContactIcon" src="../assets/icons/person_add.png" alt=""></button>
+                    <button class="addNewContactBtn">Add new Contact <img class="addNewContactIcon"
+                            src="../assets/icons/person_add.png" alt=""></button>
                 </div>
 
                 <div class="bottomContactList" id="contactList">
-                    
+
                 </div>
             </div>
 
             <div class="contactDetailsContainer">
                 <div class="upperContainer">
                     <div>
-                        <div class="circle" id="initialienForCircle"><h1>MM</h1></div>
-                    </div>       
+                        <div class="circle" id="initialienForCircle">
+                            <h1>MM</h1>
+                        </div>
+                    </div>
                     <div class="nameAndIcons">
-                        <div id="fullName"><h1>Mike Meyers</h1></div>
+                        <div id="fullName">
+                            <h1>Mike Meyers</h1>
+                        </div>
                         <div class="editAndDeleteIcon">
-                            <div class="editIcon"><img src="../assets/icons/edit.svg"><p>Edit</p></div>
-                            <div class="deleteIcon"><img src="../assets/icons/delete.svg"><p>Delete</p></div>
+                            <div class="editIcon"><img src="../assets/icons/edit.svg">
+                                <p>Edit</p>
+                            </div>
+                            <div class="deleteIcon"><img src="../assets/icons/delete.svg">
+                                <p>Delete</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,8 +135,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="overlay" style="display: none;" >
+            <div class="popUp">
+                <div class="popUpTop">
+                    <img class="logoAddContact" src="/assets/icons/logo_add_contact.svg" alt="Add Contact Logo">
+                    <span class="addContactText">Add Contact</span>
+                    <span class="addContactTextBottom">Tasks are better with a team!</span>
+                </div>
+                <img class="closePopupIcon" src="/assets/icons/x_add_contact_icon.svg" alt="Close Popup">
+            </div>
+
+            <div class="popUpBottom">
+
+            </div>
+        </div>
     </div>
-    </div>
+
+
 </body>
 
 </html>

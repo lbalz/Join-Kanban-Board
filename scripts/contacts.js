@@ -40,16 +40,15 @@ function loadContactList() {
     userData.forEach((singleContact, index) => {
         contactList.push(
             {
-                id : index,
-                name : singleContact.name,
-                email : singleContact.email,
-                profile_letters : getFirstLetterForProfile(singleContact),
+                id: index,
+                name: singleContact.name,
+                email: singleContact.email,
+                profile_letters: getFirstLetterForProfile(singleContact),
                 //color : "hex-code"
             }
-        )
+        );
     });
 }
-
 
 function renderContactList() {
     loadContactList();
@@ -59,5 +58,35 @@ function renderContactList() {
 
     contactList.forEach(singleContact => {
         contactListContainer.innerHTML += contactListRenderTemplate(singleContact);
-    })
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Event Listener für den "Add new Contact"-Button
+    const addContactBtn = document.querySelector('.addNewContactBtn');
+    const closeIcon = document.querySelector('.closePopupIcon');
+
+    // Überprüfen, ob der Button existiert und ein Event Listener hinzugefügt wurde
+    if (addContactBtn) {
+        addContactBtn.addEventListener('click', openPopup);  
+    } else {
+        console.error("Der 'Add new Contact'-Button wurde nicht gefunden.");
+    }
+
+    // Event Listener für das Schließen über das X
+    if (closeIcon) {
+        closeIcon.addEventListener('click', closePopup);
+    } else {
+        console.error("Das Schließen-Symbol wurde nicht gefunden.");
+    }
+});
+
+// Funktion zum Öffnen des Pop-ups
+function openPopup() {
+    document.querySelector('.overlay').style.display = 'block'; // Pop-up sichtbar machen
+}
+
+// Funktion zum Schließen des Pop-ups
+function closePopup() {
+    document.querySelector('.overlay').style.display = 'none'; // Pop-up verstecken
 }
