@@ -1,0 +1,12 @@
+/* Left Contact List Container*/
+.contactListContainer {
+    width: 440px;
+    height: 100%;
+}
+
+
+/* Right Contact Details Container*/
+.contactDetailsContainer {
+    width: calc(100% - 440px);
+    height: 100%;
+}
