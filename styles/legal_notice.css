@@ -3,7 +3,11 @@ body{
     font-family: "Open-Sans";
 }
 .textAndArrow{
+    margin: 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.impressum{
+    margin-left: 64px;
 }
