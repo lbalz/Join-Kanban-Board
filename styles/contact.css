@@ -42,11 +42,13 @@
     gap: 16px;
 }
 .editIcon{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 6px;
 }
 .deleteIcon{
+    cursor: pointer;
     display: flex;
     flex-direction: row;
     gap: 6px;
