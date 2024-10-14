@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="../script.js"></script>
+    <script src="../scripts/overlay_functionality.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             </div>
 
             <div class="headerRight">
-                <div class="headerTitleContainer">
+                <div class="headerTitleContainer" onclick="toggledropDownBar()">
                     <span class="headerTitle">Kanban Project Management Tool</span>
                 </div>
                 <div class="headerHelpIconContainer">
@@ -34,12 +35,19 @@
                     </a>
                 </div>
 
-                <div class="headerProfileContainer">
+                <div class="headerProfileContainer" onclick="toggledropDownBar()">
                     <div class="headerProfile">
                         <span class="headerProfileLetter">SM</span>
                     </div>
                 </div>
             </div>
+
+            <div class="dropDownBar" id="dropDownBar">
+                <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
+                <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
+                <a href="" class="dropDownItem">Log Out</a>
+            </div>
+
         </div>
     </header>
 
@@ -51,26 +59,26 @@
                 <div class="topContainer">
                     <div class="menuItem">
                         <a class="menuLink" href="/index.html">
-                            <img class="icon" src="/assets/icons/summary_icon.svg" alt="Summary icon">
+                            <img class="icon" src="../assets/icons/summary_icon.svg" alt="Summary icon">
                             <span class="text">Summary</span>
                         </a>
                     </div>
                     <div class="menuItem">
                         <a class="menuLink" href="/pages/add_task.html">
-                            <img class="icon" src="/assets/icons/add_task_icon.svg" alt="Add Task icon">
+                            <img class="icon" src="../assets/icons/add_task_icon.svg" alt="Add Task icon">
                             <span class="text">Add Task</span>
                         </a>
                     </div>
                     <div class="menuItem">
                         <a class="menuLink" href="/pages/board.html">
-                            <img class="icon" src="/assets/icons/board_icon.svg" alt="Board icon">
+                            <img class="icon" src="../assets/icons/board_icon.svg" alt="Board icon">
                             <span class="text">Board</span>
                         </a>
 
                     </div>
                     <div class="menuItem">
                         <a class="menuLink" href="/pages/contact.html">
-                            <img class="icon" src="/assets/icons/contact_icon.svg" alt="Contacts icon">
+                            <img class="icon" src="../assets/icons/contact_icon.svg" alt="Contacts icon">
                             <span class="text">Contacts</span>
                         </a>
                     </div>

@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     <script src="../script.js"></script>
+    <script src="../scripts/overlay_functionality.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
             </div>
 
             <div class="headerRight">
-                <div class="headerTitleContainer">
+                <div class="headerTitleContainer" onclick="toggledropDownBar()">
                     <span class="headerTitle">Kanban Project Management Tool</span>
                 </div>
                 <div class="headerHelpIconContainer">
@@ -34,11 +35,16 @@
                     </a>
                 </div>
 
-                <div class="headerProfileContainer">
+                <div class="headerProfileContainer" onclick="toggledropDownBar()">
                     <div class="headerProfile">
                         <span class="headerProfileLetter">SM</span>
                     </div>
                 </div>
+            </div>
+            <div class="dropDownBar" id="dropDownBar">
+                <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
+                <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
+                <a href="" class="dropDownItem">Log Out</a>
             </div>
         </div>
     </header>
