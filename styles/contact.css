@@ -10,3 +10,48 @@
     width: calc(100% - 440px);
     height: 100%;
 }
+.contactDetailsContainer{
+    display: flex;
+    flex-direction: column;
+}
+.upperContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+}
+.circle {
+    margin-top: 52px;
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+}
+.nameAndIcons{
+    margin-top: 70px;
+}
+.editAndDeleteIcon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    gap: 16px;
+}
+.editIcon{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+.deleteIcon{
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+h1 {
+    margin-bottom: 0px;
+    margin-top: 23px;
+}
