@@ -50,7 +50,7 @@ h4 {
   font-size: 33px;
 }
 
-.text {
+.headlinePlusText {
   display: flex;
   flex-direction: row;
   width: 100px;
@@ -65,9 +65,4 @@ h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;  
-}
-
-.rightContent{
-  margin-left: 64px;
-  margin-top: 64px;
-}
+} 
