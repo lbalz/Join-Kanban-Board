@@ -25,7 +25,7 @@
             </div>
 
             <div class="headerRight">
-                <div class="headerTitleContainer">
+                <div class="headerTitleContainer" onclick="toggledropDownBar()">
                     <span class="headerTitle">Kanban Project Management Tool</span>
                 </div>
                 <div class="headerHelpIconContainer">
@@ -34,11 +34,17 @@
                     </a>
                 </div>
 
-                <div class="headerProfileContainer">
+                <div class="headerProfileContainer" onclick="toggledropDownBar()">
                     <div class="headerProfile">
                         <span class="headerProfileLetter">SM</span>
                     </div>
                 </div>
+
+                <div class="dropDownBar" id="dropDownBar">
+                    <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
+                    <a href="" class="dropDownItem">Log Out</a>
+                </div>
+
             </div>
         </div>
     </header>
