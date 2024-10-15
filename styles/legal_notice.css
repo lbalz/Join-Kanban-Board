@@ -36,6 +36,7 @@ body{
 
 .activ{
     padding: 10px;
+    background-color: white;
     width: 125px;
     height: 90px;
     display: block;
