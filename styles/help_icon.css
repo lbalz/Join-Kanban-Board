@@ -30,9 +30,32 @@ h2{
 }
 
 h3 {
+  margin-top: 16px;
   color: #005DFF;
 }
 
 h4 {
-  color: #005DFF;    
+  color: #005DFF;
+  margin-bottom: 0;    
+}
+
+.numberAndText {
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+}
+
+.number {
+  font-size: 33px;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.mainText {
+  margin-top: 0;
 }
