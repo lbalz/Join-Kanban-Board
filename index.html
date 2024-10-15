@@ -16,31 +16,39 @@
     <script src="./script.js"></script>
     <script src="./scripts/database.js"></script>
     <script src="./scripts/contacts.js"></script>
+    <script src="./scripts/overlay_functionality.js"></script>
 </head>
 
 <body onload="init()">
     <header>
         <div class="header">
             <div class="headerLeft">
-                <img class="headerLogo" src="../assets/icons/logo_full_white.png" alt="join logo">
+                <img class="headerLogo" src="./assets/icons/logo_full_white.png" alt="join logo">
             </div>
 
             <div class="headerRight">
-                <div class="headerTitleContainer">
+                <div class="headerTitleContainer" onclick="toggledropDownBar()">
                     <span class="headerTitle">Kanban Project Management Tool</span>
                 </div>
                 <div class="headerHelpIconContainer">
                     <a href="./pages/help_button.html" class="headerHelpIconLink">
-                        <img class="headerHelpIcon" src="../assets/icons/help_icon.png" alt="help icon">
+                        <img class="headerHelpIcon" src="./assets/icons/help_icon.png" alt="help icon">
                     </a>
                 </div>
                 
 
-                <div class="headerProfileContainer">
+                <div class="headerProfileContainer" onclick="toggledropDownBar()">
                     <div class="headerProfile">
                         <span class="headerProfileLetter">SM</span>
                     </div>
                 </div>
+
+                <div class="dropDownBar" id="dropDownBar">
+                    <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
+                    <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
+                    <a href="" class="dropDownItem">Log Out</a>
+                </div>
+
             </div>
         </div>
     </header>
