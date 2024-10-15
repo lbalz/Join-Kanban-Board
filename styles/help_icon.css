@@ -1,18 +1,38 @@
 .headerHelpIconContainer {
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
   
-  .headerHelpIcon {
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-  }
+.headerHelpIcon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
   
-  .headerHelpIcon:hover {
-    width: 40px;
-    height: 40px;
-  }
+.headerHelpIcon:hover {
+  width: 40px;
+  height: 40px;
+}
+
+.join{
+  color: #4589FF;
+}
+
+h1 {
+  color: #4589FF;
+}
+
+h2{
+  color: #4589FF;
+}
+
+h3 {
+  color: #005DFF;
+}
+
+h4 {
+  color: #005DFF;    
+}
