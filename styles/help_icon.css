@@ -1,0 +1,18 @@
+.headerHelpIconContainer {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .headerHelpIcon {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+  }
+  
+  .headerHelpIcon:hover {
+    width: 40px;
+    height: 40px;
+  }
