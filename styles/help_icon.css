@@ -53,7 +53,7 @@ h4 {
 .headlinePlusText {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 100px;
   align-items: center;
 }
 
