@@ -73,13 +73,14 @@
   width: 42px;
   height: 42px;
   background-color: orange;
-  border-radius: 21px;
+  border-radius: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   color: var(--font-clr-white);
   margin-left: 32px;
+  border: 2px solid var(--font-clr-white);
 }
 
 .contactListSingleContactItemInfoContainer {
@@ -105,11 +106,10 @@
   width: calc(100% - 440px);
   height: 100%;
   margin-left: 40px;
-}
-.contactDetailsContainer {
   display: flex;
   flex-direction: column;
 }
+
 .upperContainer {
   display: flex;
   flex-direction: row;
@@ -124,7 +124,9 @@
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 50px;
+  font-size: 47px;
 }
 .nameAndIcons {
   margin-top: 70px;
@@ -320,7 +322,7 @@ h1 {
 }
 
 
-.delete-btn, .closeNewContactBtn {
+.cancelContactBtnOverlay {
   background-color: #f5f5f5;
   border: 1px solid #d8dbe1;
   padding: 10px 20px;
@@ -329,7 +331,7 @@ h1 {
 }
 
 
-.save-btn {
+.addNewContactBtnOverlay {
   background-color: #4589ff;
   border: none;
   color: white;
