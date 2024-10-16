@@ -46,13 +46,11 @@
   width: 400px;
   height: calc(100% - 112px);
   overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-color);
 }
 
 /* Contact List Single Item / Bottom Container */
 .contactListSingleContactItemContainer {
-  width: 380px;
+  width: 400px;
   height: 80px;
   display: flex;
   justify-content: start;
@@ -65,22 +63,17 @@
   background-color: var(--sidebar-hover-clr);
 }
 
-.contactListSingleContactItemContainer:active::before {
-    background-color: var(--bg-color-blue);
-}
-
 .contactListSingleContactItemProfilePicture {
   width: 42px;
   height: 42px;
   background-color: orange;
-  border-radius: 22px;
+  border-radius: 21px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 14px;
   color: var(--font-clr-white);
   margin-left: 32px;
-  border: 2px solid var(--font-clr-white);
 }
 
 .contactListSingleContactItemInfoContainer {
@@ -106,10 +99,11 @@
   width: calc(100% - 440px);
   height: 100%;
   margin-left: 40px;
+}
+.contactDetailsContainer {
   display: flex;
   flex-direction: column;
 }
-
 .upperContainer {
   display: flex;
   flex-direction: row;
@@ -124,9 +118,7 @@
   color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
   border-radius: 50px;
-  font-size: 47px;
 }
 .nameAndIcons {
   margin-top: 70px;
@@ -203,7 +195,7 @@ h1 {
 }
 
 /* Pop-up Container right side */
-.popUpAddNewContact {
+.popUp {
   position: fixed;
   top: 0;
   right: 0;
@@ -223,51 +215,11 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   background: #005dff;
   width: 100%;
+  padding: 80px 20px;
   color: white;
-  height: 35%;
-}
-
-
-/* popUp Edit Contact  */
-.overlayEditContact{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.747); /* overlay background */
-  z-index: 1000; /* over all elements */
-}
-
-
-.popUpEditContact {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 500px;
-  height: 100vh;
-  background-color: white;
-  border-radius: 0px 30px 0px 30px;
-  box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  z-index: 1001; /* Pop-up Overlays Header */
-  overflow: hidden;
-}
-
-
-.popUpBottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #005dff;
-  width: 100%;
-  color: white;
-  height: 35%;
+  height: 200px;
 }
 
 .logoAddContact {
@@ -290,9 +242,9 @@ h1 {
 }
 
 /* Pop-up Bottom, for the rest of the content  */
-/* .popUpBottom {
+.popUpBottom {
   padding: 20px;
-} */
+}
 
 /* X */
 .closePopupIcon {
@@ -302,99 +254,4 @@ h1 {
   width: 16px;
   height: 24px;
   cursor: pointer;
-}
-
-
-/* add new contact form */
-.profileImg {
-  background-color: #d1d1d1;
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  color: white;
-  margin: 60px auto 20px;
-}
-
-
-.contactForm {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.inputGroup {
-  width: 70%;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 15px;
-  position: relative;
-  margin: 0px 40px 20px 40px;
-}
-
-
-.inputGroup:hover {
-  border-bottom: 1px solid #005dff;
-}
-
-.contactForm input {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-}
-
-
-.contactFormIcon {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-}
-
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 8px;
-}
-
-
-.cancelContactBtnOverlay {
-  background-color: #f5f5f5;
-  border: 1px solid #d8dbe1;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
-  color: #647188;
-}
-
-
-.saveContactBtn {
-  background-color: #4589ff;
-  border: none;
-  color: white;
-  padding: 15px 40px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-
-.createContactBtn {
-  background-color: #4589ff;
-  border: none;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
 }

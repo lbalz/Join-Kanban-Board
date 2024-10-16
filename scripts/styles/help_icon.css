@@ -73,6 +73,6 @@ h4 {
   margin-top: 32px;
 }
 
-.arrowImg{
-  cursor: pointer;
+.activ {
+  background-color: white;
 }
