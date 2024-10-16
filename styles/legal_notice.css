@@ -46,3 +46,19 @@ body{
     border-radius: 20px 0px 20px 20px;
     box-shadow: 0 4px 10px rgb(0, 0, 0, 0.3);
 }
+
+.imprint {
+    color: #4589FF;
+    font-size: 33px;
+}
+.h3ForLegalNotice {
+    color: #005DFF;
+}
+.h1ForLegalNotice {
+    font-size: 61px;
+    margin-left: 0px;
+}
+
+.arrowImg{
+    cursor: pointer;
+}
