@@ -7,6 +7,7 @@ body{
     align-items: center;
     justify-content: space-between;
     margin-right: 75px;
+    margin-top: 24px;
 }
 .privacyPolicyContainer{
     margin-left: 64px;
@@ -45,4 +46,8 @@ body{
     font-weight: 400;
     border-radius: 20px 0px 20px 20px;
     box-shadow: 0 4px 10px rgb(0, 0, 0, 0.3);
+}
+
+.h1ForPrivatPolicy{
+    font-size: 61px;
 }
