@@ -255,3 +255,79 @@ h1 {
   height: 24px;
   cursor: pointer;
 }
+
+
+/* add new contact form */
+.profileImg {
+  background-color: #d1d1d1;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  margin: 30px auto 20px;
+}
+
+
+.contactForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputGroup {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 15px;
+  position: relative;
+  margin: 0px 40px 20px 40px;
+}
+
+
+.contactForm input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+
+.contactFormIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+
+.delete-btn, .closeNewContactBtn {
+  background-color: #f5f5f5;
+  border: 1px solid #d8dbe1;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.save-btn {
+  background-color: #4589ff;
+  border: none;
+  color: white;
+  padding: 10px 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}

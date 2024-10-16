@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Event Listener für den "Add new Contact"-Button
     const addContactBtn = document.querySelector('.addNewContactBtn');
     const closeIcon = document.querySelector('.closePopupIcon');
+    const closeBtn = document.querySelector('.closeNewContactBtn'); // add new contact close btn
 
     // Überprüfen, ob der Button existiert und ein Event Listener hinzugefügt wurde
     if (addContactBtn) {
@@ -74,8 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event Listener für das Schließen über das X
-    if (closeIcon) {
+    if (closeIcon, closeBtn) {
         closeIcon.addEventListener('click', closePopup);
+        closeBtn.addEventListener('click', closePopup);
     } else {
         console.error("Das Schließen-Symbol wurde nicht gefunden.");
     }
