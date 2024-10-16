@@ -32,7 +32,7 @@ function contactDetailsRenderTemplate(singleUser) {
                 <h1>${singleUser.name}</h1>
             </div>
             <div class="editAndDeleteIcon">
-                <div class="editIcon"><img src="../assets/icons/edit.svg">
+                <div class="editIcon" onclick="openEditContactPopup()"><img src="../assets/icons/edit.svg">
                     <p>Edit</p>
                 </div>
                 <div class="deleteIcon"><img src="../assets/icons/delete.svg">
@@ -59,7 +59,7 @@ function contactDetailsRenderTemplate(singleUser) {
 /* Contact Overlay Templates */
 function renderAddContactOverlay() {
     return /*html*/`
-    <div class="popUp" onclick="event.stopPropagation()">
+    <div class="popUpAddNewContact" onclick="event.stopPropagation()">
         <div class="popUpTop">
             <img class="logoAddContact" src="../assets/icons/logo_add_contact.svg" alt="Add Contact Logo">
             <span class="addContactText">Add Contact</span>
@@ -99,6 +99,55 @@ function renderAddContactOverlay() {
                     </button>
                 </div>
             </form>
+        </div>
+    </div>
+    `;
+}
+
+
+function renderEditContactOverlay(editUserDetails) {
+    return /*html*/`
+    <div class="overlayEditContact" onclick="event.stopPropagation()">
+        <div class="popUpEditContact">
+            <div class="popUpBottom">
+                <img class="logoAddContact" src="../assets/icons/logo_add_contact.svg" alt="Add Contact Logo">
+                <span class="addContactText">Edit contact</span>
+            </div>
+            <img class="closePopupIcon" src="../assets/icons/x_add_contact_icon.svg" alt="Close Popup" onclick="closePopup()">
+
+            <div class="contactFormSection">
+                <div class="profileImg">
+                    <span>
+                        <img src="../assets/icons/person.png" alt="">
+                    </span>
+                </div>
+                <form class="contactForm">
+                    <div class="inputGroup">
+                        <input type="text" value="${editUserDetails.name}" id="name" placeholder="Name">
+                        <label for="name" class="contactFormIcon">
+                            <img src="../assets/icons/person.png" alt="">
+                        </label>
+                    </div>
+                    <div class="inputGroup">
+                        <input type="email" value="${editUserDetails.email}" id="email" placeholder="email">
+                        <label for="email" class="contactFormIcon">
+                            <img src="../assets/icons/mail.png" alt="">
+                        </label>
+                    </div>
+                    <div class="inputGroup">
+                        <input type="tel" value="${editUserDetails.phone}" id="phone" placeholder="phone">
+                        <label for="phone" class="contactFormIcon">
+                            <img src="../assets/icons/call.png" alt="">
+                        </label>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="deleteConactBtn" onclick="deleteContactFromDB(editUserDetails)">Delete</button>
+                        <button type="submit" class="saveContactBtn">
+                            Save <img src="../assets/icons/check.png" alt="">
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     `;

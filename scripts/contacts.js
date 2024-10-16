@@ -46,6 +46,7 @@ function renderContactDetails(userId) {
 
     singleUser = userData.find(user => user.id === userId);
     contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser);
+    editUserDetails = singleUser;
 }
 
 

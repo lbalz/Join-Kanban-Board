@@ -63,3 +63,16 @@ async function sendNewContactToDB(newProfile) {
         console.error("Failed to send new Profile Data to DB:", error);
     }
 }
+
+
+// Delete Current User
+//! NOT WORKING
+async function deleteContactFromDB(editUserDetails) {
+    try {
+        await fetch(DATABASE_URL + USERS_PATH + editUserDetails.id + ".json", {
+            method : "DELETE"
+        });
+    } catch (error) {
+        console.error("Failed to delete current Contact from DB:", error);
+    }
+}
