@@ -1,27 +1,130 @@
+const accountColors = {
+    orange: "#FF7A00",
+    pink: "#FF5EB3",
+    blue_pruple: "#6E52FF",
+    purple: "#9327FF",
+    turquoise: "#00BEE8",
+    green_blue: "#1FD7C1",
+    red_orange: "#FF745E",
+    skin_color: "#FFA35E",
+    light_pink: "#FC71FF",
+    dark_yellow: "#FFC701",
+    dark_blue: "#0038FF",
+    lime: "#C3FF2B",
+    yellow: "#FFE62B",
+    light_red: "#FF4646",
+    light_orange: "#FFBB2B"
+}
+
 const DATABASE_URL = "https://join-project-database-default-rtdb.europe-west1.firebasedatabase.app/";
+const USERS_PATH = "/users";
 
-let userData = [];
+let updatedUserData = [];
 
-async function loadContactData(path = "/users") {
+
+async function fetchUserDataFromDatabase() {
+    const userResponse = await fetch(DATABASE_URL + USERS_PATH + ".json");
+    const userDataJson = await userResponse.json();
+
+    if (userDataJson) {
+        processUserData(userDataJson);
+    }
+
+    // return userDataJson;
+}
+
+
+function processUserData(userDataJson) {
+    Object.keys(userDataJson).forEach((generatedID, index) => {
+        const user = userDataJson[generatedID];
+        const randomColor = generateRandomColor();
+
+        const updatedData = {
+            ...user,
+            generatedID,
+            color: randomColor,
+            indexNum: index
+        }
+
+        updatedUserData.push(updatedData);
+    });
+    console.log(updatedUserData);
+
+}
+
+
+async function updateUserDataInDB() {
+    const promises = updatedUserData.map(async (user) => {
+        const { generatedID, ...updatedUserData } = user;
+        /**
+         * IDEE: Evtl. eine function machen wo einmal getestet wird ob daten in
+         * users sind, wenn nein dann werden einmal die dummy daten geladen
+         * 
+         * Und dann eher functions schreiben fürs hinzufügen etc. und dann dementsprechend
+         * nur 1x z.B. randomColor generiert werden muss 
+         * 
+         * idee muss genauer angeschaut werden und getestet werden, aber erstmal mit 
+         * chatgpt lösung testen
+         */
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function loadUserData(path = "/users") {
+    //addUsers();
     let userResponse = await fetch(DATABASE_URL + path + ".json");
     let userResponseJson = await userResponse.json();
 
-    userData = [];
-    
+    let tempUserData = [];
+
     if (userResponseJson) {
         Object.keys(userResponseJson).forEach(key => {
-            userData.push({
-                id : key,
-                name : userResponseJson[key].name,
-                email : userResponseJson[key].email,
-                phone : userResponseJson[key].phone
+            tempUserData.push({
+                id: key,
+                name: userResponseJson[key].name,
+                email: userResponseJson[key].email,
+                phone: userResponseJson[key].phone
             });
-        })
-        console.log("User-Data Array:", userData);
-        await renderContactList();
+        });
+        console.log("Old User-Data Array:", tempUserData);
+        //await updateUserDataAfterLoading(tempUserData);
+        console.log("New User-Data Array:", userData);
+        renderContactList();
     }
 }
 
+
+function updateUserDataAfterLoading(tempUserData) {
+    for (let i = 0; i < tempUserData.length; i++) {
+
+        try {
+            let response = fetch(DATABASE_URL + "/users" + ".json", {
+                method: "PUT",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(tempUserData)
+            })
+        } catch (error) {
+
+        }
+
+    }
+}
 
 
 
@@ -162,17 +265,17 @@ async function loadContactData(path = "/users") {
 //         const customer = customers[i];
 
 //         data = {
-//             name : customer.name,
-//             email : customer.email,
-//             phone : customer.phone
+//             name: customer.name,
+//             email: customer.email,
+//             phone: customer.phone
 //         }
-        
+
 //         await fetch(DATABASE_URL + path + ".json", {
-//             method : "POST",
-//             headers : {
-//                 "Content-Type" : "application/json"
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
 //             },
-//             body : JSON.stringify(data)
+//             body: JSON.stringify(data)
 //         });
 //     }
 // }

@@ -34,6 +34,9 @@
   --fontsize-16px: 16px;
   --fontsize-19px: 19px;
   --fontsize-23px: 23px;
+
+  /* Scrollbar */
+  --scrollbar-color: #A8A8A8 white;
 }
 
 /* Standard Setting */

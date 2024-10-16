@@ -1,12 +1,16 @@
+
+
+
 let contactList = [];
+
 
 /**
  * @returns single contact list item
  */
 function contactListRenderTemplate(singleContact) {
     return /*html*/`
-    <div class="contactListSingleContactItemContainer">
-        <div class="contactListSingleContactItemProfilePicture">
+    <div class="contactListSingleContactItemContainer" onclick="renderContactDetails('${singleContact.id}')">
+        <div class="contactListSingleContactItemProfilePicture" style="background-color: ${singleContact.color}">
             <span>${singleContact.profile_letters}</span>
         </div>
 
@@ -18,6 +22,56 @@ function contactListRenderTemplate(singleContact) {
     `;
 }
 
+
+function contactDetailsRenderTemplate() {
+    return /*html*/`
+    <div class="upperContainer">
+        <div>
+            <div class="circle" id="initialienForCircle">
+                <h1>MM</h1>
+            </div>
+        </div>
+        <div class="nameAndIcons">
+            <div id="fullName">
+                <h1>Mike Meyers</h1>
+            </div>
+            <div class="editAndDeleteIcon">
+                <div class="editIcon"><img src="../assets/icons/edit.svg">
+                    <p>Edit</p>
+                </div>
+                <div class="deleteIcon"><img src="../assets/icons/delete.svg">
+                    <p>Delete</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Contact Information</h2>
+        <div>
+            <h4>Email</h4>
+            <a href="">Meyers.Schlachtfest@gmail.com</a>
+        </div>
+        <div>
+            <h4>Phone</h4>
+            <a href="">01666660664</a>
+        </div>
+    </div>
+    `;
+}
+
+//! Die Random Colors müssen generiert werden und dann in die db geschickt werden
+//! damit sich die farben nicht bei jedem reload ändern
+function getRandomColorForProfile() {
+    let colorArray = Object.keys(accountColors);
+    let randomNumber = Math.random();
+    let colorIndex = Math.floor(randomNumber * colorArray.length);
+
+    let randomKey = colorArray[colorIndex];
+    let randomValue = accountColors[randomKey];
+    return randomValue;
+}
+
+
 /**
  * This function takes every forEach loop from loadContactList()
  * the first letter of firstname and lastname and compares it to 
@@ -25,11 +79,23 @@ function contactListRenderTemplate(singleContact) {
  * @param {object} singleContact 
  * @returns {string}
  */
-function getFirstLetterForProfile(singleContact) {
+function getLettersForProfile(singleContact) {
     let fullName = singleContact.name;
     let singleNames = fullName.split(" ");
     return singleNames[0][0] + singleNames[1][0];
 }
+
+
+/**
+ * Sort array object contactList alphabetically
+ * @param {Array} contactList 
+ */
+function sortContactList(contactList) {
+    contactList.sort((a, b) => {
+        return a.name < b.name ? -1 : 1;
+    });
+}
+
 
 //! index / ID soll für die funktionalität des einzelnen Kontakts anzeigen sein
 //! CSS muss noch angepasst werden
@@ -40,20 +106,24 @@ function loadContactList() {
     userData.forEach((singleContact, index) => {
         contactList.push(
             {
-                id: index,
+                id: singleContact.id,
+                index : index,
                 name: singleContact.name,
                 email: singleContact.email,
-                profile_letters: getFirstLetterForProfile(singleContact),
-                //color : "hex-code"
+                profile_letters: getLettersForProfile(singleContact),
+                color: getRandomColorForProfile()
             }
         );
     });
+    contactList = contactList;
+    sortContactList(contactList);
 }
+
 
 function renderContactList() {
     loadContactList();
 
-    let contactListContainer = document.getElementById("contactList");
+    let contactListContainer = document.querySelector("#contactList");
     contactListContainer.innerHTML = "";
 
     contactList.forEach(singleContact => {
@@ -61,6 +131,21 @@ function renderContactList() {
     });
 }
 
+
+/**
+ * Contact Details
+ */
+function renderContactDetails(userId) {
+    let contactDetails = document.querySelector("#contactDetails");
+    contactDetails.innerHTML = "";
+
+    
+}
+
+
+/**
+ * Added eventListener to handle addContact Overlay
+ */
 document.addEventListener('DOMContentLoaded', function () {
     // Event Listener für den "Add new Contact"-Button
     const addContactBtn = document.querySelector('.addNewContactBtn');
@@ -68,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Überprüfen, ob der Button existiert und ein Event Listener hinzugefügt wurde
     if (addContactBtn) {
-        addContactBtn.addEventListener('click', openPopup);  
+        addContactBtn.addEventListener('click', openPopup);
     } else {
         console.error("Der 'Add new Contact'-Button wurde nicht gefunden.");
     }
@@ -81,10 +166,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 // Funktion zum Öffnen des Pop-ups
 function openPopup() {
     document.querySelector('.overlay').style.display = 'block'; // Pop-up sichtbar machen
 }
+
 
 // Funktion zum Schließen des Pop-ups
 function closePopup() {
