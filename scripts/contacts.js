@@ -139,7 +139,7 @@ function renderContactDetails(userId) {
     let contactDetails = document.querySelector("#contactDetails");
     contactDetails.innerHTML = "";
 
-    
+
 }
 
 
