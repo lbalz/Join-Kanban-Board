@@ -3,7 +3,7 @@ body{
     font-family: "Open-Sans";
 }
 .textAndArrow{
-    margin: 32px;
+    margin-right: 86px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -51,14 +51,12 @@ body{
     color: #4589FF;
     font-size: 33px;
 }
+
 .h3ForLegalNotice {
     color: #005DFF;
 }
+
 .h1ForLegalNotice {
     font-size: 61px;
     margin-left: 0px;
-}
-
-.arrowImg{
-    cursor: pointer;
 }
