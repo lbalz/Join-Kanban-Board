@@ -195,7 +195,7 @@ h1 {
 }
 
 /* Pop-up Container right side */
-.popUp {
+.popUpAddNewContact {
   position: fixed;
   top: 0;
   right: 0;
@@ -215,11 +215,51 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: #005dff;
   width: 100%;
-  padding: 80px 20px;
   color: white;
-  height: 200px;
+  height: 35%;
+}
+
+
+/* popUp Edit Contact  */
+.overlayEditContact{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.747); /* overlay background */
+  z-index: 1000; /* over all elements */
+}
+
+
+.popUpEditContact {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 100vh;
+  background-color: white;
+  border-radius: 0px 30px 0px 30px;
+  box-shadow: -4px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 1001; /* Pop-up Overlays Header */
+  overflow: hidden;
+}
+
+
+.popUpBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #005dff;
+  width: 100%;
+  color: white;
+  height: 35%;
 }
 
 .logoAddContact {
@@ -242,9 +282,9 @@ h1 {
 }
 
 /* Pop-up Bottom, for the rest of the content  */
-.popUpBottom {
+/* .popUpBottom {
   padding: 20px;
-}
+} */
 
 /* X */
 .closePopupIcon {
@@ -268,7 +308,7 @@ h1 {
   align-items: center;
   font-size: 24px;
   color: white;
-  margin: 30px auto 20px;
+  margin: 60px auto 20px;
 }
 
 
@@ -280,7 +320,7 @@ h1 {
 }
 
 .inputGroup {
-  width: 60%;
+  width: 70%;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #ccc;
@@ -289,6 +329,10 @@ h1 {
   margin: 0px 40px 20px 40px;
 }
 
+
+.inputGroup:hover {
+  border-bottom: 1px solid #005dff;
+}
 
 .contactForm input {
   width: 100%;
@@ -311,23 +355,38 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin-top: 8px;
 }
 
 
-.delete-btn, .closeNewContactBtn {
+.deleteConactBtn, .closeNewContactBtn {
   background-color: #f5f5f5;
   border: 1px solid #d8dbe1;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  font-size: 16px;
+  color: #647188;
 }
 
 
-.save-btn {
+.saveContactBtn {
   background-color: #4589ff;
   border: none;
   color: white;
-  padding: 10px 40px;
+  padding: 15px 40px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+}
+
+
+.createContactBtn {
+  background-color: #4589ff;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }

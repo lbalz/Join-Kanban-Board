@@ -92,3 +92,41 @@ function openPopup() {
 function closePopup() {
     document.querySelector('.overlay').style.display = 'none'; // Pop-up verstecken
 }
+
+
+
+
+// edit contact function
+document.addEventListener('DOMContentLoaded', function () {
+    // Event Listener für den "Edit contact Btn"-Button
+    const saveContactBtn = document.querySelector('.editAndDeleteIcon');
+    const closeIcon = document.querySelector('.closePopupIcon');
+    const deleteBtn = document.querySelector('.deleteConactBtn'); // Delete btn of Edit Contact overlay
+
+    // Überprüfen, ob der Button existiert und ein Event Listener hinzugefügt wurde
+    if (saveContactBtn) {
+        saveContactBtn.addEventListener('click', openEditContactPopup);  
+    } else {
+        console.error("Der 'Edit contact'-Button wurde nicht gefunden.");
+    }
+
+    // Event Listener für das Schließen über das X
+    if (closeIcon) {
+        closeIcon.addEventListener('click', closeEditContactPopup);
+    } else {
+        console.error("Das Schließen-Symbol wurde nicht gefunden.");
+    }
+});
+
+
+
+
+// Funktion zum Offnen des Pop-ups von Edit Contact Overlay
+function openEditContactPopup() {
+    document.querySelector('.overlayEditContact').style.display = 'block'; // Pop-up sichtbar machen
+}
+
+// Funktion zum Schließen des Pop-ups von Edit Contact Overlay
+function closeEditContactPopup() {
+    document.querySelector('.overlayEditContact').style.display = 'none'; // Pop-up verstecken
+}
