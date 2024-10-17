@@ -51,7 +51,10 @@ function renderContactDetails(userId) {
 }
 
 
-
+function renderContactDetailsClear() {
+    let contactDetails = document.querySelector("#contactDetails");
+    contactDetails.innerHTML = "";
+}
 
 
 // add new contact function
@@ -69,10 +72,10 @@ function addNewContact() {
 
     let newProfile = {
         initials,
-        name : nameValue,
-        email : emailValue,
-        phone : phoneValue,
-        color : randomColor
+        name: nameValue,
+        email: emailValue,
+        phone: phoneValue,
+        color: randomColor
     }
 
     sendNewContactToDB(newProfile);
@@ -84,3 +87,189 @@ function addNewContact() {
     closePopup();
     // Successfull created Animation
 }
+
+
+// Update single contact
+function updateCurrentContact(id) {
+    let nameRef = document.querySelector("#editName");
+    let emailRef = document.querySelector("#editEmail");
+    let phoneRef = document.querySelector("#editPhone");
+
+    let nameValue = nameRef.value;
+    let emailValue = emailRef.value;
+    let phoneValue = phoneRef.value;
+
+    let initials = generateInitials(nameValue);
+
+    let updatedData = {
+        initials : initials,
+        name : nameValue,
+        email : emailValue,
+        phone : phoneValue
+    }
+
+    updateContactToDB(id, updatedData);
+    closePopup();
+}
+
+
+// Deletes single contact
+function deleteContact(id) {
+    deleteContactFromDB(id);
+    renderContactDetailsClear();
+}
+
+
+// let testArr = [
+//     {
+//         "name": "Lena Schmidt",
+//         "phone": "+49 152 34567890",
+//         "email": "lena.schmidt@example.com"
+//     },
+//     {
+//         "name": "Max Müller",
+//         "phone": "+49 151 23456789",
+//         "email": "max.mueller@example.com"
+//     },
+//     {
+//         "name": "Sophie Fischer",
+//         "phone": "+49 171 98765432",
+//         "email": "sophie.fischer@example.com"
+//     },
+//     {
+//         "name": "Lukas Weber",
+//         "phone": "+49 152 87654321",
+//         "email": "lukas.weber@example.com"
+//     },
+//     {
+//         "name": "Emily Bauer",
+//         "phone": "+49 160 65432198",
+//         "email": "emily.bauer@example.com"
+//     },
+//     {
+//         "name": "Leon Wagner",
+//         "phone": "+49 162 54321987",
+//         "email": "leon.wagner@example.com"
+//     },
+//     {
+//         "name": "Mia Becker",
+//         "phone": "+49 176 32198765",
+//         "email": "mia.becker@example.com"
+//     },
+//     {
+//         "name": "Paul Richter",
+//         "phone": "+49 170 12345678",
+//         "email": "paul.richter@example.com"
+//     },
+//     {
+//         "name": "Hannah Hoffmann",
+//         "phone": "+49 151 56789123",
+//         "email": "hannah.hoffmann@example.com"
+//     },
+//     {
+//         "name": "Jonas Klein",
+//         "phone": "+49 172 43219876",
+//         "email": "jonas.klein@example.com"
+//     },
+//     {
+//         "name": "Laura Schäfer",
+//         "phone": "+49 163 98761234",
+//         "email": "laura.schaefer@example.com"
+//     },
+//     {
+//         "name": "Felix Neumann",
+//         "phone": "+49 157 34561234",
+//         "email": "felix.neumann@example.com"
+//     },
+//     {
+//         "name": "Anna Schmid",
+//         "phone": "+49 175 87654321",
+//         "email": "anna.schmid@example.com"
+//     },
+//     {
+//         "name": "Tim Meyer",
+//         "phone": "+49 154 56783219",
+//         "email": "tim.meyer@example.com"
+//     },
+//     {
+//         "name": "Marie Braun",
+//         "phone": "+49 159 65438921",
+//         "email": "marie.braun@example.com"
+//     },
+//     {
+//         "name": "Niklas Wolf",
+//         "phone": "+49 177 98734561",
+//         "email": "niklas.wolf@example.com"
+//     },
+//     {
+//         "name": "Clara König",
+//         "phone": "+49 152 32165498",
+//         "email": "clara.koenig@example.com"
+//     },
+//     {
+//         "name": "David Lehmann",
+//         "phone": "+49 160 12983476",
+//         "email": "david.lehmann@example.com"
+//     },
+//     {
+//         "name": "Lilly Schwarz",
+//         "phone": "+49 157 83726194",
+//         "email": "lilly.schwarz@example.com"
+//     },
+//     {
+//         "name": "Julian Krüger",
+//         "phone": "+49 176 76543219",
+//         "email": "julian.krueger@example.com"
+//     },
+//     {
+//         "name": "Sarah Werner",
+//         "phone": "+49 162 34981275",
+//         "email": "sarah.werner@example.com"
+//     },
+//     {
+//         "name": "Elias Zimmermann",
+//         "phone": "+49 173 54789123",
+//         "email": "elias.zimmermann@example.com"
+//     },
+//     {
+//         "name": "Maya Böhm",
+//         "phone": "+49 170 91827364",
+//         "email": "maya.boehm@example.com"
+//     },
+//     {
+//         "name": "Florian Frank",
+//         "phone": "+49 151 38472619",
+//         "email": "florian.frank@example.com"
+//     },
+//     {
+//         "name": "Johanna Hartmann",
+//         "phone": "+49 159 64829317",
+//         "email": "johanna.hartmann@example.com"
+//     }
+// ]
+
+// function addNewContactToDB(user) {
+//     let nameValue = user.name;
+//     let emailValue = user.email;
+//     let phoneValue = user.phone;
+
+//     let randomColor = generateRandomColor();
+//     let initials = generateInitials(nameValue);
+
+//     let newProfile = {
+//         initials,
+//         name: nameValue,
+//         email: emailValue,
+//         phone: phoneValue,
+//         color: randomColor
+//     }
+
+//     sendNewContactToDB(newProfile);
+// }
+
+// function load() {
+//     for (let i = 0; i < testArr.length; i++) {
+//         const user = testArr[i];
+//         addNewContactToDB(user)
+//     }
+// }
