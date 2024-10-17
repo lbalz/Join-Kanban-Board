@@ -28,7 +28,7 @@
             </div>
 
             <div class="headerRight">
-                
+
                 <div class="headerTitleContainer" onclick="toggledropDownBar()">
                     <span class="headerTitle">Kanban Project Management Tool</span>
                 </div>
@@ -50,11 +50,12 @@
                     <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
                     <a href="" class="dropDownItem">Log Out</a>
                 </div>
-                
+
             </div>
         </div>
     </header>
 
+    <!-- sidebar -->
     <div class="bottomContent">
         <footer class="sidebarContainer">
             <div class="topBottomWrapper">
@@ -76,7 +77,6 @@
                             <img class="icon" src="../assets/icons/board_icon.svg" alt="Board icon">
                             <span class="text">Board</span>
                         </a>
-
                     </div>
                     <div class="menuItem">
                         <a class="menuLink" href="../pages/contact.html">
@@ -86,6 +86,7 @@
                     </div>
                 </div>
 
+                <!-- sidebar -->
                 <div class="bottomContainer">
                     <div>
                         <a href="./privacy_policy.html" class="bottomText">Privacy Policy</a>
@@ -96,11 +97,60 @@
         </footer>
 
         <div class="rightContent">
-            <h1>BOARD</h1>
+            <div class="bordTopContent">
+                <div class="searchAndAddContainer">
+                    <!-- suchfeld -->
+                    <div class="searchBarContainer">
+                        <input type="text" class="searchInput" placeholder="Find Task">
+                        <img class="boardSearchIcon" src="../assets/icons/board_lupe_icon.svg" alt="Search Icon">
+                    </div>
 
+                    <!-- Add Task BTN -->
+                    <button class="boardAddTaskButton" onclick="openTaskBoard()">
+                        <p>Add task</p>
+                        <img class="boardAddTaskIcon" src="../assets/icons/board_add_task_plus.svg" alt="Add Task Icon">
+                    </button>
+                </div>
 
+                <!-- Task Tabs -->
+                <div class="tabsTop">
+                    <div class="taskTabs">
+                        <div class="tabItem">
+                            To do
+                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add To Do">
+                        </div>
+                        <div class="tabItem">
+                            In progress
+                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add In Progress">
+                        </div>
+                        <div class="tabItem">
+                            Await feedback
+                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg"
+                                alt="Add Await Feedback">
+                        </div>
+                        <div class="tabItem">
+                            Done
+                        </div>
+                    </div>
+                </div>
+
+                <div class="taskBoard">
+                    <div class="taskColumn">
+                        <div class="taskContainer" id="todo"></div>
+                    </div>
+                    <div class="taskColumn">
+                        <div class="taskContainer" id="inprogress"></div>
+                    </div>
+                    <div class="taskColumn">
+                        <div class="taskContainer" id="awaitfeedback"></div>
+                    </div>
+                    <div class="taskColumn">
+                        <div class="taskContainer" id="done"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+
+
 
 </html>
