@@ -20,14 +20,15 @@ function generateInitials(nameValue) {
 }
 
 // Sort contact List
-function sortContactList(contactList) {
-    contactList.sort((a, b) => {
+function sortContactList(userData) {
+    userData.sort((a, b) => {
         return a.name < b.name ? -1 : 1;
     });
 }
 
 
-function renderContactList() {
+function renderContactList(userData) {
+    sortContactList(userData);
     let contactListContainer = document.querySelector("#contactList");
     contactListContainer.innerHTML = "";
 

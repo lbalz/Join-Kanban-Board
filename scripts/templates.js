@@ -75,26 +75,26 @@ function renderAddContactOverlay() {
             </div>
             <form class="contactForm">
                 <div class="inputGroup">
-                    <input type="text" placeholder="Name" value="" id="name">
+                    <input type="text" placeholder="Name" value="" id="name" required>
                     <label for="name" class="contactFormIcon">
                         <img src="../assets/icons/person.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="email" placeholder="Email" value="" id="email">
+                    <input type="email" placeholder="Email" value="" id="email" required>
                     <label for="email" class="contactFormIcon">
                         <img src="../assets/icons/mail.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="tel" placeholder="Phone" value="" id="phone">
+                    <input type="tel" placeholder="Phone" value="" id="phone" required>
                     <label for="phone" class="contactFormIcon">
                         <img src="../assets/icons/call.png" alt="">
                     </label>
                 </div>
                 <div class="buttons">
                     <button type="button" class="cancelContactBtnOverlay" onclick="closePopup()">Cancel &times;</button>
-                    <button type="submit" class="addNewContactBtnOverlay" onclick="addNewContact()">
+                    <button type="submit" class="createContactBtn" onclick="addNewContact()">
                         Create contact <img src="/assets/icons/check.png" alt="">
                     </button>
                 </div>
@@ -141,7 +141,7 @@ function renderEditContactOverlay(editUserDetails) {
                         </label>
                     </div>
                     <div class="buttons">
-                        <button type="button" class="deleteConactBtn" onclick="deleteContactFromDB(editUserDetails)">Delete</button>
+                        <button type="button" class="cancelContactBtnOverlay" onclick="deleteContactFromDB(editUserDetails)">Delete</button>
                         <button type="submit" class="saveContactBtn">
                             Save <img src="../assets/icons/check.png" alt="">
                         </button>

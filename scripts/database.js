@@ -39,9 +39,9 @@ async function loadUserData(path = "/users") {
                     phone: userResponseJson[key].phone,
                     color: userResponseJson[key].color
                 });
-            });
-            console.log("User-Data Array:", userData);
-            renderContactList();
+        });
+        console.log("User-Data Array:", userData);
+        renderContactList(userData);
     }
     } catch (error) {
         console.error("Error loading DB-Data:", error);
