@@ -5,7 +5,7 @@
 // Contact List Template
 function contactListRenderTemplate(singleContact) {
     return /*html*/`
-    <div class="contactListSingleContactItemContainer" id="${singleContact.id}" onclick="renderContactDetails('${singleContact.id}')">
+    <div class="contactListSingleContactItemContainer" id="${singleContact.id}" onclick="renderContactDetails('${singleContact.id}'), checkBackgroundColor('${singleContact.id}')">
         <div class="contactListSingleContactItemProfilePicture" style="background-color: ${singleContact.color}">
             <span>${singleContact.initials}</span>
         </div>
@@ -59,6 +59,7 @@ function contactDetailsRenderTemplate(singleUser) {
 
 
 /* Contact Overlay Templates */
+// Add Contact Overlay
 function renderAddContactOverlay() {
     return /*html*/`
     <div class="popUpAddNewContact" onclick="event.stopPropagation()">
@@ -77,19 +78,19 @@ function renderAddContactOverlay() {
             </div>
             <form class="contactForm">
                 <div class="inputGroup">
-                    <input type="text" placeholder="Name" value="" id="name">
+                    <input type="text" placeholder="Name" value="" id="name" onkeyup="checkFormValidation()">
                     <label for="name" class="contactFormIcon">
                         <img src="../assets/icons/person.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="email" placeholder="Email" value="" id="email">
+                    <input type="email" placeholder="Email" value="" id="email" onkeyup="checkFormValidation()">
                     <label for="email" class="contactFormIcon">
                         <img src="../assets/icons/mail.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="tel" placeholder="Phone" value="" id="phone">
+                    <input type="tel" placeholder="Phone" value="" id="phone" onkeyup="checkFormValidation()">
                     <label for="phone" class="contactFormIcon">
                         <img src="../assets/icons/call.png" alt="">
                     </label>
@@ -107,6 +108,7 @@ function renderAddContactOverlay() {
 }
 
 
+// Edit Contact Overlay
 function renderEditContactOverlay(editUserDetails) {
     return /*html*/`
     <div class="overlayEditContact" onclick="event.stopPropagation()">

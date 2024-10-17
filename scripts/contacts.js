@@ -27,12 +27,29 @@ function sortContactList(userData) {
 }
 
 
+// Render Contact List
 function renderContactList(userData) {
     sortContactList(userData);
     let contactListContainer = document.querySelector("#contactList");
     contactListContainer.innerHTML = "";
 
+    let currentLetter = "";
+
     userData.forEach(singleContact => {
+        let firstLetter = singleContact.name.charAt(0).toUpperCase();
+        
+        if (firstLetter !== currentLetter) {
+            currentLetter = firstLetter;
+
+            contactListContainer.innerHTML += /*html*/`
+            <div class="letterCategories">
+                <span>${currentLetter}</span>
+                <div class="seperatorLine"></div>
+            </div>
+            `;
+        }
+        
+
         contactListContainer.innerHTML += contactListRenderTemplate(singleContact);
     });
 }
@@ -119,6 +136,21 @@ function deleteContact(id) {
     renderContactDetailsClear();
 }
 
+
+// Check background color
+function checkBackgroundColor(id) {
+    let selectedDiv = document.querySelector(`#${id}`);
+
+    if (!selectedDiv.style == "background-color: #4589FF") {
+        selectedDiv.style == "background-color: #4589FF"
+    }
+}
+
+
+// Add new Contact form validation
+function checkFormValidation() {
+
+}
 
 // let testArr = [
 //     {
