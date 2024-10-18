@@ -173,3 +173,186 @@
   min-height: 400px; 
 }
 
+.overlayForUserStory{
+  display: flex;
+  flex-direction: column;
+  width: 528px;
+  height: 872px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.upperOverlayContainer{
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  gap: 24px;
+}
+
+.userstoryPlusCross {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 32px;
+  margin-top: 32px;
+}
+
+.userstory{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FF7A00;
+  border-radius: 8px;
+  width: 160px;
+  height: 36px;
+}
+
+.titleField{
+  font-size: 61px;
+  font-weight: 700;
+}
+
+.buildDatePriority {
+  color: #42526E;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.date {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.priority {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.lowerOverlayContainer{
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 32px;
+  margin-right: 32px;
+  gap: 24px;
+}
+
+.assignedAndName {
+  color: #42526E;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assign {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.namesForOverlay {
+  padding-top: 7px;
+  padding-right: 16px;
+  padding-bottom: 7px;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.circleAndName{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+}
+
+.circleForOverlayUserStory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background-color: aqua;
+  border: 2px;
+  border-radius: 22px;
+}
+
+.subtasks {
+  color: #42526E;
+  font-size: 21px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+
+.cubeWithHook{
+  gap: 16px;
+  padding-top: 6px;
+  padding-right: 16px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+}
+
+.cubeWithoutHook{
+  gap: 16px;
+  padding-top: 6px;
+  padding-right: 16px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+}
+
+.deleteAndEditOverlay {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.deleteImgIcon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.separationDiv{
+  display: flex;
+  flex-direction: column;
+  background-color: #888888;
+  width: 0.5px;
+}
+
+.editImgIcon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.overlayForTechnicalTask {
+  display: flex;
+  flex-direction: column;
+  width: 528px;
+  height: 872px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.technicalTaskPlusCross {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 32px;
+  margin-top: 32px;
+}
+
+.technicalTask {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0038FF;
+  border-radius: 8px;
+  width: 160px;
+  height: 36px;
+}
