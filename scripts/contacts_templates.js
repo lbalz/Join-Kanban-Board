@@ -3,23 +3,23 @@
  */
 
 // Contact List Template
-function contactListRenderTemplate(singleContact) {
+function contactListRenderTemplate(singleContact, index) {
     return /*html*/`
-    <div class="contactListSingleContactItemContainer" id="${singleContact.id}" onclick="renderContactDetails('${singleContact.id}'), checkBackgroundColor('${singleContact.id}')">
+    <div class="contactListSingleContactItemContainer" id="${index}" onclick="renderContactDetails('${singleContact.id}', ${index}), checkBackgroundColor(${index})">
         <div class="contactListSingleContactItemProfilePicture" style="background-color: ${singleContact.color}">
             <span>${singleContact.initials}</span>
         </div>
 
         <div class="contactListSingleContactItemInfoContainer">
             <span class="contactListSingleContactItemName">${singleContact.name}</span>
-            <span class="contactListSingleContactItemEmail">${singleContact.email}</span>
+            <span class="contactListSingleContactItemEmail" id="span${index}">${singleContact.email}</span>
         </div>
     </div>
     `;
 }
 
 // Contact Details Template
-function contactDetailsRenderTemplate(singleUser) {
+function contactDetailsRenderTemplate(singleUser, index) {
     return /*html*/`
     <div class="upperContainer">
         <div>
@@ -32,7 +32,7 @@ function contactDetailsRenderTemplate(singleUser) {
                 <h1>${singleUser.name}</h1>
             </div>
             <div class="editAndDeleteIcon">
-                <div class="editIcon" onclick="openEditContactPopup()">
+                <div class="editIcon" onclick="openEditContactPopup(${index})">
                     <img src="../assets/icons/edit.svg">
                     <p>Edit</p>
                 </div>
@@ -109,7 +109,7 @@ function renderAddContactOverlay() {
 
 
 // Edit Contact Overlay
-function renderEditContactOverlay(editUserDetails) {
+function renderEditContactOverlay(editUserDetails, index) {
     return /*html*/`
     <div class="overlayEditContact" onclick="event.stopPropagation()">
         <div class="popUpEditContact">
@@ -146,7 +146,7 @@ function renderEditContactOverlay(editUserDetails) {
                     </div>
                     <div class="buttons">
                         <button type="button" class="cancelContactBtnOverlay" onclick="deleteContact('${editUserDetails.id}')">Delete</button>
-                        <button type="button" class="saveContactBtn" onclick="updateCurrentContact('${editUserDetails.id}')">
+                        <button type="button" class="saveContactBtn" onclick="updateCurrentContact('${editUserDetails.id}', ${index})">
                             Save <img src="../assets/icons/check.png" alt="">
                         </button>
                     </div>

@@ -35,7 +35,7 @@ function renderContactList(userData) {
 
     let currentLetter = "";
 
-    userData.forEach(singleContact => {
+    userData.forEach((singleContact, index) => {
         let firstLetter = singleContact.name.charAt(0).toUpperCase();
         
         if (firstLetter !== currentLetter) {
@@ -50,7 +50,7 @@ function renderContactList(userData) {
         }
         
 
-        contactListContainer.innerHTML += contactListRenderTemplate(singleContact);
+        contactListContainer.innerHTML += contactListRenderTemplate(singleContact, index);
     });
 }
 
@@ -58,12 +58,12 @@ function renderContactList(userData) {
 /**
  * Contact Details
  */
-function renderContactDetails(userId) {
+function renderContactDetails(userId, index) {
     let contactDetails = document.querySelector("#contactDetails");
     contactDetails.innerHTML = "";
 
     singleUser = userData.find(user => user.id === userId);
-    contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser);
+    contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser, index);
     editUserDetails = singleUser;
 }
 
@@ -107,7 +107,7 @@ function addNewContact() {
 
 
 // Update single contact
-function updateCurrentContact(id) {
+function updateCurrentContact(id, index) {
     let nameRef = document.querySelector("#editName");
     let emailRef = document.querySelector("#editEmail");
     let phoneRef = document.querySelector("#editPhone");
@@ -116,13 +116,15 @@ function updateCurrentContact(id) {
     let emailValue = emailRef.value;
     let phoneValue = phoneRef.value;
 
+    let currentColor = userData[index].color;
     let initials = generateInitials(nameValue);
 
     let updatedData = {
         initials : initials,
         name : nameValue,
         email : emailValue,
-        phone : phoneValue
+        phone : phoneValue,
+        color : currentColor
     }
 
     updateContactToDB(id, updatedData);
@@ -138,12 +140,22 @@ function deleteContact(id) {
 
 
 // Check background color
-function checkBackgroundColor(id) {
-    let selectedDiv = document.querySelector(`#${id}`);
+function checkBackgroundColor(index) {
+    let allDivs = document.querySelectorAll(".contactListSingleContactItemContainer");
+    let allSpans = document.querySelectorAll(".contactListSingleContactItemEmail");
+    let selectedDiv = document.getElementById(`${index}`);
+    let span = document.getElementById(`span${index}`);
+    
+    for (let i = 0; i < allDivs.length; i++) {
+        const singleDiv = allDivs[i];
+        singleDiv.classList.remove("backgroundColorBlue");
 
-    if (!selectedDiv.style == "background-color: #4589FF") {
-        selectedDiv.style == "background-color: #4589FF"
+        const singleSpan = allSpans[i];
+        singleSpan.classList.remove("backgroundColorBlue");
     }
+
+    selectedDiv.classList.add("backgroundColorBlue");
+    span.classList.add("backgroundColorBlue");
 }
 
 

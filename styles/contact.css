@@ -68,6 +68,11 @@
 }
 
 /* Contact List Single Item / Bottom Container */
+.backgroundColorBlue {
+  background-color: #4589FF !important;
+  color: white !important;
+}
+
 .contactListSingleContactItemContainer {
   width: 350px;
   height: 80px;

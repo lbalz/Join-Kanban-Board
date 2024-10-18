@@ -103,7 +103,7 @@ async function deleteContactFromDB(id) {
             throw new Error(`Can't delete User with ID ${id}`);
         }
 
-        if(document.querySelector('.overlay').style.display == "block") {
+        if(document.querySelector('.contactsOverlay').style.display == "block") {
             closePopup();
         }
 
