@@ -86,6 +86,7 @@ async function updateContactToDB(id, updatedData) {
         }
 
         loadUserData();
+        renderContactDetailsClear();
     } catch (error) {
         console.error("Failed to update current Contact to DB:", error);
     }
