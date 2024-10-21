@@ -39,9 +39,9 @@ async function loadUserData(path = "/users") {
                     phone: userResponseJson[key].phone,
                     color: userResponseJson[key].color
                 });
-            });
-            console.log("User-Data Array:", userData);
-            renderContactList();
+        });
+        console.log("User-Data Array:", userData);
+        renderContactList(userData);
     }
     } catch (error) {
         console.error("Error loading DB-Data:", error);
@@ -51,13 +51,18 @@ async function loadUserData(path = "/users") {
 // Send new created Contact to DB
 async function sendNewContactToDB(newProfile) {
     try {
-        await fetch(DATABASE_URL + USERS_PATH + ".json", {
+        const response = await fetch(DATABASE_URL + USERS_PATH + ".json", {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify(newProfile)
         });
+
+        if (!response.ok) {
+            throw new Error("ERROR");
+        }
+
         loadUserData();
     } catch (error) {
         console.error("Failed to send new Profile Data to DB:", error);
@@ -65,13 +70,44 @@ async function sendNewContactToDB(newProfile) {
 }
 
 
-// Delete Current User
-//! NOT WORKING
-async function deleteContactFromDB(editUserDetails) {
+// Update Current User
+async function updateContactToDB(id, updatedData) {
     try {
-        await fetch(DATABASE_URL + USERS_PATH + editUserDetails.id + ".json", {
+        const response = await fetch(DATABASE_URL + `/users/${id}` + ".json", {
+            method : "PUT",
+            headers : {
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify(updatedData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Can't delete User with ID ${id}`);
+        }
+
+        loadUserData();
+    } catch (error) {
+        console.error("Failed to update current Contact to DB:", error);
+    }
+}
+
+
+// Delete Current User
+async function deleteContactFromDB(id) {
+    try {
+        const response = await fetch(DATABASE_URL + `/users/${id}` + ".json", {
             method : "DELETE"
         });
+
+        if (!response.ok) {
+            throw new Error(`Can't delete User with ID ${id}`);
+        }
+
+        if(document.querySelector('.contactsOverlay').style.display == "block") {
+            closePopup();
+        }
+
+        loadUserData();
     } catch (error) {
         console.error("Failed to delete current Contact from DB:", error);
     }

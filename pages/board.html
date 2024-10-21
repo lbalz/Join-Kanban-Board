@@ -12,12 +12,13 @@
     <!-- Styles -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styles/board.css">
+    <link rel="stylesheet" href="../styles/contact.css">
     <link rel="stylesheet" href="../styles/help_icon.css">
 
 
     <!-- Scripts -->
     <script src="../script.js"></script>
-    <script src="../scripts/overlay_functionality.js"></script>
+    <!-- <script src="../scripts/contact_overlay.js"></script> -->
 </head>
 
 <body>
@@ -149,8 +150,66 @@
                     </div>
                 </div>
             </div>
+
+            <div class="boardOverlay" style="display: block;">
+                
+                <div class="addTaskOverlay">
+                    <div class="addTaskImg">
+                        <span class="titleAddTask">Add Task</span>
+                        <img class="blueXForAddTaskOverlay" src="../assets/icons/close_blue.svg">
+                    </div>
+                    <div class="middlePartContainer">
+                        <div class="titlePart">
+                            <input class="textInputForAddTask" type="text" placeholder="Enter a header Title">
+                        </div>
+                        <div class="discriptionPart">
+                            <span class="fontsForAddTask">Discription</span>
+                            <textarea class="discriptionInput" placeholder="Enter a Discription"></textarea>
+                        </div>
+                        <div class="dateAndImg">
+                            <span class="fontsForAddTask">Due date</span>
+                            <div class="dateInputField">
+                                <input class="textInputForDueDate" type="text" placeholder="dd/mm/yyyy">
+                                <img class="calendarForAddTask" src="../assets/icons/event.svg">
+                            </div>
+                        </div>
+                        <div class="PriorityWithImgDiv">
+                            <span class="fontsForAddTask">Priority</span>
+                            <div class="iconImgDiv">
+                                <img class="iconUrgent" src="../assets/icons/urgent.svg">
+                                <img class="iconMedium" src="../assets/icons/medium.svg">
+                                <img class="iconLow" src="../assets/icons/low.svg">
+                            </div>
+                        </div>
+                        <div class="assignedToForAddTaskOverlay">
+                            <span class="fontsForAddTask">Assigned to</span>
+                            <div class="selectContractAndArrowDropDown">
+                                <span>Select contracs to assign</span>
+                                <img src="../assets/icons/arrow_drop_down.svg">
+                            </div>
+                        </div>
+                        <div class="categorySelectTaskAndImg">
+                            <span class="fontsForAddTask">Category</span>
+                            <div class="spanAndArrowDropDownIcon">
+                                <span>Select task category</span>
+                                <img src="../assets/icons/arrow_drop_down.svg">
+                            </div>
+                        </div>
+                        <div class="SubtasksTextInputAndImg">
+                            <span class="fontsForAddTask">Subtasks</span>
+                            <div class="inputandImgForSubtasks">
+                                <input class="inputFieldForSubtasks" type="text" placeholder="add new Subtask">
+                                <img src="../assets/icons/board_todo_plus_btn.svg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="createTaskBtn">
+                        <img src="../assets/icons/create_task_default.svg">
+                    </div>
+                </div>
+                
+            </div>
         </div>
-
-
-
+    </div>
+</body>
 </html>

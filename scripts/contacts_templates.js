@@ -3,23 +3,23 @@
  */
 
 // Contact List Template
-function contactListRenderTemplate(singleContact) {
+function contactListRenderTemplate(singleContact, index) {
     return /*html*/`
-    <div class="contactListSingleContactItemContainer" id="${singleContact.id}" onclick="renderContactDetails('${singleContact.id}')">
+    <div class="contactListSingleContactItemContainer" id="${index}" onclick="renderContactDetails('${singleContact.id}', ${index}), checkBackgroundColor(${index})">
         <div class="contactListSingleContactItemProfilePicture" style="background-color: ${singleContact.color}">
             <span>${singleContact.initials}</span>
         </div>
 
         <div class="contactListSingleContactItemInfoContainer">
             <span class="contactListSingleContactItemName">${singleContact.name}</span>
-            <span class="contactListSingleContactItemEmail">${singleContact.email}</span>
+            <span class="contactListSingleContactItemEmail" id="span${index}">${singleContact.email}</span>
         </div>
     </div>
     `;
 }
 
 // Contact Details Template
-function contactDetailsRenderTemplate(singleUser) {
+function contactDetailsRenderTemplate(singleUser, index) {
     return /*html*/`
     <div class="upperContainer">
         <div>
@@ -32,10 +32,12 @@ function contactDetailsRenderTemplate(singleUser) {
                 <h1>${singleUser.name}</h1>
             </div>
             <div class="editAndDeleteIcon">
-                <div class="editIcon" onclick="openEditContactPopup()"><img src="../assets/icons/edit.svg">
+                <div class="editIcon" onclick="openEditContactPopup(${index})">
+                    <img src="../assets/icons/edit.svg">
                     <p>Edit</p>
                 </div>
-                <div class="deleteIcon"><img src="../assets/icons/delete.svg">
+                <div class="deleteIcon" onclick="deleteContact('${singleUser.id}')">
+                    <img src="../assets/icons/delete.svg">
                     <p>Delete</p>
                 </div>
             </div>
@@ -57,6 +59,7 @@ function contactDetailsRenderTemplate(singleUser) {
 
 
 /* Contact Overlay Templates */
+// Add Contact Overlay
 function renderAddContactOverlay() {
     return /*html*/`
     <div class="popUpAddNewContact" onclick="event.stopPropagation()">
@@ -75,26 +78,26 @@ function renderAddContactOverlay() {
             </div>
             <form class="contactForm">
                 <div class="inputGroup">
-                    <input type="text" placeholder="Name" value="" id="name">
+                    <input type="text" placeholder="Name" value="" id="name" onkeyup="checkFormValidation()">
                     <label for="name" class="contactFormIcon">
                         <img src="../assets/icons/person.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="email" placeholder="Email" value="" id="email">
+                    <input type="email" placeholder="Email" value="" id="email" onkeyup="checkFormValidation()">
                     <label for="email" class="contactFormIcon">
                         <img src="../assets/icons/mail.png" alt="">
                     </label>
                 </div>
                 <div class="inputGroup">
-                    <input type="tel" placeholder="Phone" value="" id="phone">
+                    <input type="tel" placeholder="Phone" value="" id="phone" onkeyup="checkFormValidation()">
                     <label for="phone" class="contactFormIcon">
                         <img src="../assets/icons/call.png" alt="">
                     </label>
                 </div>
                 <div class="buttons">
                     <button type="button" class="cancelContactBtnOverlay" onclick="closePopup()">Cancel &times;</button>
-                    <button type="submit" class="addNewContactBtnOverlay" onclick="addNewContact()">
+                    <button type="button" class="createContactBtn" onclick="addNewContact()">
                         Create contact <img src="/assets/icons/check.png" alt="">
                     </button>
                 </div>
@@ -105,7 +108,8 @@ function renderAddContactOverlay() {
 }
 
 
-function renderEditContactOverlay(editUserDetails) {
+// Edit Contact Overlay
+function renderEditContactOverlay(editUserDetails, index) {
     return /*html*/`
     <div class="overlayEditContact" onclick="event.stopPropagation()">
         <div class="popUpEditContact">
@@ -123,26 +127,26 @@ function renderEditContactOverlay(editUserDetails) {
                 </div>
                 <form class="contactForm">
                     <div class="inputGroup">
-                        <input type="text" value="${editUserDetails.name}" id="name" placeholder="Name">
+                        <input type="text" value="${editUserDetails.name}" id="editName" placeholder="Name">
                         <label for="name" class="contactFormIcon">
                             <img src="../assets/icons/person.png" alt="">
                         </label>
                     </div>
                     <div class="inputGroup">
-                        <input type="email" value="${editUserDetails.email}" id="email" placeholder="email">
+                        <input type="email" value="${editUserDetails.email}" id="editEmail" placeholder="email">
                         <label for="email" class="contactFormIcon">
                             <img src="../assets/icons/mail.png" alt="">
                         </label>
                     </div>
                     <div class="inputGroup">
-                        <input type="tel" value="${editUserDetails.phone}" id="phone" placeholder="phone">
+                        <input type="tel" value="${editUserDetails.phone}" id="editPhone" placeholder="phone">
                         <label for="phone" class="contactFormIcon">
                             <img src="../assets/icons/call.png" alt="">
                         </label>
                     </div>
                     <div class="buttons">
-                        <button type="button" class="deleteConactBtn" onclick="deleteContactFromDB(editUserDetails)">Delete</button>
-                        <button type="submit" class="saveContactBtn">
+                        <button type="button" class="cancelContactBtnOverlay" onclick="deleteContact('${editUserDetails.id}')">Delete</button>
+                        <button type="button" class="saveContactBtn" onclick="updateCurrentContact('${editUserDetails.id}', ${index})">
                             Save <img src="../assets/icons/check.png" alt="">
                         </button>
                     </div>
