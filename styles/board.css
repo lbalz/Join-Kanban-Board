@@ -366,3 +366,150 @@
   width: 160px;
   height: 36px;
 }
+
+.addTaskOverlay {
+  width: 528px;
+  height: 996px;
+  border-radius: 30px;
+  padding: 48px 40px 48px 40px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.addTaskImg {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.titleAddTask {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.blueXForAddTaskOverlay {
+  padding-bottom: 47px;
+}
+
+.titlePart {
+  height: 64px;
+  width: 440px;
+}
+
+.textInputForAddTask {
+  height: 64px;
+  width: 440px;
+  border: none #D1D1D1;
+  border-bottom: 2px solid #D1D1D1;
+}
+
+.discriptionPart {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.discriptionInput {
+  width: 440px;
+  height: 103px;
+  border: 1px solid #D1D1D1;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.dateInputField {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.textInputForDueDate {
+  height: 48px;
+  width: 440px;
+  border: none #D1D1D1;
+  border-bottom: 2px solid #D1D1D1;
+}
+
+::placeholder {
+  color: #D1D1D1;
+  font-size: 23px;
+}
+
+.fontsForAddTask {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.calendarForAddTask {
+  margin-right: 72px;
+}
+
+.iconImgDiv {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.PriorityWithImgDiv {
+  margin-bottom: 24px;
+}
+
+.assignedToForAddTaskOverlay {
+  margin-bottom: 24px;
+}
+
+.assignedToForAddTaskOverlay {
+  border-bottom: 2px solid #D1D1D1;
+}
+
+.selectContractAndArrowDropDown {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categorySelectTaskAndImg {
+  border-bottom: 2px solid #D1D1D1;
+  margin-bottom: 24px;
+}
+
+.spanAndArrowDropDownIcon {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.SubtasksTextInputAndImg {
+  margin-bottom: 24px;
+}
+
+.inputandImgForSubtasks {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.inputandImgForSubtasks {
+  border-bottom: 2px solid #D1D1D1;
+}
+
+.inputFieldForSubtasks {
+  height: 64px;
+  width: 440px;
+  border: none #D1D1D1;
+  border-bottom: 2px solid #D1D1D1;
+}
+
+.createTaskBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* color: #FF3D00; redForUrgent 
+/* color: #FFA800; orangeForMedium
+/* color: #7AE229; greenForLow
