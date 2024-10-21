@@ -17,3 +17,14 @@ function setActive(button) {
 //     const category = document.getElementById('nav');
 //     category.classList.toggle('activ')
 // }
+
+
+let addTaskData = [];
+
+
+function getAddTaskData() {
+  let title = document.querySelector("#title");
+  let description = document.querySelector("#description");
+  let dueDate = document.querySelector("#dueDate");
+  let priority = 0;
+}

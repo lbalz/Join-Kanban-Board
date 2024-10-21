@@ -356,14 +356,45 @@ h1 {
   width: 70%;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
   margin-bottom: 15px;
   position: relative;
   margin: 0px 40px 20px 40px;
 }
 
+#name {
+  border-bottom: 1px solid #ccc;
+}
 
-.inputGroup:hover {
+#name:focus {
+  border-bottom: 1px solid #005dff;
+}
+
+#name:hover {
+  border-bottom: 1px solid #005dff;
+}
+
+#email {
+  border-bottom: 1px solid #ccc;
+}
+
+#email:focus {
+  border-bottom: 1px solid #005dff;
+}
+
+#email:hover {
+  border-bottom: 1px solid #005dff;
+}
+
+#phone {
+  border-bottom: 1px solid #ccc;
+}
+
+#phone:focus {
+  border-bottom: 1px solid #005dff;
+}
+
+#phone:hover {
   border-bottom: 1px solid #005dff;
 }
 

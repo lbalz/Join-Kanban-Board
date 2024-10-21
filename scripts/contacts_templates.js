@@ -97,7 +97,7 @@ function renderAddContactOverlay() {
                 </div>
                 <div class="buttons">
                     <button type="button" class="cancelContactBtnOverlay" onclick="closePopup()">Cancel &times;</button>
-                    <button type="button" class="createContactBtn" onclick="addNewContact()">
+                    <button type="button" class="createContactBtn" onclick="checkContactFormValidation()">
                         Create contact <img src="/assets/icons/check.png" alt="">
                     </button>
                 </div>

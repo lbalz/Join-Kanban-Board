@@ -37,6 +37,9 @@
 
   /* Scrollbar */
   --scrollbar-color: #A8A8A8 white;
+
+  /* Form Validation */
+  --form-val-wrong: #FF8190;
 }
 
 /* Standard Setting */

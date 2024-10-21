@@ -37,7 +37,7 @@ function renderContactList(userData) {
 
     userData.forEach((singleContact, index) => {
         let firstLetter = singleContact.name.charAt(0).toUpperCase();
-        
+
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
 
@@ -48,7 +48,7 @@ function renderContactList(userData) {
             </div>
             `;
         }
-        
+
 
         contactListContainer.innerHTML += contactListRenderTemplate(singleContact, index);
     });
@@ -74,8 +74,34 @@ function renderContactDetailsClear() {
 }
 
 
+// add new contact form validation
+function checkContactFormValidation() {
+    // Albert fragen in wie weit die Form Validation nochmal gehen soll
+    let nameRef = document.querySelector("#name");
+    let emailRef = document.querySelector("#email");
+    let phoneRef = document.querySelector("#phone");
+
+    if (nameRef.value && emailRef.value && phoneRef.value !== "") {
+        addNewContact();
+    } else {
+        if (nameRef.value == "") {
+            nameRef.style = "border-bottom: 1px solid var(--form-val-wrong)"
+        }
+
+        if (emailRef.value == "") {
+            emailRef.style = "border-bottom: 1px solid var(--form-val-wrong)"
+        }
+
+        if (phoneRef.value == "") {
+            phoneRef.style = "border-bottom: 1px solid var(--form-val-wrong)"
+        }
+    }
+}
+
+
 // add new contact function
 function addNewContact() {
+    // checkContactFormValidation();
     let nameRef = document.querySelector("#name");
     let emailRef = document.querySelector("#email");
     let phoneRef = document.querySelector("#phone");
@@ -120,11 +146,11 @@ function updateCurrentContact(id, index) {
     let initials = generateInitials(nameValue);
 
     let updatedData = {
-        initials : initials,
-        name : nameValue,
-        email : emailValue,
-        phone : phoneValue,
-        color : currentColor
+        initials: initials,
+        name: nameValue,
+        email: emailValue,
+        phone: phoneValue,
+        color: currentColor
     }
 
     updateContactToDB(id, updatedData);
@@ -145,7 +171,7 @@ function checkBackgroundColor(index) {
     let allSpans = document.querySelectorAll(".contactListSingleContactItemEmail");
     let selectedDiv = document.getElementById(`${index}`);
     let span = document.getElementById(`span${index}`);
-    
+
     for (let i = 0; i < allDivs.length; i++) {
         const singleDiv = allDivs[i];
         singleDiv.classList.remove("backgroundColorBlue");
