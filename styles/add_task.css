@@ -160,15 +160,15 @@
 }
 
 /* Hover */
-.urgent:hover {
+.urgentHover:hover {
   box-shadow: 0px 3px 0px 0px #ff3d00;
 }
 
-.medium:hover {
+.mediumHover:hover {
   box-shadow: 0px 3px 0px 0px #ffa800;
 }
 
-.low:hover {
+.lowHover:hover {
   box-shadow: 0px 3px 0px 0px #7ae229;
 }
 
@@ -205,6 +205,7 @@
 .low p {
   margin: 0px;
   padding: 0px;
+  font-family: "Open-Sans";
 }
 
 /* assigned Section */

@@ -113,7 +113,7 @@
                         <label for="priority">Priority</label>
                         <div class="priorityOptions">
                             <!-- Urgent -->
-                            <div class="priorityBtn urgent" data-priority="urgent" onclick="setActive(this)">
+                            <div id="urgent" class="priorityBtn urgent urgentHover" data-priority="urgent" onclick="toggleUrgent()">
                                 <p>Urgent</p>
                                 <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@
                                 </svg>
                             </div>
                             <!-- Medium -->
-                            <div class="priorityBtn medium" data-priority="medium" onclick="setActive(this)">
+                            <div id="medium" class="priorityBtn medium mediumHover" data-priority="medium" onclick="toggleMedium()">
                                 <p>Medium</p>
                                 <svg width="20" height="9" viewBox="0 0 20 9" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@
                                 </svg>
                             </div>
                             <!-- Low -->
-                            <div class="priorityBtn low" data-priority="low" onclick="setActive(this)">
+                            <div id="low" class="priorityBtn low lowHover" data-priority="low" onclick="toggleLow()">
                                 <p>Low</p>
                                 <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
