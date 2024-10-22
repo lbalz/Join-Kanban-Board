@@ -52,7 +52,7 @@
   /* background-color: wheat; */
   width: 400px;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   scrollbar-width: thin;
 }
 
@@ -152,7 +152,6 @@
   align-items: center;
   box-sizing: border-box;
   background-color: aliceblue;
-  /* margin: 8px; */
   padding: 12px 16px;
   border: 1px solid rgb(113, 113, 113, 0.2);
   border-radius: 10px;
@@ -209,8 +208,16 @@
 }
 
 /* assigned Section */
+.hiddenAssignedContacts {
+  display: none;
+}
+
+.hideArrowUp {
+  display: none;
+}
+
 .assignedContent,
-.category {
+.categoryTasks {
   display: flex;
   flex-direction: column;
   margin: 0px 0px 24px 0px;
@@ -223,7 +230,36 @@
   border-width: 0px 0px 2px 0px;
 }
 
+/* Assigned Contact Section */
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contactIformation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+ul {
+  list-style-type: none;  /* Remove bullets*/
+  padding: 0px;  /* Remove padding */
+  margin: 0px;  /* Remove margins */
+}
+
 /* category Section */
+.hiddenCategoryTasks {
+  display: none;
+}
+
+.hideArrowUp {
+  display: none;
+}
+
 .category,
 .assigned,
 .subtaskContent {
@@ -252,6 +288,16 @@
   margin: 16px 0px 8px 0px;
 }
 
+.tasks {
+  margin: 8px 0px 16px 0px;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Subtask Section */
 .subtaskInput {
   margin: 8px 0px 24px 0px;
 }
@@ -263,6 +309,8 @@
   padding: 10px;
   font-size: 14px;
 }
+
+
 
 /* right Container Btns */
 .clearTaskBtn button {
@@ -311,8 +359,3 @@
 }
 
 
-/* .createTaskBtn, .clearTaskBtn {
-  border: none;
-  gap: 8px;
-  font-size: 20px;
-} */
