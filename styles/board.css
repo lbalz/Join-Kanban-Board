@@ -486,8 +486,7 @@
 .prioBtnDiv {
   margin-top: 24px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  gap: 10px;
 }
 
 .btnUrgent {
@@ -495,8 +494,8 @@
   gap: 10px;
   border-radius: 10px;
   border: 1px solid #D1D1D1;
-  height: 64px;
-  width: 152px;
+  height: 56px;
+  width: 140px;
   font-size: 24px;
   align-items: center;
   justify-content: center;
@@ -507,8 +506,8 @@
   gap: 10px;
   border-radius: 10px;
   border: 1px solid #D1D1D1;
-  height: 64px;
-  width: 152px;
+  height: 56px;
+  width: 140px;
   font-size: 24px;
   align-items: center;
   justify-content: center;
@@ -519,8 +518,8 @@
   gap: 10px;
   border-radius: 10px;
   border: 1px solid #D1D1D1;
-  height: 64px;
-  width: 152px;
+  height: 56px;
+  width: 140px;
   font-size: 24px;
   align-items: center;
   justify-content: center;
@@ -532,9 +531,7 @@
 
 .assignedToForAddTaskOverlay {
   margin-bottom: 24px;
-}
-
-.assignedToForAddTaskOverlay {
+  margin-right: 237px;
   border-bottom: 2px solid #D1D1D1;
 }
 
@@ -547,6 +544,7 @@
 .categorySelectTaskAndImg {
   border-bottom: 2px solid #D1D1D1;
   margin-bottom: 24px;
+  margin-right: 270px;
 }
 
 .spanAndArrowDropDownIcon {
@@ -579,6 +577,23 @@
 .createTaskBtn {
   display: flex;
   justify-content: flex-end;
+}
+
+.creatBtnForOverlay {
+  width: 175px;
+  display: flex;
+  height: 58px;
+  background-color: #4589FF;
+  border-radius: 10px;
+  color: white;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 23px;
+  font-weight: 400;
+  border: 1px solid #4589FF;
+  cursor: pointer;
 }
 
 /* color: #FF3D00; redForUrgent 
