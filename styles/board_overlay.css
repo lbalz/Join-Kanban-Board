@@ -197,6 +197,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
   }
   
   .addTaskImg {
@@ -294,10 +295,6 @@
     margin-bottom: 24px;
   }
   
-  .calendarForAddTask {
-    margin-right: 72px;
-  }
-  
   .prioBtnDiv {
     margin-top: 24px;
     display: flex;
@@ -314,6 +311,7 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   
   .btnMedium {
@@ -326,6 +324,7 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   
   .btnLow {
@@ -338,6 +337,7 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   
   .PriorityWithImgDiv {
@@ -345,8 +345,8 @@
   }
   
   .assignedToForAddTaskOverlay {
+    width: 86%;
     margin-bottom: 24px;
-    margin-right: 237px;
     border-bottom: 2px solid #D1D1D1;
   }
   
@@ -359,7 +359,7 @@
   .categorySelectTaskAndImg {
     border-bottom: 2px solid #D1D1D1;
     margin-bottom: 24px;
-    margin-right: 270px;
+    width: 86%;
   }
   
   .spanAndArrowDropDownIcon {
@@ -377,6 +377,10 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .dropDownArrowForAddTaskOverlay {
+    cursor: pointer;
+  }
   
   .inputandImgForSubtasks {
     border-bottom: 2px solid #D1D1D1;
@@ -389,9 +393,15 @@
     border-bottom: 2px solid #D1D1D1;
   }
   
+  .bluePlusForAddTaskOverlay {
+    cursor: pointer;
+  }
+
   .createTaskBtn {
     display: flex;
     justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 24px;
   }
   
   .creatBtnForOverlay {
@@ -409,6 +419,7 @@
     font-weight: 400;
     border: 1px solid #4589FF;
     cursor: pointer;
+    margin-right: 28px;
   }
   
   /* color: #FF3D00; redForUrgent 
