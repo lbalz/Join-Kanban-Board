@@ -18,7 +18,7 @@
     <!-- Scripts -->
     <script src="../script.js"></script>
     <!-- <script src="../scripts/overlay_functionality.js"></script> -->
-    <script src="../scripts/add_task.js"></script>
+    <script src="../scripts/add_task.js" defer></script>
 </head>
 
 <body>
@@ -113,7 +113,8 @@
                         <label for="priority">Priority</label>
                         <div class="priorityOptions">
                             <!-- Urgent -->
-                            <div id="urgent" class="priorityBtn urgent urgentHover" data-priority="urgent" onclick="toggleUrgent()">
+                            <div id="urgent" class="priorityBtn urgent urgentHover" data-priority="urgent"
+                                onclick="toggleUrgent()">
                                 <p>Urgent</p>
                                 <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +135,8 @@
                                 </svg>
                             </div>
                             <!-- Medium -->
-                            <div id="medium" class="priorityBtn medium mediumHover" data-priority="medium" onclick="toggleMedium()">
+                            <div id="medium" class="priorityBtn medium mediumHover" data-priority="medium"
+                                onclick="toggleMedium()">
                                 <p>Medium</p>
                                 <svg width="20" height="9" viewBox="0 0 20 9" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -182,6 +184,8 @@
                                     <!-- arrow Down default -->
                                     <svg id="arrowDown" class="arrowDownDefault" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect id="arrowDownHover" display="none" y="0.96582" width="24" height="24"
+                                            rx="12" fill="#D2E3FF" />
                                         <mask id="mask0_19393_9705" style="mask-type:alpha" maskUnits="userSpaceOnUse"
                                             x="0" y="0" width="24" height="25">
                                             <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
@@ -195,6 +199,8 @@
                                     <!-- arrow Up default -->
                                     <svg display="none" id="arrowUp" class="arrowUpDefault" width="24" height="25"
                                         viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect id="arrowUpHover" display="none" y="0.96582" width="24" height="24"
+                                            rx="12" fill="#D2E3FF" />
                                         <mask id="mask0_19398_10189" style="mask-type:alpha" maskUnits="userSpaceOnUse"
                                             x="0" y="0" width="24" height="25">
                                             <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
@@ -213,12 +219,12 @@
                             <ul>
                                 <li>
                                     <div class="contact">
-                                        <div class="contactIformation">
+                                        <div class="contactIformation" onclick="selectedContact()">
                                             <div>LB</div>
                                             <span>Lukas Balz</span>
                                         </div>
 
-                                        <div>
+                                        <div id="check-box">
                                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="4" y="4.96582" width="16" height="16" rx="3" stroke="#4589FF"
@@ -234,7 +240,7 @@
                                             <span>Lukas Balz</span>
                                         </div>
 
-                                        <div>
+                                        <div id="check-box">
                                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <rect x="4" y="4.96582" width="16" height="16" rx="3" stroke="#4589FF"
@@ -254,8 +260,10 @@
                         <div class="chooseCategory" onclick="toggleDropdownCategory(), changeDropdownCategoryIcon()">
                             <p>Select task category</p>
                             <!-- arrow Down default -->
-                            <svg id="arrowDownCategory" class="arrowDownDefault" width="24" height="25" viewBox="0 0 24 25"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg id="arrowDownCategory" class="arrowDownDefault" width="24" height="25"
+                                viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect id="arrowDownHover" display="none" y="0.96582" width="24" height="24" rx="12"
+                                    fill="#D2E3FF" />
                                 <mask id="mask0_19393_9705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                     y="0" width="24" height="25">
                                     <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
@@ -269,6 +277,8 @@
                             <!-- arrow Up default -->
                             <svg display="none" id="arrowUpCategory" class="arrowUpDefault" width="24" height="25"
                                 viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect id="arrowUpHover" display="none" y="0.96582" width="24" height="24" rx="12"
+                                    fill="#D2E3FF" />
                                 <mask id="mask0_19398_10189" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                     y="0" width="24" height="25">
                                     <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />

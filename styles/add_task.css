@@ -1,3 +1,7 @@
+input:focus, textarea:focus {
+  border: 1px solid #ccc;
+  outline: none;
+}
 .headerTitle {
   cursor: pointer;
 }
@@ -90,11 +94,6 @@
   border-radius: 0px 10px 10px 10px;
   font-size: 16px;
   padding: 12px;
-}
-
-.descriptionText:focus {
-  border: 1px solid #ccc;
-  outline: none;
 }
 
 /* due Date Section */
@@ -217,6 +216,35 @@
   display: none;
 }
 
+/* Anfangszustand des rect - es ist ausgeblendet */
+#arrowDownHover {
+  display: none;
+}
+
+/* Wenn der Mauszeiger über dem #arrowDown ist, wird das rect angezeigt */
+#arrowDown:hover #arrowDownHover {
+  display: flex;
+}
+
+#arrowDownCategory:hover #arrowDownHover {
+  display: flex;
+}
+
+
+/* Anfangszustand des rect - es ist ausgeblendet */
+#arrowUpHover {
+  display: none;
+}
+
+/* Wenn der Mauszeiger über dem #arrowDown ist, wird das rect angezeigt */
+#arrowUp:hover #arrowUpHover {
+  display: flex;
+}
+
+#arrowUpCategory:hover #arrowUpHover {
+  display: flex;
+}
+
 .assignedContent,
 .categoryTasks {
   display: flex;
@@ -238,6 +266,22 @@
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.contact:hover {
+  background-color: #d2e3ff;
+  border-radius: 5px;
+}
+
+.contact:active {
+  background-color: #005dff;
+  border-radius: 5px;
+}
+
+.contact:focus:not(:hover) {
+  background-color: #00ffa2;
+  border-radius: 5px;
 }
 
 .contactIformation {
@@ -262,15 +306,13 @@ ul {
 }
 
 .category,
-.assigned,
-.subtaskContent {
+.assigned {
   display: flex;
   flex-direction: column;
 }
 
 .chooseCategory,
-.assignedTo,
-.subtaskInput {
+.assignedTo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -278,8 +320,7 @@ ul {
 }
 
 .chooseCategory:hover,
-.assignedTo:hover,
-.subtaskInput:hover {
+.assignedTo:hover {
   border-bottom: 1px solid #005dff;
   cursor: pointer;
 }
@@ -294,13 +335,21 @@ ul {
   width: 100%;
   display: flex;
   align-items: start;
-  width: 100%;
   box-sizing: border-box;
+}
+
+.tasks:hover {
+  background-color: #d2e3ff;
+  border-radius: 5px;
 }
 
 /* Subtask Section */
 .subtaskInput {
   margin: 8px 0px 24px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
 }
 
 .subtaskInput input {
@@ -311,9 +360,17 @@ ul {
   font-size: 14px;
 }
 
+.subtaskContent {
+  margin-top: 16px;
+}
+
+.subtaskInput:hover {
+  border-bottom: 1px solid #005dff;
+}
 
 
-/* right Container Btns */
+
+/* * right Container Btns */
 .clearTaskBtn button {
   display: flex;
   align-items: center;
