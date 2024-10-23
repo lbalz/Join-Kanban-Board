@@ -197,6 +197,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
   }
   
   .addTaskImg {
@@ -213,6 +214,7 @@
   
   .blueXForAddTaskOverlay {
     padding-bottom: 47px;
+    cursor: pointer;
   }
   
   .contentPartContainer {
@@ -282,6 +284,10 @@
     width: 440px;
     border: none #D1D1D1;
   }
+
+  .calendarForAddTask {
+    cursor: pointer;
+  }
   
   ::placeholder {
     color: #D1D1D1;
@@ -292,10 +298,6 @@
     font-size: 19px;
     font-weight: 700;
     margin-bottom: 24px;
-  }
-  
-  .calendarForAddTask {
-    margin-right: 72px;
   }
   
   .prioBtnDiv {
@@ -314,6 +316,11 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+  }
+
+  .btnUrgent:hover {
+    box-shadow: 0px 2px 0px 0px #FF3D00;
   }
   
   .btnMedium {
@@ -326,6 +333,11 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+  }
+
+  .btnMedium:hover {
+    box-shadow: 0px 2px 0px 0px #FFA800;
   }
   
   .btnLow {
@@ -338,6 +350,11 @@
     font-size: 24px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+  }
+
+  .btnLow:hover {
+    box-shadow: 0px 2px 0px 0px #7AE229;
   }
   
   .PriorityWithImgDiv {
@@ -345,8 +362,8 @@
   }
   
   .assignedToForAddTaskOverlay {
+    width: 86%;
     margin-bottom: 24px;
-    margin-right: 237px;
     border-bottom: 2px solid #D1D1D1;
   }
   
@@ -359,7 +376,7 @@
   .categorySelectTaskAndImg {
     border-bottom: 2px solid #D1D1D1;
     margin-bottom: 24px;
-    margin-right: 270px;
+    width: 87%;
   }
   
   .spanAndArrowDropDownIcon {
@@ -370,6 +387,7 @@
   
   .SubtasksTextInputAndImg {
     margin-bottom: 24px;
+    width: 87%;
   }
   
   .inputandImgForSubtasks {
@@ -377,11 +395,11 @@
     display: flex;
     justify-content: space-between;
   }
-  
-  .inputandImgForSubtasks {
-    border-bottom: 2px solid #D1D1D1;
+
+  .dropDownArrowForAddTaskOverlay {
+    cursor: pointer;
   }
-  
+    
   .inputFieldForSubtasks {
     height: 64px;
     width: 440px;
@@ -389,9 +407,15 @@
     border-bottom: 2px solid #D1D1D1;
   }
   
+  .bluePlusForAddTaskOverlay {
+    cursor: pointer;
+  }
+
   .createTaskBtn {
     display: flex;
     justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 24px;
   }
   
   .creatBtnForOverlay {
@@ -409,6 +433,7 @@
     font-weight: 400;
     border: 1px solid #4589FF;
     cursor: pointer;
+    margin-right: 28px;
   }
   
   /* color: #FF3D00; redForUrgent 
