@@ -42,143 +42,270 @@
   box-shadow: 0 4px 10px rgb(0, 0, 0, 0.3);
 }
 
-.bordTopContent {
-  padding-top: 88px;
+.boardContent {
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .searchAndAddContainer {
+  width: 100%;
   display: flex;
+  justify-content: start;
   align-items: center;
   gap: 16px;
+  margin-top: 48px;
 }
 
 .searchBarContainer {
-  width: 400px;
-  height: 48px;
+  width: auto;
+  height: 56px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  position: relative;
 }
 
 .searchInput {
-  width: 100%;
-  height: 100%;
-  padding-left: 20px;
-  padding-right: 40px;
+  width: 320px;
+  height: 48px;
   border-radius: 16px;
-  border: 1px solid #b1aaaaad;
-  font-size: 16px;
-  margin-right: 18px;
+  border: 1px solid #A8A8A8;
+  font-size: 20px;
+  cursor: pointer;
+  padding-right: 64px;
+  padding-left: 24px;
+}
+
+.searchInput:hover {
+  border: 1px solid #4589FF;
+}
+
+.searchInput:focus {
+  border: 1px solid #005DFF;
+  outline: none;
+}
+/* Lupe Icon */
+.boardSearchIconContainer {
+  width: 64px;
+  height: 40px;
+  border-left: 1px solid #D1D1D1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin-left: 320px;
+}
+
+.boardSearchIconSVGWrapper {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.boardSearchIcon {
+  width: 32px;
+  height: 32px;
+}
+
+.boardSearchIconSVGWrapper:hover{
+  background-color: #E3EEFF;
   cursor: pointer;
 }
 
-/* Lupe Icon */
-.boardSearchIcon {
-  position: absolute;
-  right: 25px;
-  width: 50px;
-  height: 30px;
-  pointer-events: none;
+.boardSearchIconSVGWrapper:hover .boardSearchIconRect{
+  fill: #4589FF;
 }
 
-.boardSearchIcon :hover{
-  
-    background-color: #0056b3;
-  
+.boardSearchIconSVGWrapper:active .boardSearchIconRect{
+  fill: #005DFF;
 }
 
 /* Add Task Button Styling */
-.boardAddTaskButton {
-  width: 151px;
+.boardAddTaskButtonContainer {
+  width: 152px;
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #4589ff;
   color: white;
   border: none;
   border-radius: 16px;
-  padding: 12px 24px;
   font-size: 20px;
   cursor: pointer;
   height: 50px;
+  gap: 8px;
 }
 
-.boardAddTaskButton:hover {
-  background-color: #0056b3;
+.boardAddTaskButtonContainer:hover {
+  background-color: #005DFF;
 }
 
-.boardAddTaskIcon {
-  width: 15px;
-  height: 15px;
-  border: 2px 0px 0px 0px;
-  padding-left: 10px;
+.boardAddTaskButtonContainer:active {
+  background-color: #091931;
 }
 
-/* TASK TABS */
-.taskTabs {
+/* Board Container */
+.boardContainer {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-  width: 100%;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
 }
 
-/*  tab  styling */
+/* Tab Item */
 .tabItem {
+  width: 360px;
+  height: 48px;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  justify-content: space-between;
+}
+
+.tabItemText {
+  font-size: 24px;
   font-weight: bold;
-  color: #333;
-  padding-right: 200px;
-  white-space: nowrap; /* Verhindert Umbrechen des Texts */
-  flex-grow: 1;
-  justify-content: space-between;
+  margin-left: 24px;
+  color: #42526E;
 }
 
-/* Icons next to each tab */
-.tabAddIcon {
-  margin-left: 90px;
-  width: 24px;
-  height: 24px;
+.tabItemSVGContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  margin-right: 24px;
 }
 
-/* container für die tabs */
-.tabsTop {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  padding-top: 20px;
+.tabItemSVGContainer:hover .tabItemSVG{
+  stroke: #005DFF;
 }
 
-/* layout für task-board */
-.taskBoard {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 20px;
-  height: calc(100vh - 200px);
+.tabItemSVGContainer:active .tabItemSVG{
+  stroke: #A8A8A8;
 }
 
-/* Jede Spalte im Task-Board */
-.taskColumn {
+/* Tasks Container */
+.tasksContainer {
+  width: 360px;
+  height: calc(100% - 48px);
   display: flex;
   flex-direction: column;
-  width: 23%; /* Jede Spalte nimmt ca. 1/4 des Platzes ein */
-  background-color: #644f4f2f; /* needs to be white! */
-  border-radius: 8px;
-  padding: 10px;
+  justify-content: start;
+  align-items: center;
+  border-radius: 12px;
+  border: 1px solid black;
+  gap: 16px;
 }
 
+/* To Do Tasks */
+.toDoContainer {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.noToDoContainer {
+  width: 360px;
+  height: 64px;
+  background-color: #E7E7E7;
+  border-radius: 12px;
+  border: 1px dashed #A8A8A8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-/* task-container in den spalten */
-.taskContainer {
-  flex-grow: 1; 
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 10px;
-  overflow-y: auto; /* scrollen wenn voll*/
-  min-height: 400px; 
+.noToDoText {
+  font-size: 22px;
+  color: #A8A8A8;
+}
+
+/* In Progress Tasks */
+.inProgressContainer {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noInProgressContainer {
+  width: 360px;
+  height: 64px;
+  background-color: #E7E7E7;
+  border-radius: 12px;
+  border: 1px dashed #A8A8A8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noInProgressText {
+  font-size: 22px;
+  color: #A8A8A8;
+}
+
+/* Await feedback Tasks */
+.awaitFeedbackContainer {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noAwaitFeedbackContainer {
+  width: 360px;
+  height: 64px;
+  background-color: #E7E7E7;
+  border-radius: 12px;
+  border: 1px dashed #A8A8A8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noAwaitFeedbackText {
+  font-size: 22px;
+  color: #A8A8A8;
+}
+
+/* Done Tasks */
+.doneContainer {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.noDoneContainer {
+  width: 360px;
+  height: 64px;
+  background-color: #E7E7E7;
+  border-radius: 12px;
+  border: 1px dashed #A8A8A8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noDoneText {
+  font-size: 22px;
+  color: #A8A8A8;
 }
