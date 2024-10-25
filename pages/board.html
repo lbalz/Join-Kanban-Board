@@ -99,61 +99,137 @@
         </footer>
 
         <div class="rightContent">
-            <div class="bordTopContent">
+            <div class="boardContent">
                 <div class="searchAndAddContainer">
                     <!-- suchfeld -->
                     <div class="searchBarContainer">
                         <input type="text" class="searchInput" placeholder="Find Task">
-                        <img class="boardSearchIcon" src="../assets/icons/board_lupe_icon.svg" alt="Search Icon">
+                        <div class="boardSearchIconContainer">
+                            <div class="boardSearchIconSVGWrapper">
+                                <svg class="boardSearchIcon" width="32" height="33" viewBox="0 0 32 33"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_51146_4665" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                        y="0" width="32" height="33">
+                                        <rect y="0.5" width="32" height="32" fill="#D9D9D9" />
+                                    </mask>
+                                    <g mask="url(#mask0_51146_4665)">
+                                        <path class="boardSearchIconRect"
+                                            d="M13.7118 20.7137C11.8946 20.7137 10.3567 20.0843 9.098 18.8256C7.83931 17.5669 7.20996 16.029 7.20996 14.2118C7.20996 12.3946 7.83931 10.8567 9.098 9.598C10.3567 8.33931 11.8946 7.70996 13.7118 7.70996C15.529 7.70996 17.0669 8.33931 18.3256 9.598C19.5843 10.8567 20.2137 12.3946 20.2137 14.2118C20.2137 14.9454 20.097 15.6372 19.8636 16.2874C19.6302 16.9376 19.3134 17.5127 18.9133 18.0129L24.5149 23.6145C24.6983 23.7979 24.79 24.0313 24.79 24.3147C24.79 24.5981 24.6983 24.8315 24.5149 25.0149C24.3315 25.1983 24.0981 25.29 23.8147 25.29C23.5313 25.29 23.2979 25.1983 23.1145 25.0149L17.5129 19.4133C17.0127 19.8134 16.4376 20.1302 15.7874 20.3636C15.1372 20.597 14.4454 20.7137 13.7118 20.7137ZM13.7118 18.7131C14.9622 18.7131 16.025 18.2755 16.9002 17.4002C17.7755 16.525 18.2131 15.4622 18.2131 14.2118C18.2131 12.9615 17.7755 11.8987 16.9002 11.0234C16.025 10.1482 14.9622 9.71053 13.7118 9.71053C12.4615 9.71053 11.3987 10.1482 10.5234 11.0234C9.64815 11.8987 9.21053 12.9615 9.21053 14.2118C9.21053 15.4622 9.64815 16.525 10.5234 17.4002C11.3987 18.2755 12.4615 18.7131 13.7118 18.7131Z"
+                                            fill="#42526E" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Add Task BTN -->
-                    <button class="boardAddTaskButton" onclick="openTaskBoard()">
-                        <p>Add task</p>
-                        <img class="boardAddTaskIcon" src="../assets/icons/board_add_task_plus.svg" alt="Add Task Icon">
-                    </button>
-                </div>
-
-                <!-- Task Tabs -->
-                <div class="tabsTop">
-                    <div class="taskTabs">
-                        <div class="tabItem">
-                            To do
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add To Do">
-                        </div>
-                        <div class="tabItem">
-                            In progress
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add In Progress">
-                        </div>
-                        <div class="tabItem">
-                            Await feedback
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg"
-                                alt="Add Await Feedback">
-                        </div>
-                        <div class="tabItem">
-                            Done
+                    <div class="boardAddTaskButtonContainer" onclick="openTaskBoard()">
+                        <span class="boardAddTaskButtonText">Add task</span>
+                        <div class="boardAddTaskButtonSVGWrapper">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="" d="M8.5 1V16" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <path d="M16 8.6416L1 8.6416" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <div class="taskBoard">
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="todo"></div>
+                <!-- Board -->
+                <div class="boardContainer">
+
+                    <div class="toDoContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">To Do</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="noToDoContainer">
+                                <!-- Bekomm display: none wenn ein Task drin ist -->
+                                <span class="noToDoText">No tasks To do</span>
+                            </div>
+                            <div class="toDoTasks">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="inprogress"></div>
+
+                    <div class="inProgressContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">In progress</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="noInProgressContainer">
+                                <!-- Bekomm display: none wenn ein Task drin ist -->
+                                <span class="noInProgressText">No tasks in progress</span>
+                            </div>
+                            <div class="inProgressTasks">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="awaitfeedback"></div>
+
+                    <div class="awaitFeedbackContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">Await feedback</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="noAwaitFeedbackContainer">
+                                <!-- Bekomm display: none wenn ein Task drin ist -->
+                                <span class="noAwaitFeedbackText">No tasks in await feedback</span>
+                            </div>
+                            <div class="awaitFeedbackTasks">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="done"></div>
+
+                    <div class="doneContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">Done</span>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="noDoneContainer">
+                                <!-- Bekomm display: none wenn ein Task drin ist -->
+                                <span class="noDoneText">No tasks done</span>
+                            </div>
+                            <div class="doneTasks">
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            <div class="boardOverlay" style="display: block;">
-                
+            <div class="boardOverlay" style="display: none;">
+
                 <div class="addTaskOverlay">
                     <div class="addTaskWrapper">
                         <div class="addTaskImg">
@@ -226,7 +302,8 @@
                             </div>
                         </div>
                         <div class="createTaskBtn">
-                            <button class="creatBtnForOverlay">Create Task<img src="../assets/icons/blue_check.svg"></button>
+                            <button class="creatBtnForOverlay">Create Task<img
+                                    src="../assets/icons/blue_check.svg"></button>
                         </div>
                     </div>
                 </div>
@@ -235,4 +312,5 @@
         </div>
     </div>
 </body>
+
 </html>
