@@ -13,12 +13,10 @@
   --font-clr-black: #000000;
   --font-clr-gray: #42526e;
   --font-clr-blue: #005dff;
-  --font-clr-light-blue: #4589FF;
+  --font-clr-light-blue: #4589ff;
 
   /* Font Colors Hover without Click */
   --font-clr-blue-hover: #005dff;
-
-  /* Font Colors Hover with Click (!if needed!) */
 
   /* Background Colors */
   --bg-clr-light-blue: #4589ff;
@@ -28,18 +26,16 @@
   --sidebar-hover-clr: #d2e3ff;
   --bg-color-blue-hover: #005dff;
 
-  /* Background Colors Hover with Click */
-
   /* Font Sizes */
   --fontsize-16px: 16px;
   --fontsize-19px: 19px;
   --fontsize-23px: 23px;
 
   /* Scrollbar */
-  --scrollbar-color: #A8A8A8 white;
+  --scrollbar-color: #a8a8a8 white;
 
   /* Form Validation */
-  --form-val-wrong: #FF8190;
+  --form-val-wrong: #ff8190;
 }
 
 /* Standard Setting */
@@ -54,7 +50,7 @@ body {
 }
 
 .currentPage {
-    background-color: var(--sidebar-hover-clr);
+  background-color: var(--sidebar-hover-clr);
 }
 
 .bottomContent {
@@ -305,7 +301,7 @@ body {
   cursor: pointer;
 }
 
-/* On Click- Geklickter Status, Button hell*/
+/* On Click- Geklickter Status, Button hell */
 .addNewContactIcon:active {
   filter: brightness(0) invert(1);
 }
@@ -315,29 +311,29 @@ body {
   filter: brightness(1.2);
 }
 
-.headerTitle{
+.headerTitle {
   cursor: pointer;
 }
 
-.headerProfileLetter{
+.headerProfileLetter {
   cursor: pointer;
 }
 
-.dropDownBar{
+.dropDownBar {
   top: 100px;
   display: none;
   position: absolute;
   flex-direction: column;
 }
 
-.dropDownItem{
-  color: #42526E;
+.dropDownItem {
+  color: #42526e;
   text-decoration: none;
   display: block;
   text-align: end;
 }
 
-.activ{
+.activ {
   padding: 10px;
   width: 125px;
   height: 90px;
@@ -347,4 +343,134 @@ body {
   font-weight: 400;
   border-radius: 20px 0px 20px 20px;
   box-shadow: 0 4px 10px rgb(0, 0, 0, 0.3);
+}
+
+/* Dashboard Section */
+.dashboardWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboardHeader h1 {
+  display: flex;
+  font-size: 64px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  margin-top: 72px;
+  margin-bottom: 36px;
+  align-items: center;
+}
+
+.dashboardUsername {
+  font-weight: 600;
+  color: #4589ff;
+  margin-left: 10px;
+}
+
+.dashboardStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  gap: 20px;
+}
+
+.dashboardStatItem {
+  opacity: 0px;
+  background-color: #f9f9f9;
+  border-radius: 0px 30px 30px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  width: 200px;
+}
+
+.dashboardStatInfo {
+  font-size: 26px;
+  margin-top: 10px;
+}
+
+.dashboardStatItem:hover {
+  background-color: #005dff;
+  transform: scale(1.1); /* Vergrößerung */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.dashboardStatItem p {
+  margin: 0;
+  font-size: 18px;
+  color: #4589ff;
+}
+
+.dashboardStatItem:hover p {
+  margin: 0;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.dashboardNumberUrgent p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.dashboardNumber {
+  font-weight: bold;
+}
+.dashboardIcon {
+  margin-bottom: 10px;
+}
+
+.dashboardUrgentTasks {
+  grid-column: span 2;
+  display: flex;
+  background-color: var(--bg-clr-light-blue);
+  color: var(--font-clr-white);
+  padding: 28px 48px;
+  border-radius: 30px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  font-size: 16px;
+}
+
+.dashboardUrgentTasks:hover {
+  background-color: var(--bg-clr-white);
+  color: var(--bg-clr-light-blue);
+  transform: scale(1.2); /* Vergrößerung */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dashboardDeadline {
+  text-align: right;
+}
+
+.dashboardNumber {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.dashboardLabel {
+  font-size: 16px;
+  color: #999;
+}
+
+.dashboardDate {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.dashboardDeadlineLabel {
+  font-size: 23px;
+  padding-left: 42px;
+}
+a {
+  text-decoration: none;
 }
