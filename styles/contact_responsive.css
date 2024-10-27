@@ -241,3 +241,95 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.contactDetailsOverlayForMaxWitdh950PX{
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    margin-right: 24px;
+    gap: 21px;
+    background-color: white;
+    width: 340px;
+    height: 100vh;
+}
+
+.contactInfoAndBlueArrowLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contactListInformation {
+    color: black;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.circleWithFirstLettersOfFirstAndLastName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgreen;
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.firstLetterFromFirsAndLastName {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.circleFirstLetterAndName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.nameOfSpecificContact {
+    font-size: 33px;
+    font-weight: 400;
+}
+
+.emailAndLinkForSpecificContact {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.emailTextInOverlay {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.phoneAndSpecificNumber {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.PhoneNumberForOverlayContact {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.blueThreePointBtn {
+    margin-top: 240px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.threePointsBlueBtn {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background-color: #4589FF;
+    border: #4589FF;
+    margin-top: 100px;
+}
