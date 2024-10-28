@@ -101,7 +101,6 @@ button.guest-btn {
   padding: 12px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -110,7 +109,15 @@ button.login-btn {
   color: white;
   width: 135px;
   height: 48px;
+  border-radius: 8px;
 }
+
+button.login-btn:hover {
+  background-color: #005DFF;
+  color: white;
+}
+
+
 
 button.guest-btn {
   background-color: rgb(255, 255, 255);
@@ -118,6 +125,8 @@ button.guest-btn {
   border: 1px solid #647188;
   width: 197px;
   height: 48px;
+  border-radius: 8px;
+
 }
 
 /* Footer*/
