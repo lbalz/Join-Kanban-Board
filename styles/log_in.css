@@ -1,0 +1,144 @@
+.JoinLogoHeaderFrame {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 67px;
+  padding-right: 28px;
+}
+
+.headerLogInFull {
+  display: flex;
+  justify-content: end;
+  width: 315px;
+  height: 48px;
+}
+
+.headerJoinLogo {
+  width: 100.03px;
+  height: 121.97px;
+  padding-left: 77px;
+  opacity: 0px;
+}
+
+/*center the login box */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/*login box */
+.loginBox {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+
+h2 {
+  font-family: Open Sans;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57.6px;
+  text-align: center;
+}
+
+/* Form styling */
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input fields for email and password */
+.inputGroup {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Input fields */
+.inputGroup input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.inputGroup img.input-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  height: 24px;
+  width: 24px;
+}
+
+/* remember me checkbox */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkboxGroup input {
+  margin-right: 10px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: space-between;
+  gap: 37px;
+  text-decoration: none;
+}
+
+/* Buttons for login and guest login */
+button.login-btn,
+button.guest-btn {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.login-btn {
+  background-color: #4589ff;
+  color: white;
+  width: 135px;
+  height: 48px;
+}
+
+button.guest-btn {
+  background-color: rgb(255, 255, 255);
+  color: #647188;
+  border: 1px solid #647188;
+  width: 197px;
+  height: 48px;
+}
+
+/* Footer*/
+.footerLinks {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 14px;
+}
+
+/* Link styles */
+.footerLinks a {
+  text-decoration: none;
+  color: #43526e;
+  font-weight: 400;
+}
+
+/* Hover-Effekt für die Links */
+.footerLinks a:hover {
+  color: #005dff;
+}
