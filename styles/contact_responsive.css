@@ -1,0 +1,335 @@
+.rightContent {
+    @media (max-width: 641px) {
+        width: 70%;
+    }
+}
+
+.topContactList {
+    @media (max-width: 570px){
+        width: 346px;
+    }
+    @media (max-width: 510px){
+        width: 300px;
+    }
+    @media (max-width: 468px){
+        width: 260px;
+    }
+}
+
+.contactListContainer {
+    @media (max-width: 570px){
+        width: 360px;
+        box-shadow: none;
+    }
+    @media (max-width: 510px){
+        width: 325px;
+        margin-left: 4px;
+    }
+    @media (max-width: 445px){
+        width: 290px;
+    }
+    @media (max-width: 400px){
+        margin-left: 14px;
+    }
+    @media (max-width: 340px){
+        margin-left: 5px;
+    }
+    
+}
+
+.headerLogo {
+    @media (max-width: 540px){
+        padding-left: 30px;
+    }
+}
+
+.headerRight {
+    @media (max-width: 480px) {
+        gap: 0px;
+    }
+}
+
+.headerTitle {
+    @media (max-width: 510px) {
+        font-size: 14px;
+    }
+    @media (max-width: 400px) {
+        display: none;
+    }
+}
+
+.headerTitleContainer {
+    @media (max-width: 510px) {
+        width: 280px;
+    }
+    @media (max-width: 468px) {
+        width: 236px;
+    }
+    @media (max-width: 400px) {
+        display: none;
+    }
+}
+
+.headerProfileContainer {
+    @media (max-width: 445px){
+        width: 38px;
+        height: 38px;
+    }
+}
+
+.headerHelpIconContainer {
+    @media (max-width: 420px) {
+        width: 32px;
+    }
+}
+
+.sidebarContainer {
+    @media (max-width: 540px) {
+        width: 154px;
+    }
+    @media (max-width: 950px) {
+        display: none;
+    }
+}
+
+.topBottomWrapper {
+    @media (max-width: 540px){
+        width: 120px;
+    }
+}
+
+.bottomContactList {
+    @media (max-width: 530px) {
+        width: 360px;
+    }
+    @media (max-width: 510px) {
+        width: 330px;
+    }
+    @media (max-width: 400px) {
+        width: 325px;
+        font-size: 14px;
+    }
+    @media (max-width: 340px){
+        width: 293px;
+        font-size: 14px;
+    }
+}
+
+.contactListSingleContactItemProfilePicture {
+    @media (max-width: 530px) {
+        margin-left: 1px;
+    }
+}
+
+.contactListSingleContactItemContainer {
+    @media (max-width: 530px) {
+        gap: 10px;
+        width: 310px;
+        margin-left: 8px;
+    }
+    @media (max-width: 445px) {
+        gap: 5px;
+        width: 298px;
+        margin-left: 8px;
+    }
+    @media (max-width: 340px){
+        gap: 5px;
+        width: 274px;
+        margin-left: 8px;
+    }
+
+}
+
+.seperatorLine {
+    @media (max-width: 530px) {
+        width: 290px;
+    }
+    @media (max-width: 340px){
+        width: 223px;
+    }
+}
+
+.letterCategories {
+    @media (max-width: 530px) {
+        width: 160px;
+    }
+}
+
+.sidebarBecomesFooter {
+    display: none;
+        @media (max-width: 950px) {
+            display: flex;
+            width: 620px;
+            margin-left: 35px;
+            margin-right: 28px;
+            margin-top: 18px;
+            justify-content: space-between;
+        }
+        @media (max-width: 700px) {
+            width: 530px;
+        }
+        @media (max-width: 600px) {
+            width: 440px;
+        }
+        @media (max-width: 525px) {
+            width: 350px;
+        }
+        @media (max-width: 420px) {
+            gap: 65px;
+            width: 345px;
+        }
+        @media (max-width: 420px) {
+            width: 300px;
+        }
+        @media (max-width: 400px) {
+            width: 290px;
+            gap: 50px;
+        }
+        @media (max-width: 340px) {
+            width: 259px;
+            gap: 45px;
+        }
+}
+
+.linkContainerForResponsivFooter {
+    display: flex;
+    flex-direction: row;
+}
+
+.footerMenuAtResponsiv {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    color: #42526E;
+
+}
+
+.textForResponsivFooter {
+    width: 67px;
+    font-size: 15px;
+}
+
+.boardTextResponsiv {
+    margin-left: 23px;
+}
+
+.contactDetailsContainer {
+    @media (max-width: 570px) {
+        display: none;
+    }
+}
+
+.personAddBtnForResponsiv {
+    border-radius: 10px;
+    background-color: #4589FF;
+    border: #4589FF;
+    height: 64px;
+    width: 64px;
+    display: none;
+    @media (max-width: 950px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.btnForResponsivContactAtWidth950PX {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.contactDetailsOverlayForMaxWitdh950PX{
+    display: flex;
+    flex-direction: column;
+    margin-left: 24px;
+    margin-right: 24px;
+    gap: 21px;
+    background-color: white;
+    width: 340px;
+    height: 100vh;
+}
+
+.contactInfoAndBlueArrowLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.contactListInformation {
+    color: black;
+    font-size: 19px;
+    font-weight: 700;
+    margin-top: 6px;
+}
+
+.circleWithFirstLettersOfFirstAndLastName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgreen;
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.firstLetterFromFirsAndLastName {
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.circleFirstLetterAndName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+}
+
+.nameOfSpecificContact {
+    font-size: 33px;
+    font-weight: 400;
+}
+
+.emailAndLinkForSpecificContact {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.emailTextInOverlay {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.phoneAndSpecificNumber {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.PhoneNumberForOverlayContact {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.blueThreePointBtn {
+    margin-top: 240px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.threePointsBlueBtn {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    background-color: #4589FF;
+    border: #4589FF;
+    margin-top: 100px;
+}
