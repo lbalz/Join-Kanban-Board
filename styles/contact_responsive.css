@@ -18,6 +18,8 @@
     @media (max-width: 570px){
         width: 360px;
         box-shadow: none;
+        margin-top: 92px;
+        flex-grow: 1;
     }
     @media (max-width: 510px){
         width: 325px;
