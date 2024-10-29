@@ -113,3 +113,10 @@ async function deleteContactFromDB(id) {
         console.error("Failed to delete current Contact from DB:", error);
     }
 }
+
+
+// Board Database functions
+
+async function getTasksFromDB(path = "/tasks") {
+
+}
