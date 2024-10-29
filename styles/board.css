@@ -164,7 +164,7 @@
 /* Tab Item */
 .tabItem {
   width: 360px;
-  height: 48px;
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -199,10 +199,17 @@
   height: calc(100% - 48px);
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
   border-radius: 12px;
-  border: 1px solid black;
+  padding-top: 8px;
+}
+
+.tasks {
+  width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 16px;
 }
 
@@ -217,14 +224,15 @@
 }
 
 .noToDoContainer {
-  width: 360px;
-  height: 64px;
+  width: 350px;
+  min-height: 64px;
   background-color: #E7E7E7;
   border-radius: 12px;
   border: 1px dashed #A8A8A8;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8px;
 }
 
 .noToDoText {
@@ -243,14 +251,15 @@
 }
 
 .noInProgressContainer {
-  width: 360px;
-  height: 64px;
+  width: 350px;
+  min-height: 64px;
   background-color: #E7E7E7;
   border-radius: 12px;
   border: 1px dashed #A8A8A8;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8px;
 }
 
 .noInProgressText {
@@ -269,14 +278,15 @@
 }
 
 .noAwaitFeedbackContainer {
-  width: 360px;
-  height: 64px;
+  width: 350px;
+  min-height: 64px;
   background-color: #E7E7E7;
   border-radius: 12px;
   border: 1px dashed #A8A8A8;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8px;
 }
 
 .noAwaitFeedbackText {
@@ -295,14 +305,15 @@
 }
 
 .noDoneContainer {
-  width: 360px;
-  height: 64px;
+  width: 350px;
+  min-height: 64px;
   background-color: #E7E7E7;
   border-radius: 12px;
   border: 1px dashed #A8A8A8;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 8px;
 }
 
 .noDoneText {

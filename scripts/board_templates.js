@@ -1,4 +1,12 @@
 /* Board Templates */
+// No tasks to do Template
+function noTaskToDoTemplate() {
+    return /*html*/`
+    
+    `;
+}
+
+
 // Technical Task Overlay
 function technicalTaskOverlayTemplate() {
     return /*html*/`
