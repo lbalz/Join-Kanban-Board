@@ -18,10 +18,13 @@
     <!-- Scripts -->
     <script src="../script.js"></script>
     <!-- <script src="../scripts/overlay_functionality.js"></script> -->
-    <script src="../scripts/add_task.js"></script>
+    <script src="../scripts/add_task.js" defer></script>
+
+    <script src="../scripts/database.js" defer></script>
+    <script src="../scripts/contacts.js" defer></script>
 </head>
 
-<body>
+<body onload="getUserDataForAddTask()">
     <header>
         <div class="header">
             <div class="headerLeft">
@@ -113,7 +116,8 @@
                         <label for="priority">Priority</label>
                         <div class="priorityOptions">
                             <!-- Urgent -->
-                            <div class="priorityBtn urgent" data-priority="urgent" onclick="setActive(this)">
+                            <div id="urgent" class="priorityBtn urgent urgentHover" data-priority="urgent"
+                                onclick="toggleUrgent()">
                                 <p>Urgent</p>
                                 <svg width="20" height="15" viewBox="0 0 20 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +138,8 @@
                                 </svg>
                             </div>
                             <!-- Medium -->
-                            <div class="priorityBtn medium" data-priority="medium" onclick="setActive(this)">
+                            <div id="medium" class="priorityBtn medium mediumHover" data-priority="medium"
+                                onclick="toggleMedium()">
                                 <p>Medium</p>
                                 <svg width="20" height="9" viewBox="0 0 20 9" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +160,7 @@
                                 </svg>
                             </div>
                             <!-- Low -->
-                            <div class="priorityBtn low" data-priority="low" onclick="setActive(this)">
+                            <div id="low" class="priorityBtn low lowHover" data-priority="low" onclick="toggleLow()">
                                 <p>Low</p>
                                 <svg width="21" height="15" viewBox="0 0 21 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -173,23 +178,53 @@
 
                     <!-- Assinged Section, Assined to (select Contacts to assign) -->
                     <div class="assignedContent">
-                        <label for="assigned">Assigned to (optional)</label>
-                        <div class="assigned">
-                            <div class="assignedTo">
-                                <p>Select contacts to assign</p>
-                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <mask id="mask0_19393_9705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                        y="0" width="24" height="25">
-                                        <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
-                                    </mask>
-                                    <g mask="url(#mask0_19393_9705)">
-                                        <path
-                                            d="M11.3 15.2658L8.69998 12.6658C8.38331 12.3492 8.31248 11.9867 8.48748 11.5783C8.66248 11.17 8.97498 10.9658 9.42498 10.9658H14.575C15.025 10.9658 15.3375 11.17 15.5125 11.5783C15.6875 11.9867 15.6166 12.3492 15.3 12.6658L12.7 15.2658C12.6 15.3658 12.4916 15.4408 12.375 15.4908C12.2583 15.5408 12.1333 15.5658 12 15.5658C11.8666 15.5658 11.7416 15.5408 11.625 15.4908C11.5083 15.4408 11.4 15.3658 11.3 15.2658Z"
-                                            fill="#4589FF" />
-                                    </g>
-                                </svg>
+                        <div class="mainAssigned">
+                            <label for="assigned">Assigned to (optional)</label>
+                            <div class="assigned">
+                                <div class="assignedTo" id="assignedTo"
+                                    onclick="toggleDropdownAssignedContacts(), changeDropdownAssignedIcon(), renderAssignedToList()">
+                                    <p>Select contacts to assign</p>
+                                    <!-- arrow Down default -->
+                                    <svg id="arrowDown" class="arrowDownDefault" width="24" height="25"
+                                        viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect id="arrowDownHover" display="none" y="0.96582" width="24" height="24"
+                                            rx="12" fill="#D2E3FF" />
+                                        <mask id="mask0_19393_9705" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="24" height="25">
+                                            <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_19393_9705)">
+                                            <path
+                                                d="M11.3 15.2658L8.69998 12.6658C8.38331 12.3492 8.31248 11.9867 8.48748 11.5783C8.66248 11.17 8.97498 10.9658 9.42498 10.9658H14.575C15.025 10.9658 15.3375 11.17 15.5125 11.5783C15.6875 11.9867 15.6166 12.3492 15.3 12.6658L12.7 15.2658C12.6 15.3658 12.4916 15.4408 12.375 15.4908C12.2583 15.5408 12.1333 15.5658 12 15.5658C11.8666 15.5658 11.7416 15.5408 11.625 15.4908C11.5083 15.4408 11.4 15.3658 11.3 15.2658Z"
+                                                fill="#4589FF" />
+                                        </g>
+                                    </svg>
+                                    <!-- arrow Up default -->
+                                    <svg display="none" id="arrowUp" class="arrowUpDefault" width="24" height="25"
+                                        viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect id="arrowUpHover" display="none" y="0.96582" width="24" height="24"
+                                            rx="12" fill="#D2E3FF" />
+                                        <mask id="mask0_19398_10189" style="mask-type:alpha" maskUnits="userSpaceOnUse"
+                                            x="0" y="0" width="24" height="25">
+                                            <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
+                                        </mask>
+                                        <g mask="url(#mask0_19398_10189)">
+                                            <path
+                                                d="M12.7 11.2659L15.3 13.8659C15.6167 14.1826 15.6875 14.5451 15.5125 14.9534C15.3375 15.3618 15.025 15.5659 14.575 15.5659H9.42502C8.97502 15.5659 8.66253 15.3618 8.48752 14.9534C8.31252 14.5451 8.38336 14.1826 8.70003 13.8659L11.3 11.2659C11.4 11.1659 11.5084 11.0909 11.625 11.0409C11.7417 10.9909 11.8667 10.9659 12 10.9659C12.1334 10.9659 12.2584 10.9909 12.375 11.0409C12.4917 11.0909 12.6 11.1659 12.7 11.2659Z"
+                                                fill="#4589FF" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div id="showSelectedContact" class="showSelectedContact">
+                                    <!-- <span class="showncontactAvatar">LB</span>
+                                    <span class="showncontactAvatar">LB</span> -->
+                                </div>
                             </div>
+                        </div>
+                        <!-- Assigned Contact -->
+                        <div class="assignedContacts hiddenAssignedContacts" id="assignedContacts">
+                            <ul id="assignedContactsUlItem">
+                            </ul>
                         </div>
                     </div>
 
@@ -197,10 +232,13 @@
                     <!-- Category Section -->
                     <div class="category">
                         <label for="category">Category</label>
-                        <div class="chooseCategory">
+                        <div class="chooseCategory" onclick="toggleDropdownCategory(), changeDropdownCategoryIcon()">
                             <p>Select task category</p>
-                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+                            <!-- arrow Down default -->
+                            <svg id="arrowDownCategory" class="arrowDownDefault" width="24" height="25"
+                                viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect id="arrowDownHover" display="none" y="0.96582" width="24" height="24" rx="12"
+                                    fill="#D2E3FF" />
                                 <mask id="mask0_19393_9705" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
                                     y="0" width="24" height="25">
                                     <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
@@ -211,9 +249,39 @@
                                         fill="#4589FF" />
                                 </g>
                             </svg>
+                            <!-- arrow Up default -->
+                            <svg display="none" id="arrowUpCategory" class="arrowUpDefault" width="24" height="25"
+                                viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect id="arrowUpHover" display="none" y="0.96582" width="24" height="24" rx="12"
+                                    fill="#D2E3FF" />
+                                <mask id="mask0_19398_10189" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                    y="0" width="24" height="25">
+                                    <rect y="0.96582" width="24" height="24" fill="#D9D9D9" />
+                                </mask>
+                                <g mask="url(#mask0_19398_10189)">
+                                    <path
+                                        d="M12.7 11.2659L15.3 13.8659C15.6167 14.1826 15.6875 14.5451 15.5125 14.9534C15.3375 15.3618 15.025 15.5659 14.575 15.5659H9.42502C8.97502 15.5659 8.66253 15.3618 8.48752 14.9534C8.31252 14.5451 8.38336 14.1826 8.70003 13.8659L11.3 11.2659C11.4 11.1659 11.5084 11.0909 11.625 11.0409C11.7417 10.9909 11.8667 10.9659 12 10.9659C12.1334 10.9659 12.2584 10.9909 12.375 11.0409C12.4917 11.0909 12.6 11.1659 12.7 11.2659Z"
+                                        fill="#4589FF" />
+                                </g>
+                            </svg>
                         </div>
                     </div>
 
+                    <!--Chose a Category Tasks -->
+                    <div class="categoryTasks hiddenCategoryTasks" id="categoryTasks">
+                        <ul>
+                            <li>
+                                <div class="tasks">
+                                    <span>Technical Task</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tasks">
+                                    <span>User Story</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
 
                     <!-- Subtasks Section -->
                     <div class="subtaskContent">
@@ -236,29 +304,33 @@
                     </div>
                 </div>
             </div>
-            <div class="rightContainer">
-                <div>
-                    <div class="rightContainerBtn">
-                            <button class="clearTaskBtn">Clear X</button>
-                            <button class="createTaskBtn">
-                                Create Task
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <mask id="mask0_19053_7123" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
-                                    y="0" width="24" height="24">
-                                    <rect width="24" height="24" fill="#D9D9D9" />
-                                </mask>
-                                <g mask="url(#mask0_19053_7123)">
-                                    <path
-                                        d="M9.55021 15.15L18.0252 6.675C18.2252 6.475 18.4627 6.375 18.7377 6.375C19.0127 6.375 19.2502 6.475 19.4502 6.675C19.6502 6.875 19.7502 7.1125 19.7502 7.3875C19.7502 7.6625 19.6502 7.9 19.4502 8.1L10.2502 17.3C10.0502 17.5 9.81687 17.6 9.55021 17.6C9.28354 17.6 9.05021 17.5 8.85021 17.3L4.55021 13C4.35021 12.8 4.25437 12.5625 4.26271 12.2875C4.27104 12.0125 4.37521 11.775 4.57521 11.575C4.77521 11.375 5.01271 11.275 5.28771 11.275C5.56271 11.275 5.80021 11.375 6.00021 11.575L9.55021 15.15Z"
-                                        fill="white" />
-                                </g>
-                            </svg>
-                            </button>
-                    </div>
+        </div>
+
+
+
+        <!-- right Container Section -->
+        <div class="rightContainer">
+            <div>
+                <div class="rightContainerBtn">
+                    <button class="clearTaskBtn">Clear X</button>
+                    <button class="createTaskBtn">
+                        Create Task
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0_19053_7123" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0"
+                                width="24" height="24">
+                                <rect width="24" height="24" fill="#D9D9D9" />
+                            </mask>
+                            <g mask="url(#mask0_19053_7123)">
+                                <path
+                                    d="M9.55021 15.15L18.0252 6.675C18.2252 6.475 18.4627 6.375 18.7377 6.375C19.0127 6.375 19.2502 6.475 19.4502 6.675C19.6502 6.875 19.7502 7.1125 19.7502 7.3875C19.7502 7.6625 19.6502 7.9 19.4502 8.1L10.2502 17.3C10.0502 17.5 9.81687 17.6 9.55021 17.6C9.28354 17.6 9.05021 17.5 8.85021 17.3L4.55021 13C4.35021 12.8 4.25437 12.5625 4.26271 12.2875C4.27104 12.0125 4.37521 11.775 4.57521 11.575C4.77521 11.375 5.01271 11.275 5.28771 11.275C5.56271 11.275 5.80021 11.375 6.00021 11.575L9.55021 15.15Z"
+                                    fill="white" />
+                            </g>
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

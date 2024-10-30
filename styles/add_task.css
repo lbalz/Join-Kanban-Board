@@ -1,3 +1,7 @@
+input:focus, textarea:focus {
+  border: 1px solid #ccc;
+  outline: none;
+}
 .headerTitle {
   cursor: pointer;
 }
@@ -55,7 +59,7 @@
   /* background-color: wheat; */
   width: 400px;
   height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
   scrollbar-width: thin;
 }
 
@@ -93,11 +97,6 @@
   border-radius: 0px 10px 10px 10px;
   font-size: 16px;
   padding: 12px;
-}
-
-.descriptionText:focus {
-  border: 1px solid #ccc;
-  outline: none;
 }
 
 /* due Date Section */
@@ -155,7 +154,6 @@
   align-items: center;
   box-sizing: border-box;
   background-color: aliceblue;
-  /* margin: 8px; */
   padding: 12px 16px;
   border: 1px solid rgb(113, 113, 113, 0.2);
   border-radius: 10px;
@@ -164,15 +162,15 @@
 }
 
 /* Hover */
-.urgent:hover {
+.urgentHover:hover {
   box-shadow: 0px 3px 0px 0px #ff3d00;
 }
 
-.medium:hover {
+.mediumHover:hover {
   box-shadow: 0px 3px 0px 0px #ffa800;
 }
 
-.low:hover {
+.lowHover:hover {
   box-shadow: 0px 3px 0px 0px #7ae229;
 }
 
@@ -209,11 +207,55 @@
 .low p {
   margin: 0px;
   padding: 0px;
+  font-family: "Open-Sans";
 }
 
 /* assigned Section */
+.assignedContacts {
+  max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.hiddenAssignedContacts {
+  display: none;
+}
+
+.hideArrowUp {
+  display: none;
+}
+
+/* Anfangszustand des rect - es ist ausgeblendet */
+#arrowDownHover {
+  display: none;
+}
+
+/* Wenn der Mauszeiger über dem #arrowDown ist, wird das rect angezeigt */
+#arrowDown:hover #arrowDownHover {
+  display: flex;
+}
+
+#arrowDownCategory:hover #arrowDownHover {
+  display: flex;
+}
+
+
+/* Anfangszustand des rect - es ist ausgeblendet */
+#arrowUpHover {
+  display: none;
+}
+
+/* Wenn der Mauszeiger über dem #arrowDown ist, wird das rect angezeigt */
+#arrowUp:hover #arrowUpHover {
+  display: flex;
+}
+
+#arrowUpCategory:hover #arrowUpHover {
+  display: flex;
+}
+
 .assignedContent,
-.category {
+.categoryTasks {
   display: flex;
   flex-direction: column;
   margin: 0px 0px 24px 0px;
@@ -226,17 +268,112 @@
   border-width: 0px 0px 2px 0px;
 }
 
-/* category Section */
+/* Assigned Contact Section */
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: 4px;
+  height: 40px;
+}
+
+.contact:hover {
+  background-color: #d2e3ff;
+  border-radius: 5px;
+  display: flex;
+  margin-top: 4px;
+  height: 40px;
+  width: 100%;
+}
+
+.contact.active {
+  background-color: #4589ff;
+  border-radius: 5px;
+  color: white;
+}
+
+.contact.active:hover {
+  background-color: #005dff;
+}
+
+.contact:focus:not(:hover) {
+  background-color: #00ffa2;
+  border-radius: 5px;
+}
+
+.contactIformation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+ul {
+  list-style-type: none;  /* Remove bullets*/
+  padding: 0px;  /* Remove padding */
+  margin: 0px;  /* Remove margins */
+}
+
+.contactAvatar {
+  background-color: #c53d10;
+  color: white;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 21px;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.hideCheckBox {
+  display: none;
+}
+
+.checkbox {
+  margin-right: 8px;
+}
+.showSelectedContact {
+  display: flex;
+  margin: 8px 0px 8px 0px;
+  gap: 8px;
+}
+
+.showncontactAvatar {
+  background-color: #00ffa2;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 21px;
+  font-size: 12px;
+  /* margin-left: 8px; */
+}
+
+
+/*! category Section */
+.hiddenCategoryTasks {
+  display: none;
+}
+
+.hideArrowUp {
+  display: none;
+}
+
 .category,
-.assigned,
-.subtaskContent {
+.assigned {
   display: flex;
   flex-direction: column;
 }
 
 .chooseCategory,
-.assignedTo,
-.subtaskInput {
+.assignedTo {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -244,8 +381,7 @@
 }
 
 .chooseCategory:hover,
-.assignedTo:hover,
-.subtaskInput:hover {
+.assignedTo:hover {
   border-bottom: 1px solid #005dff;
   cursor: pointer;
 }
@@ -255,8 +391,29 @@
   margin: 16px 0px 8px 0px;
 }
 
+.tasks {
+  margin: 8px 0px 16px 0px;
+  width: 100%;
+  display: flex;
+  align-items: start;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+
+.tasks:hover {
+  background-color: #d2e3ff;
+  border-radius: 5px;
+  height: 40px;
+}
+
+/* Subtask Section */
 .subtaskInput {
   margin: 8px 0px 24px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
 }
 
 .subtaskInput input {
@@ -267,7 +424,17 @@
   font-size: 14px;
 }
 
-/* right Container Btns */
+.subtaskContent {
+  margin-top: 16px;
+}
+
+.subtaskInput:hover {
+  border-bottom: 1px solid #005dff;
+}
+
+
+
+/* * right Container Btns */
 .clearTaskBtn button {
   display: flex;
   align-items: center;
@@ -313,9 +480,9 @@
   font-size: 20px;
 }
 
+.clearTaskBtn:hover {
+  color: rgb(0, 93, 255);
+  border: 2px solid rgb(0, 93, 255, 0.8);
+  padding: 13px 15px;
+}
 
-/* .createTaskBtn, .clearTaskBtn {
-  border: none;
-  gap: 8px;
-  font-size: 20px;
-} */
