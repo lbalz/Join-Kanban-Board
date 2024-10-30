@@ -86,6 +86,7 @@ async function updateContactToDB(id, updatedData) {
         }
 
         loadUserData();
+        renderContactDetailsClear();
     } catch (error) {
         console.error("Failed to update current Contact to DB:", error);
     }
@@ -111,4 +112,11 @@ async function deleteContactFromDB(id) {
     } catch (error) {
         console.error("Failed to delete current Contact from DB:", error);
     }
+}
+
+
+// Board Database functions
+
+async function getTasksFromDB(path = "/tasks") {
+
 }

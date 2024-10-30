@@ -37,7 +37,6 @@
                         <img class="headerHelpIcon" src="./assets/icons/help_icon.png" alt="help icon">
                     </a>
                 </div>
-                
 
                 <div class="headerProfileContainer" onclick="toggledropDownBar()">
                     <div class="headerProfile">
@@ -48,7 +47,7 @@
                 <div class="dropDownBar" id="dropDownBar">
                     <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
                     <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
-                    <a href="" class="dropDownItem">Log Out</a>
+                    <a href="./pages/log_in.html" class="dropDownItem">Log Out</a>
                 </div>
 
             </div>
@@ -96,8 +95,71 @@
 
         <div class="rightContent">
 
+            <!-- Dashboard Section -->
+            <div class="dashboardWrapper">
+                <div class="dashboardHeader">
+                    <h1>Good morning,<span class="dashboardUsername"> Sofia Müller</span></h1>
+                </div>
+                <div class="dashboardStatsGrid">
+
+                    <a href="./pages/board.html" class="dashboardUrgentTasks">
+                        <div class="dashboard-icon">
+                            <img src="./assets/icons/icon_urgent.png" alt="Urgent tasks icon">
+                        </div>
+                        <div class="dashboardStatInfo">
+                            <p class="dashboardNumberUrgent">1</p>
+                            <p class="dashboardLabelUrgent">Tasks Urgent</p>
+                        </div>
+                        <div class="dashboardDeadline">
+                            <p class="dashboardDate" id="currentDate"></p>
+                            <p class="dashboardDeadlineLabel">Upcoming Deadline</p>
+                        </div>
+                    </a>
+
+                    <a href="./pages/board.html" class="dashboardStatItem">
+                        <div class="dashboardIcon">
+                            <img src="./assets/icons/icon_board.png" alt="Tasks in board icon">
+                        </div>
+                        <p class="dashboardNumber">5</p>
+                        <p class="dashboardLabel">Task in Board</p>
+                    </a>
+
+                    <a href="./pages/board.html" class="dashboardStatItem">
+                        <div class="dashboardIcon">
+                            <img src="./assets/icons/icon_todo.png" alt="Tasks to do icon">
+                        </div>
+                        <p class="dashboardNumber">1</p>
+                        <p class="dashboardLabel">Tasks To-do</p>
+                    </a>
+
+                    <a href="./pages/board.html" class="dashboardStatItem">
+                        <div class="dashboardIcon">
+                            <img src="./assets/icons/icon_progress.png" alt="Tasks in progress icon">
+                        </div>
+                        <p class="dashboardNumber">2</p>
+                        <p class="dashboardLabel">Task in Progress</p>
+                    </a>
+
+                    <a href="./pages/board.html" class="dashboardStatItem">
+                        <div class="dashboardIcon">
+                            <img src="./assets/icons/icon_feedback.png" alt="Awaiting feedback icon">
+                        </div>
+                        <p class="dashboardNumber">2</p>
+                        <p class="dashboardLabel">Awaiting Feedback</p>
+                    </a>
+
+
+                    <a href="./pages/board.html" class="dashboardStatItem">
+                        <div class="dashboardIcon">
+                            <img src="./assets/icons/icon_done.png" alt="Tasks done icon">
+                        </div>
+                        <p class="dashboardNumber">1</p>
+                        <p class="dashboardLabel">Tasks Done</p>
+                    </a>
+
+                </div>
+            </div>
         </div>
-    </div>
 </body>
 
 </html>

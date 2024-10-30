@@ -14,14 +14,18 @@
     <link rel="stylesheet" href="../styles/board.css">
     <link rel="stylesheet" href="../styles/contact.css">
     <link rel="stylesheet" href="../styles/help_icon.css">
-
+    <link rel="stylesheet" href="../styles/board_card.css">
+    <link rel="stylesheet" href="../styles/board_overlay.css">
 
     <!-- Scripts -->
     <script src="../script.js"></script>
+    <script src="../scripts/board.js"></script>
+    <script src="../scripts/board_database.js"></script>
+    <script src="../scripts/board_templates.js"></script>
     <!-- <script src="../scripts/contact_overlay.js"></script> -->
 </head>
 
-<body>
+<body onload="loadAndRenderBoardTasks()">
     <header>
         <div class="header">
             <div class="headerLeft">
@@ -49,7 +53,7 @@
                 <div class="dropDownBar" id="dropDownBar">
                     <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
                     <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
-                    <a href="" class="dropDownItem">Log Out</a>
+                    <a href="../pages/log_in.html" class="dropDownItem">Log Out</a>
                 </div>
 
             </div>
@@ -98,118 +102,467 @@
         </footer>
 
         <div class="rightContent">
-            <div class="bordTopContent">
+            <div class="boardContent">
                 <div class="searchAndAddContainer">
                     <!-- suchfeld -->
                     <div class="searchBarContainer">
                         <input type="text" class="searchInput" placeholder="Find Task">
-                        <img class="boardSearchIcon" src="../assets/icons/board_lupe_icon.svg" alt="Search Icon">
+                        <div class="boardSearchIconContainer">
+                            <div class="boardSearchIconSVGWrapper">
+                                <svg class="boardSearchIcon" width="32" height="33" viewBox="0 0 32 33"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <mask id="mask0_51146_4665" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0"
+                                        y="0" width="32" height="33">
+                                        <rect y="0.5" width="32" height="32" fill="#D9D9D9" />
+                                    </mask>
+                                    <g mask="url(#mask0_51146_4665)">
+                                        <path class="boardSearchIconRect"
+                                            d="M13.7118 20.7137C11.8946 20.7137 10.3567 20.0843 9.098 18.8256C7.83931 17.5669 7.20996 16.029 7.20996 14.2118C7.20996 12.3946 7.83931 10.8567 9.098 9.598C10.3567 8.33931 11.8946 7.70996 13.7118 7.70996C15.529 7.70996 17.0669 8.33931 18.3256 9.598C19.5843 10.8567 20.2137 12.3946 20.2137 14.2118C20.2137 14.9454 20.097 15.6372 19.8636 16.2874C19.6302 16.9376 19.3134 17.5127 18.9133 18.0129L24.5149 23.6145C24.6983 23.7979 24.79 24.0313 24.79 24.3147C24.79 24.5981 24.6983 24.8315 24.5149 25.0149C24.3315 25.1983 24.0981 25.29 23.8147 25.29C23.5313 25.29 23.2979 25.1983 23.1145 25.0149L17.5129 19.4133C17.0127 19.8134 16.4376 20.1302 15.7874 20.3636C15.1372 20.597 14.4454 20.7137 13.7118 20.7137ZM13.7118 18.7131C14.9622 18.7131 16.025 18.2755 16.9002 17.4002C17.7755 16.525 18.2131 15.4622 18.2131 14.2118C18.2131 12.9615 17.7755 11.8987 16.9002 11.0234C16.025 10.1482 14.9622 9.71053 13.7118 9.71053C12.4615 9.71053 11.3987 10.1482 10.5234 11.0234C9.64815 11.8987 9.21053 12.9615 9.21053 14.2118C9.21053 15.4622 9.64815 16.525 10.5234 17.4002C11.3987 18.2755 12.4615 18.7131 13.7118 18.7131Z"
+                                            fill="#42526E" />
+                                    </g>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Add Task BTN -->
-                    <button class="boardAddTaskButton" onclick="openTaskBoard()">
-                        <p>Add task</p>
-                        <img class="boardAddTaskIcon" src="../assets/icons/board_add_task_plus.svg" alt="Add Task Icon">
-                    </button>
-                </div>
-
-                <!-- Task Tabs -->
-                <div class="tabsTop">
-                    <div class="taskTabs">
-                        <div class="tabItem">
-                            To do
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add To Do">
-                        </div>
-                        <div class="tabItem">
-                            In progress
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg" alt="Add In Progress">
-                        </div>
-                        <div class="tabItem">
-                            Await feedback
-                            <img class="tabAddIcon" src="../assets/icons/board_todo_plus_btn.svg"
-                                alt="Add Await Feedback">
-                        </div>
-                        <div class="tabItem">
-                            Done
+                    <div class="boardAddTaskButtonContainer" onclick="openTaskBoard()">
+                        <span class="boardAddTaskButtonText">Add task</span>
+                        <div class="boardAddTaskButtonSVGWrapper">
+                            <svg width="17" height="17" viewBox="0 0 17 17" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path class="" d="M8.5 1V16" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <path d="M16 8.6416L1 8.6416" stroke="white" stroke-width="2" stroke-linecap="round" />
+                            </svg>
                         </div>
                     </div>
                 </div>
 
-                <div class="taskBoard">
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="todo"></div>
+                <!-- Board -->
+                <div class="boardContainer">
+
+                    <!-- To do Container -->
+                    <div class="toDoContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">To Do</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="tasks" id="toDoTasks">
+                                
+
+                                <!-- Single Card -->
+                                <div class="taskSingleCard">
+                                    <div class="taskSingleCardContentWrapper">
+                                        <div class="taskTypeContainer">
+                                            <div id="taskTypeTextContainer" class="technicalTaskBG">
+                                                <span id="taskTypeText">Technical Task</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskTitleAndDescriptionContainer">
+                                            <div class="taskTitleContainer">
+                                                <span id="taskTitleText">Kochwelt page & Recipe Recommender</span>
+                                            </div>
+                                            <div class="taskDescriptionContainer">
+                                                <span id="taskDescriptionText">Build start page with recipe recommendation...</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskProgressbarContainer">
+                                            <div class="taskProgressbarSVGContainer">
+                                                <svg width="180" height="16" viewBox="0 0 180 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="180" height="16" rx="8" fill="#F4F4F4"/>
+                                                    <rect width="90" height="16" rx="8" fill="#4589FF"/>
+                                                </svg>
+                                            </div>
+                                            <div class="taskProgressbarStatusTextContainer">
+                                                <span id="taskProgressbarStatusText">1/2 Subtasks</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskAssignedToAndPriorityContainer">
+                                            <div id="taskAssignedToContainer" class="taskAssignedToContainer">
+                                                
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>...</span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div id="taskPriorityContainer" class="taskPriorityContainer">
+                                                <div class="taskPrioritySVGContainer">
+                                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.4995 9.00614C10.2649 9.00654 10.0364 8.9317 9.84753 8.79262L0.944424 2.22288C0.828586 2.13733 0.730747 2.02981 0.656491 1.90647C0.582236 1.78313 0.53302 1.64638 0.511652 1.50404C0.468498 1.21655 0.541397 0.923717 0.714313 0.689945C0.88723 0.456173 1.146 0.300615 1.43369 0.257493C1.72139 0.21437 2.01444 0.287216 2.24839 0.460004L10.4995 6.54248L18.7506 0.460004C18.8665 0.374448 18.998 0.312529 19.1378 0.277782C19.2776 0.243035 19.4229 0.236141 19.5653 0.257493C19.7078 0.278844 19.8446 0.328025 19.9681 0.402225C20.0915 0.476425 20.1991 0.574193 20.2847 0.689945C20.3703 0.805697 20.4323 0.937168 20.4671 1.07685C20.5018 1.21653 20.5087 1.36169 20.4874 1.50404C20.466 1.64638 20.4168 1.78313 20.3425 1.90647C20.2683 2.02981 20.1704 2.13733 20.0546 2.22288L11.1515 8.79262C10.9626 8.9317 10.7341 9.00654 10.4995 9.00614Z" fill="#7AE229"/>
+                                                        <path d="M10.4995 14.7547C10.2649 14.7551 10.0364 14.6802 9.84753 14.5412L0.944424 7.97142C0.710479 7.79863 0.554806 7.54005 0.511652 7.25257C0.468498 6.96509 0.541397 6.67225 0.714313 6.43848C0.88723 6.20471 1.146 6.04915 1.43369 6.00603C1.72139 5.96291 2.01444 6.03575 2.24839 6.20854L10.4995 12.291L18.7506 6.20854C18.9846 6.03575 19.2776 5.96291 19.5653 6.00603C19.853 6.04915 20.1118 6.20471 20.2847 6.43848C20.4576 6.67225 20.5305 6.96509 20.4874 7.25257C20.4442 7.54005 20.2885 7.79863 20.0546 7.97142L11.1515 14.5412C10.9626 14.6802 10.7341 14.7551 10.4995 14.7547Z" fill="#7AE229"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="taskSingleCard">
+                                    <div class="taskSingleCardContentWrapper">
+                                        <div class="taskTypeContainer">
+                                            <div id="taskTypeTextContainer" class="technicalTaskBG">
+                                                <span id="taskTypeText">Technical Task</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskTitleAndDescriptionContainer">
+                                            <div class="taskTitleContainer">
+                                                <span id="taskTitleText">Kochwelt page & Recipe Recommender</span>
+                                            </div>
+                                            <div class="taskDescriptionContainer">
+                                                <span id="taskDescriptionText">Build start page with recipe recommendation...</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskProgressbarContainer">
+                                            <div class="taskProgressbarSVGContainer">
+                                                <svg width="180" height="16" viewBox="0 0 180 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="180" height="16" rx="8" fill="#F4F4F4"/>
+                                                    <rect width="90" height="16" rx="8" fill="#4589FF"/>
+                                                </svg>
+                                            </div>
+                                            <div class="taskProgressbarStatusTextContainer">
+                                                <span id="taskProgressbarStatusText">1/2 Subtasks</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskAssignedToAndPriorityContainer">
+                                            <div id="taskAssignedToContainer" class="taskAssignedToContainer">
+                                                
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>...</span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div id="taskPriorityContainer" class="taskPriorityContainer">
+                                                <div class="taskPrioritySVGContainer">
+                                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.4995 9.00614C10.2649 9.00654 10.0364 8.9317 9.84753 8.79262L0.944424 2.22288C0.828586 2.13733 0.730747 2.02981 0.656491 1.90647C0.582236 1.78313 0.53302 1.64638 0.511652 1.50404C0.468498 1.21655 0.541397 0.923717 0.714313 0.689945C0.88723 0.456173 1.146 0.300615 1.43369 0.257493C1.72139 0.21437 2.01444 0.287216 2.24839 0.460004L10.4995 6.54248L18.7506 0.460004C18.8665 0.374448 18.998 0.312529 19.1378 0.277782C19.2776 0.243035 19.4229 0.236141 19.5653 0.257493C19.7078 0.278844 19.8446 0.328025 19.9681 0.402225C20.0915 0.476425 20.1991 0.574193 20.2847 0.689945C20.3703 0.805697 20.4323 0.937168 20.4671 1.07685C20.5018 1.21653 20.5087 1.36169 20.4874 1.50404C20.466 1.64638 20.4168 1.78313 20.3425 1.90647C20.2683 2.02981 20.1704 2.13733 20.0546 2.22288L11.1515 8.79262C10.9626 8.9317 10.7341 9.00654 10.4995 9.00614Z" fill="#7AE229"/>
+                                                        <path d="M10.4995 14.7547C10.2649 14.7551 10.0364 14.6802 9.84753 14.5412L0.944424 7.97142C0.710479 7.79863 0.554806 7.54005 0.511652 7.25257C0.468498 6.96509 0.541397 6.67225 0.714313 6.43848C0.88723 6.20471 1.146 6.04915 1.43369 6.00603C1.72139 5.96291 2.01444 6.03575 2.24839 6.20854L10.4995 12.291L18.7506 6.20854C18.9846 6.03575 19.2776 5.96291 19.5653 6.00603C19.853 6.04915 20.1118 6.20471 20.2847 6.43848C20.4576 6.67225 20.5305 6.96509 20.4874 7.25257C20.4442 7.54005 20.2885 7.79863 20.0546 7.97142L11.1515 14.5412C10.9626 14.6802 10.7341 14.7551 10.4995 14.7547Z" fill="#7AE229"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="taskSingleCard">
+                                    <div class="taskSingleCardContentWrapper">
+                                        <div class="taskTypeContainer">
+                                            <div id="taskTypeTextContainer" class="technicalTaskBG">
+                                                <span id="taskTypeText">Technical Task</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskTitleAndDescriptionContainer">
+                                            <div class="taskTitleContainer">
+                                                <span id="taskTitleText">Kochwelt page & Recipe Recommender</span>
+                                            </div>
+                                            <div class="taskDescriptionContainer">
+                                                <span id="taskDescriptionText">Build start page with recipe recommendation...</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskProgressbarContainer">
+                                            <div class="taskProgressbarSVGContainer">
+                                                <svg width="180" height="16" viewBox="0 0 180 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="180" height="16" rx="8" fill="#F4F4F4"/>
+                                                    <rect width="90" height="16" rx="8" fill="#4589FF"/>
+                                                </svg>
+                                            </div>
+                                            <div class="taskProgressbarStatusTextContainer">
+                                                <span id="taskProgressbarStatusText">1/2 Subtasks</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskAssignedToAndPriorityContainer">
+                                            <div id="taskAssignedToContainer" class="taskAssignedToContainer">
+                                                
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>...</span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div id="taskPriorityContainer" class="taskPriorityContainer">
+                                                <div class="taskPrioritySVGContainer">
+                                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.4995 9.00614C10.2649 9.00654 10.0364 8.9317 9.84753 8.79262L0.944424 2.22288C0.828586 2.13733 0.730747 2.02981 0.656491 1.90647C0.582236 1.78313 0.53302 1.64638 0.511652 1.50404C0.468498 1.21655 0.541397 0.923717 0.714313 0.689945C0.88723 0.456173 1.146 0.300615 1.43369 0.257493C1.72139 0.21437 2.01444 0.287216 2.24839 0.460004L10.4995 6.54248L18.7506 0.460004C18.8665 0.374448 18.998 0.312529 19.1378 0.277782C19.2776 0.243035 19.4229 0.236141 19.5653 0.257493C19.7078 0.278844 19.8446 0.328025 19.9681 0.402225C20.0915 0.476425 20.1991 0.574193 20.2847 0.689945C20.3703 0.805697 20.4323 0.937168 20.4671 1.07685C20.5018 1.21653 20.5087 1.36169 20.4874 1.50404C20.466 1.64638 20.4168 1.78313 20.3425 1.90647C20.2683 2.02981 20.1704 2.13733 20.0546 2.22288L11.1515 8.79262C10.9626 8.9317 10.7341 9.00654 10.4995 9.00614Z" fill="#7AE229"/>
+                                                        <path d="M10.4995 14.7547C10.2649 14.7551 10.0364 14.6802 9.84753 14.5412L0.944424 7.97142C0.710479 7.79863 0.554806 7.54005 0.511652 7.25257C0.468498 6.96509 0.541397 6.67225 0.714313 6.43848C0.88723 6.20471 1.146 6.04915 1.43369 6.00603C1.72139 5.96291 2.01444 6.03575 2.24839 6.20854L10.4995 12.291L18.7506 6.20854C18.9846 6.03575 19.2776 5.96291 19.5653 6.00603C19.853 6.04915 20.1118 6.20471 20.2847 6.43848C20.4576 6.67225 20.5305 6.96509 20.4874 7.25257C20.4442 7.54005 20.2885 7.79863 20.0546 7.97142L11.1515 14.5412C10.9626 14.6802 10.7341 14.7551 10.4995 14.7547Z" fill="#7AE229"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="taskSingleCard">
+                                    <div class="taskSingleCardContentWrapper">
+                                        <div class="taskTypeContainer">
+                                            <div id="taskTypeTextContainer" class="technicalTaskBG">
+                                                <span id="taskTypeText">Technical Task</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskTitleAndDescriptionContainer">
+                                            <div class="taskTitleContainer">
+                                                <span id="taskTitleText">Kochwelt page & Recipe Recommender</span>
+                                            </div>
+                                            <div class="taskDescriptionContainer">
+                                                <span id="taskDescriptionText">Build start page with recipe recommendation...</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskProgressbarContainer">
+                                            <div class="taskProgressbarSVGContainer">
+                                                <svg width="180" height="16" viewBox="0 0 180 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <rect width="180" height="16" rx="8" fill="#F4F4F4"/>
+                                                    <rect width="90" height="16" rx="8" fill="#4589FF"/>
+                                                </svg>
+                                            </div>
+                                            <div class="taskProgressbarStatusTextContainer">
+                                                <span id="taskProgressbarStatusText">1/2 Subtasks</span>
+                                            </div>
+                                        </div>
+    
+                                        <div class="taskAssignedToAndPriorityContainer">
+                                            <div id="taskAssignedToContainer" class="taskAssignedToContainer">
+                                                
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>LB</span>
+                                                </div>
+
+                                                <div class="taskSingleContact">
+                                                    <span>...</span>
+                                                </div>
+                                                
+                                            </div>
+                                            <div id="taskPriorityContainer" class="taskPriorityContainer">
+                                                <div class="taskPrioritySVGContainer">
+                                                    <svg width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10.4995 9.00614C10.2649 9.00654 10.0364 8.9317 9.84753 8.79262L0.944424 2.22288C0.828586 2.13733 0.730747 2.02981 0.656491 1.90647C0.582236 1.78313 0.53302 1.64638 0.511652 1.50404C0.468498 1.21655 0.541397 0.923717 0.714313 0.689945C0.88723 0.456173 1.146 0.300615 1.43369 0.257493C1.72139 0.21437 2.01444 0.287216 2.24839 0.460004L10.4995 6.54248L18.7506 0.460004C18.8665 0.374448 18.998 0.312529 19.1378 0.277782C19.2776 0.243035 19.4229 0.236141 19.5653 0.257493C19.7078 0.278844 19.8446 0.328025 19.9681 0.402225C20.0915 0.476425 20.1991 0.574193 20.2847 0.689945C20.3703 0.805697 20.4323 0.937168 20.4671 1.07685C20.5018 1.21653 20.5087 1.36169 20.4874 1.50404C20.466 1.64638 20.4168 1.78313 20.3425 1.90647C20.2683 2.02981 20.1704 2.13733 20.0546 2.22288L11.1515 8.79262C10.9626 8.9317 10.7341 9.00654 10.4995 9.00614Z" fill="#7AE229"/>
+                                                        <path d="M10.4995 14.7547C10.2649 14.7551 10.0364 14.6802 9.84753 14.5412L0.944424 7.97142C0.710479 7.79863 0.554806 7.54005 0.511652 7.25257C0.468498 6.96509 0.541397 6.67225 0.714313 6.43848C0.88723 6.20471 1.146 6.04915 1.43369 6.00603C1.72139 5.96291 2.01444 6.03575 2.24839 6.20854L10.4995 12.291L18.7506 6.20854C18.9846 6.03575 19.2776 5.96291 19.5653 6.00603C19.853 6.04915 20.1118 6.20471 20.2847 6.43848C20.4576 6.67225 20.5305 6.96509 20.4874 7.25257C20.4442 7.54005 20.2885 7.79863 20.0546 7.97142L11.1515 14.5412C10.9626 14.6802 10.7341 14.7551 10.4995 14.7547Z" fill="#7AE229"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="inprogress"></div>
+
+                    <!-- In progress Container -->
+                    <div class="inProgressContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">In progress</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="tasks" id="inProgressTasks">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="awaitfeedback"></div>
+
+                    <!-- Await feedback Container -->
+                    <div class="awaitFeedbackContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">Await feedback</span>
+                            <div class="tabItemSVGContainer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <rect class="tabItemSVG" x="1" y="1" width="22" height="22" rx="7" stroke="#4589FF" stroke-width="2" />
+                                    <path class="tabItemSVG" d="M12 8V16" stroke="#4589FF" stroke-width="2" stroke-linecap="round" />
+                                    <path class="tabItemSVG" d="M16 12.0752L8 12.0752" stroke="#4589FF" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="tasks" id="awaitFeedbackTasks">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="taskColumn">
-                        <div class="taskContainer" id="done"></div>
+
+                    <!-- Done Container -->
+                    <div class="doneContainer">
+                        <div class="tabItem">
+                            <span class="tabItemText">Done</span>
+                        </div>
+                        <div class="tasksContainer">
+                            <div class="tasks" id="doneTasks">
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            <div class="boardOverlay" style="display: block;">
-                
+            <div class="boardOverlay" style="display: none;">
+
                 <div class="addTaskOverlay">
-                    <div class="addTaskImg">
-                        <span class="titleAddTask">Add Task</span>
-                        <img class="blueXForAddTaskOverlay" src="../assets/icons/close_blue.svg">
-                    </div>
-                    <div class="middlePartContainer">
-                        <div class="titlePart">
-                            <input class="textInputForAddTask" type="text" placeholder="Enter a header Title">
+                    <div class="addTaskWrapper">
+                        <div class="addTaskImg">
+                            <span class="titleAddTask">Add Task</span>
+                            <img class="blueXForAddTaskOverlay" src="../assets/icons/close_blue.svg">
                         </div>
-                        <div class="discriptionPart">
-                            <span class="fontsForAddTask">Discription</span>
-                            <textarea class="discriptionInput" placeholder="Enter a Discription"></textarea>
-                        </div>
-                        <div class="dateAndImg">
-                            <span class="fontsForAddTask">Due date</span>
-                            <div class="dateInputField">
-                                <input class="textInputForDueDate" type="text" placeholder="dd/mm/yyyy">
-                                <img class="calendarForAddTask" src="../assets/icons/event.svg">
+                        <div class="contentPartContainer">
+                            <div class="topPartContainer">
+                                <div class="titlePart">
+                                    <input class="textInputForAddTask" type="text" placeholder="Enter a header Title">
+                                </div>
+                                <div class="discriptionPart">
+                                    <span class="fontsForAddTask">Discription</span>
+                                    <textarea class="discriptionInput" placeholder="Enter a Discription"></textarea>
+                                </div>
+                                <div class="dateAndImg">
+                                    <span class="fontsForAddTask">Due date</span>
+                                    <div class="dateInputField">
+                                        <input class="textInputForDueDate" type="text" placeholder="dd/mm/yyyy">
+                                        <img class="calendarForAddTask" src="../assets/icons/event.svg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottomPartContainer">
+                                <div class="PriorityWithImgDiv">
+                                    <span class="fontsForAddTask">Priority</span>
+                                    <div class="prioBtnDiv">
+                                        <div class="btnUrgent">
+                                            <span>Urgent</span>
+                                            <div>
+                                                <img class="iconUrgent" src="../assets/icons/Prio_urgent.svg">
+                                            </div>
+                                        </div>
+                                        <div class="btnMedium">
+                                            <span>Medium</span>
+                                            <div>
+                                                <img class="iconMedium" src="../assets/icons/Prio_medium.svg">
+                                            </div>
+                                        </div>
+                                        <div class="btnLow">
+                                            <span>Low</span>
+                                            <div>
+                                                <img class="iconLow" src="../assets/icons/Prio_low.svg">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="assignedToForAddTaskOverlay">
+                                    <span class="fontsForAddTask">Assigned to</span>
+                                    <div class="selectContractAndArrowDropDown">
+                                        <span>Select contracs to assign</span>
+                                        <img class="dropDownArrowForAddTaskOverlay" src="../assets/icons/arrow_drop_down.svg">
+                                    </div>
+                                </div>
+                                <div class="categorySelectTaskAndImg">
+                                    <span class="fontsForAddTask">Category</span>
+                                    <div class="spanAndArrowDropDownIcon">
+                                        <span>Select task category</span>
+                                        <img class="dropDownArrowForAddTaskOverlay" src="../assets/icons/arrow_drop_down.svg">
+                                    </div>
+                                </div>
+                                <div class="SubtasksTextInputAndImg">
+                                    <span class="fontsForAddTask">Subtasks</span>
+                                    <div class="inputandImgForSubtasks">
+                                        <input class="inputFieldForSubtasks" type="text" placeholder="add new Subtask">
+                                        <img class="bluePlusForAddTaskOverlay" src="../assets/icons/plus_blue.svg">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="PriorityWithImgDiv">
-                            <span class="fontsForAddTask">Priority</span>
-                            <div class="iconImgDiv">
-                                <img class="iconUrgent" src="../assets/icons/urgent.svg">
-                                <img class="iconMedium" src="../assets/icons/medium.svg">
-                                <img class="iconLow" src="../assets/icons/low.svg">
-                            </div>
+                        <div class="createTaskBtn">
+                            <button class="creatBtnForOverlay">Create Task<img
+                                    src="../assets/icons/blue_check.svg"></button>
                         </div>
-                        <div class="assignedToForAddTaskOverlay">
-                            <span class="fontsForAddTask">Assigned to</span>
-                            <div class="selectContractAndArrowDropDown">
-                                <span>Select contracs to assign</span>
-                                <img src="../assets/icons/arrow_drop_down.svg">
-                            </div>
-                        </div>
-                        <div class="categorySelectTaskAndImg">
-                            <span class="fontsForAddTask">Category</span>
-                            <div class="spanAndArrowDropDownIcon">
-                                <span>Select task category</span>
-                                <img src="../assets/icons/arrow_drop_down.svg">
-                            </div>
-                        </div>
-                        <div class="SubtasksTextInputAndImg">
-                            <span class="fontsForAddTask">Subtasks</span>
-                            <div class="inputandImgForSubtasks">
-                                <input class="inputFieldForSubtasks" type="text" placeholder="add new Subtask">
-                                <img src="../assets/icons/board_todo_plus_btn.svg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="createTaskBtn">
-                        <img src="../assets/icons/create_task_default.svg">
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </body>
+
 </html>

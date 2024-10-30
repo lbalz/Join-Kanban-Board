@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../styles/help_icon.css">
     <link rel="stylesheet" href="../styles/contact.css">
+    <link rel="stylesheet" href="../styles/contact_responsive.css">
+    <link rel="stylesheet" href="../styles/style_responsive.css">
+    
 
 
     <!-- Scripts -->
@@ -49,7 +52,7 @@
                 <div class="dropDownBar" id="dropDownBar">
                     <a href="./legal_notice.html" class="dropDownItem">Legal Notice</a>
                     <a href="./privacy_policy.html" class="dropDownItem">Privat Policy</a>
-                    <a href="" class="dropDownItem">Log Out</a>
+                    <a href="../pages/log_in.html" class="dropDownItem">Log Out</a>
                 </div>
 
             </div>
@@ -109,15 +112,71 @@
             <div class="contactDetailsContainer" id="contactDetails">
                 
             </div>
+            <div class="btnForResponsivContactAtWidth950PX">
+                <button class="personAddBtnForResponsiv"><img src="../assets/icons/person_add.png"></button>
+            </div>
         </div>
 
         <div class="contactsOverlay" style="display: none;">
             
+            <div class="contactDetailsOverlayForMaxWitdh950PX">
+                <div class="contactInfoAndBlueArrowLeft">
+                    <span class="contactListInformation">Contact Information</span>
+                    <img src="../assets/icons/arrow_left_line.svg">
+                </div>
+                <div class="circleFirstLetterAndName">
+                    <div class="circleWithFirstLettersOfFirstAndLastName">
+                        <span class="firstLetterFromFirsAndLastName">LB</span>
+                    </div>
+                    <span class="nameOfSpecificContact">name of contact</span>
+                </div>
+                <div class="emailAndLinkForSpecificContact">
+                    <span class="emailTextInOverlay">Email</span>
+                    <a class="linkForTheEmailForOverlayContact" href="">questionmark@gmail.com</a>
+                </div>
+                <div class="phoneAndSpecificNumber">
+                    <span class="PhoneNumberForOverlayContact">Phone</span>
+                    <span class="numberForPhone">number of specific contact</span>
+                </div>
+                <div class="blueThreePointBtn">
+                    <button class="threePointsBlueBtn"><img src="../assets/icons/three_points.svg"></button>
+                </div>
+            </div>
             
         </div>
     </div>
+    
+    <footer class="sidebarBecomesFooter">
+            <div class="linkContainerForResonsivFooter">
+                <a class="footerMenuAtResponsiv" href="../index.html">
+                    <img class="iconForResponsivFooter" src="../assets/icons/summary_icon.svg">
+                    <span class="textForResponsivFooter">Summary</span>
+                </a>
+            </div>
 
 
+            <div class="linkContainerForResonsivFooter">
+                <a class="footerMenuAtResponsiv" href="../pages/board.html">
+                    <img class="iconForResponsivFooter" src="../assets/icons/board_icon.svg">
+                    <span class="textForResponsivFooter boardTextResponsiv">Board</span>
+                </a>
+            </div>
+
+            <div class="linkContainerForResonsivFooter">
+                <a class="footerMenuAtResponsiv" href="../pages/add_task.html">
+                    <img class="iconForResponsivFooter"src="../assets/icons/add_task_icon.svg">
+                    <span class="textForResponsivFooter">Add Task</span>
+                </a>
+            </div>
+
+
+            <div class="linkContainerForResonsivFooter">
+                <a class="footerMenuAtResponsiv" href="../pages/contact.html">
+                    <img class="iconForResponsivFooter" src="../assets/icons/contact_icon.svg">
+                    <span class="textForResponsivFooter">Contacts</span>
+                </a>
+            </div>
+    </footer>
 
 </body>
 

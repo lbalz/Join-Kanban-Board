@@ -44,12 +44,12 @@ function contactDetailsRenderTemplate(singleUser, index) {
         </div>
     </div>
     <div>
-        <h2>Contact Information</h2>
-        <div>
+        <h2 class ="h2ForContactInformation">Contact Information</h2>
+        <div class="EmailInContactInformation">
             <span style="font-weight: bold">Email</span> <br>
             <span style="color: #4589FF">${singleUser.email}</span>
         </div>
-        <div>
+        <div class="PhoneInContactInformation">
             <span style="font-weight: bold">Phone</span> <br>
             <span>${singleUser.phone}</span>
         </div>
@@ -97,7 +97,7 @@ function renderAddContactOverlay() {
                 </div>
                 <div class="buttons">
                     <button type="button" class="cancelContactBtnOverlay" onclick="closePopup()">Cancel &times;</button>
-                    <button type="button" class="createContactBtn" onclick="addNewContact()">
+                    <button type="button" class="createContactBtn" onclick="checkContactFormValidation()">
                         Create contact <img src="/assets/icons/check.png" alt="">
                     </button>
                 </div>
