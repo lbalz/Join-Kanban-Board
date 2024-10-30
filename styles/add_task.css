@@ -208,6 +208,12 @@ input:focus, textarea:focus {
 }
 
 /* assigned Section */
+.assignedContacts {
+  max-height: 150px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
 .hiddenAssignedContacts {
   display: none;
 }

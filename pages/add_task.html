@@ -19,9 +19,12 @@
     <script src="../script.js"></script>
     <!-- <script src="../scripts/overlay_functionality.js"></script> -->
     <script src="../scripts/add_task.js" defer></script>
+
+    <script src="../scripts/database.js" defer></script>
+    <script src="../scripts/contacts.js" defer></script>
 </head>
 
-<body>
+<body onload="getUserDataForAddTask()">
     <header>
         <div class="header">
             <div class="headerLeft">
@@ -179,7 +182,7 @@
                             <label for="assigned">Assigned to (optional)</label>
                             <div class="assigned">
                                 <div class="assignedTo" id="assignedTo"
-                                    onclick="toggleDropdownAssignedContacts(), changeDropdownAssignedIcon()">
+                                    onclick="toggleDropdownAssignedContacts(), changeDropdownAssignedIcon(), renderAssignedToList()">
                                     <p>Select contacts to assign</p>
                                     <!-- arrow Down default -->
                                     <svg id="arrowDown" class="arrowDownDefault" width="24" height="25"
@@ -212,49 +215,15 @@
                                         </g>
                                     </svg>
                                 </div>
-                                <div class="showSelectedContact">
-                                    <span class="showncontactAvatar">LB</span>
-                                    <span class="showncontactAvatar">LB</span>
-                                    <span class="showncontactAvatar">LB</span>
+                                <div id="showSelectedContact" class="showSelectedContact">
+                                    <!-- <span class="showncontactAvatar">LB</span>
+                                    <span class="showncontactAvatar">LB</span> -->
                                 </div>
                             </div>
                         </div>
                         <!-- Assigned Contact -->
                         <div class="assignedContacts hiddenAssignedContacts" id="assignedContacts">
-                            <ul>
-                                <li>
-                                    <div class="contact" onclick="toggleCheckbox(this)">
-                                        <div class="contactIformation">
-                                            <span class="contactAvatar">LB</span>
-                                            <span>Lukas Balz</span>
-                                        </div>
-
-                                        <div class="checkbox">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="contact" onclick="toggleCheckbox(this)">
-                                        <div class="contactIformation">
-                                            <span class="contactAvatar">LB</span>
-                                            <span>Lukas Balz</span>
-                                        </div>
-
-                                        <div class="checkbox">
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="contact" onclick="toggleCheckbox(this)">
-                                        <div class="contactIformation">
-                                            <span class="contactAvatar">LB</span>
-                                            <span>Lukas Balz</span>
-                                        </div>
-
-                                        <div class="checkbox">
-                                        </div>
-                                    </div>
-                                </li>
+                            <ul id="assignedContactsUlItem">
                             </ul>
                         </div>
                     </div>
