@@ -28,7 +28,7 @@
             </a>
 
             <h2>Sign Up</h2>
-            <form action="#" method="post" class="login-form">
+            <form id="signupForm" action="#" method="post" class="login-form">
                 <div class="inputSignUp">
                     <input type="text" id="name" name="name" placeholder="Name" required>
                     <img src="../assets/icons/signUpNameIcon.png" alt="Name Icon" class="input-icon">
@@ -42,8 +42,7 @@
                     <img src="../assets/icons/logInLock.png" alt="Password Icon" class="input-icon">
                 </div>
                 <div class="inputSignUp">
-                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password"
-                        required>
+                    <input type="password" id="confirmpassword" name="confirmpassword" placeholder="Confirm Password" required>
                     <img src="../assets/icons/logInLock.png" alt="Confirm Password Icon" class="input-icon">
                 </div>
                 <div class="checkboxAccept">
@@ -56,15 +55,14 @@
         </div>
     </div>
 
-    <!-- JavaScript to enable/disable the button -->
-    <script>
-        const acceptCheckbox = document.getElementById('accept');
-        const signUpButton = document.getElementById('signUpButton');
+    <!-- Overlay und Popup-Element -->
+    <div id="overlay" class="overlay hidden"></div>
+    <div id="signup-popup" class="popup hidden">
+        <p>You Signed Up Successfully</p>
+    </div>
 
-        acceptCheckbox.addEventListener('change', () => {
-            signUpButton.disabled = !acceptCheckbox.checked;
-        });
-    </script>
+    <!-- Einbindung von signup.js -->
+    <script src="../scripts/signup.js"></script>
 
 </body>
 
