@@ -47,3 +47,13 @@ function addBtnDisable() {
     document.querySelector(".add")
 }
 
+//Funktion für Dropdown Contact Info Overlay für Responsiv
+function dropDownEditAndDelete(){
+    let editAndDeleteDropdown = document.getElementById('dropDownMenuForSpecialContact');
+    editAndDeleteDropdown.style.display = editAndDeleteDropdown.style.display === "none" ? "block" : "none";
+}
+
+//Funktion für Blauen Pfeil, der nach Li zeigt ("Backpfeil")
+function goBack() {
+    window.history.back();
+    }

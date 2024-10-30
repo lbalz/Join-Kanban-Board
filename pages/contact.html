@@ -122,7 +122,7 @@
             <div class="contactDetailsOverlayForMaxWitdh950PX">
                 <div class="contactInfoAndBlueArrowLeft">
                     <span class="contactListInformation">Contact Information</span>
-                    <img src="../assets/icons/arrow_left_line.svg">
+                    <img class="blueLeftArrow" src="../assets/icons/arrow_left_line.svg">
                 </div>
                 <div class="circleFirstLetterAndName">
                     <div class="circleWithFirstLettersOfFirstAndLastName">
@@ -139,7 +139,19 @@
                     <span class="numberForPhone">number of specific contact</span>
                 </div>
                 <div class="blueThreePointBtn">
-                    <button class="threePointsBlueBtn"><img src="../assets/icons/three_points.svg"></button>
+                    <button class="threePointsBlueBtn" onclick="dropDownEditAndDelete()">
+                        <img src="../assets/icons/three_points.svg">
+                    </button>
+                </div>
+                <div class="dropDownContainerForSpecialContactInfo" id="dropDownMenuForSpecialContact" style="display: none;">
+                    <div class="editAndSpanTextForSpecialContactInfo">
+                        <img src="../assets/icons/edit.svg">
+                        <span class="spanInspecialContactDiv">Edit</span>
+                    </div>
+                    <div class="deleteandSpanTextForSpecialConactInfo">
+                        <img src="../assets/icons/delete.svg">
+                        <span class="spanInspecialContactDiv">Delete</span>
+                    </div>
                 </div>
             </div>
             
@@ -177,7 +189,6 @@
                 </a>
             </div>
     </footer>
-
 </body>
 
 </html>
