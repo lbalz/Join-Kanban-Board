@@ -28,7 +28,7 @@ function renderToDoTasks(data) {
         data[0] === null ||
         data[0] === undefined ||
         Object.keys(data[0]).length === 0) {
-        toDoTasksRef.innerHTML = noTaskTemplate('"To Do"');
+            toDoTasksRef.innerHTML = noTaskTemplate('"To Do"');
     } else {
         data.forEach(task => {
             toDoTasksRef.innerHTML += taskTemplate(task);
