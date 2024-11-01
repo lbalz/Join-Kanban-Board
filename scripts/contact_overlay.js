@@ -57,3 +57,21 @@ function dropDownEditAndDelete(){
 function goBack() {
     window.history.back();
 }
+
+function closeResponsiveDetailsOverlay(index) {
+    let contactOverlay = document.querySelector('.contactsOverlay');
+    contactOverlay.style = "display: none";
+
+    let allDivs = document.querySelectorAll(".contactListSingleContactItemContainer");
+    let allSpans = document.querySelectorAll(".contactListSingleContactItemEmail");
+    let selectedDiv = document.getElementById(`${index}`);
+    let span = document.getElementById(`span${index}`);
+
+    for (let i = 0; i < allDivs.length; i++) {
+        const singleDiv = allDivs[i];
+        singleDiv.classList.remove("backgroundColorBlue");
+
+        const singleSpan = allSpans[i];
+        singleSpan.classList.remove("backgroundColorBlue");
+    }
+}

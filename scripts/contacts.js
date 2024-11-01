@@ -68,6 +68,7 @@ function renderContactDetails(userId, index) {
     singleUser = userData.find(user => user.id === userId);
 
     if (window.innerWidth <= 1050) {
+        contactOverlay.style = "display: flex";
         contactOverlay.innerHTML = contactDetailsOverlayTemplate(singleUser, index);
     } else {
         contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser, index);

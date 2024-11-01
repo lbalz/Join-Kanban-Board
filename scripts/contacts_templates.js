@@ -63,7 +63,7 @@ function contactDetailsOverlayTemplate(singleUser, index) {
     <div class="contactDetailsOverlayForMaxWitdh950PX">
         <div class="contactInfoAndBlueArrowLeft">
             <span class="contactListInformation">Contact Information</span>
-            <img class="blueLeftArrow" src="../assets/icons/arrow_left_line.svg">
+            <img class="blueLeftArrow" src="../assets/icons/arrow_left_line.svg" onclick="closeResponsiveDetailsOverlay(${index})">
         </div>
         <div class="circleFirstLetterAndName">
             <div class="circleWithFirstLettersOfFirstAndLastName" style="background-color: ${singleUser.color}">
