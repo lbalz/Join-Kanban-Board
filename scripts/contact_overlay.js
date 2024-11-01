@@ -56,4 +56,4 @@ function dropDownEditAndDelete(){
 //Funktion für Blauen Pfeil, der nach Li zeigt ("Backpfeil")
 function goBack() {
     window.history.back();
-    }
+}

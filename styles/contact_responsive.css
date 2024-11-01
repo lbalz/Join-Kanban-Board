@@ -15,6 +15,9 @@
 }
 
 .contactListContainer {
+    @media (max-width: 950px){
+        justify-content: end;
+    }
     @media (max-width: 570px){
         width: 360px;
         box-shadow: none;
@@ -84,10 +87,7 @@
 }
 
 .sidebarContainer {
-    @media (max-width: 540px) {
-        width: 154px;
-    }
-    @media (max-width: 950px) {
+    @media (max-width: 1150px) {
         display: none;
     }
 }
@@ -157,13 +157,15 @@
 
 .sidebarBecomesFooter {
     display: none;
-        @media (max-width: 950px) {
+        @media (max-width: 1150px) {
             display: flex;
             width: 620px;
+            height: 62px;
             margin-left: 35px;
             margin-right: 28px;
             margin-top: 33px;
             justify-content: space-between;
+            align-items: center;
             position: sticky;
             bottom: 0;
             background-color: white;
@@ -173,9 +175,10 @@
         }
         @media (max-width: 600px) {
             width: 440px;
+            margin-left: 0px;
         }
         @media (max-width: 525px) {
-            width: 350px;
+            width: 370px;
         }
         @media (max-width: 420px) {
             gap: 65px;
@@ -202,6 +205,7 @@
 .footerMenuAtResponsiv {
     width: 24px;
     height: 24px;
+    margin-left: 22px;
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -210,6 +214,7 @@
     position: sticky;
     bottom: 0;
     background-color: white;
+
 
 }
 
@@ -223,10 +228,7 @@
 }
 
 .contactDetailsContainer {
-    @media (max-width: 1000px) {
-        display: none;
-    }
-    @media (max-width: 570px) {
+    @media (max-width: 820px) {
         display: none;
     }
 }

@@ -57,6 +57,46 @@ function contactDetailsRenderTemplate(singleUser, index) {
     `;
 }
 
+// contact details overlay ab einer max-width von 950px
+function contactDetailsOverlayTemplate(singleUser, index) {
+    return /*html*/ `
+    <div class="contactDetailsOverlayForMaxWitdh950PX">
+        <div class="contactInfoAndBlueArrowLeft">
+            <span class="contactListInformation">Contact Information</span>
+            <img class="blueLeftArrow" src="../assets/icons/arrow_left_line.svg">
+        </div>
+        <div class="circleFirstLetterAndName">
+            <div class="circleWithFirstLettersOfFirstAndLastName" style="background-color: ${singleUser.color}">
+                <span class="firstLetterFromFirsAndLastName">${singleUser.initials}</span>
+            </div>
+            <span class="nameOfSpecificContact">${singleUser.name}</span>
+        </div>
+        <div class="emailAndLinkForSpecificContact">
+            <span class="emailTextInOverlay">Email</span>
+            <a class="linkForTheEmailForOverlayContact" href="">${singleUser.email}</a>
+        </div>
+        <div class="phoneAndSpecificNumber">
+            <span class="PhoneNumberForOverlayContact">Phone</span>
+            <span class="numberForPhone">${singleUser.phone}</span>
+        </div>
+        <div class="blueThreePointBtn">
+            <button class="threePointsBlueBtn" onclick="dropDownEditAndDelete()">
+                <img src="../assets/icons/three_points.svg">
+            </button>
+        </div>
+        <div class="dropDownContainerForSpecialContactInfo" id="dropDownMenuForSpecialContact" style="display: none;">
+            <div class="editAndSpanTextForSpecialContactInfo" onclick="openEditContactPopup(${index})">
+                <img src="../assets/icons/edit.svg">
+                <span class="spanInspecialContactDiv">Edit</span>
+            </div>
+            <div class="deleteandSpanTextForSpecialConactInfo" onclick="deleteContact('${singleUser.id}')">
+                <img src="../assets/icons/delete.svg">
+                <span class="spanInspecialContactDiv">Delete</span>
+            </div>
+        </div>
+    </div>
+`
+}
 
 /* Contact Overlay Templates */
 // Add Contact Overlay

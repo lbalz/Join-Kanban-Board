@@ -67,6 +67,9 @@ body {
   background-color: var(--bg-clr-light-blue);
   position: fixed;
   z-index: 2;
+  @media (max-width: 950px){
+    height: 70px;
+  }
 }
 
 .headerLeft {
