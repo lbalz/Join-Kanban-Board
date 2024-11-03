@@ -18,7 +18,6 @@
   padding-left: 77px;
 }
 
-/*center the login box */
 .loginContainer {
   display: flex;
   justify-content: center;
@@ -26,7 +25,6 @@
   background-color: #ffffff;
 }
 
-/*login box */
 .loginBox {
   background-color: white;
   padding: 40px;
@@ -44,19 +42,16 @@ h2 {
   text-align: center;
 }
 
-/* Form styling */
 .loginForm {
   display: flex;
   flex-direction: column;
 }
 
-/* Input fields for email and password */
 .inputGroup {
   position: relative;
   margin-bottom: 20px;
 }
 
-/* Input fields */
 .inputGroup input {
   width: 100%;
   padding: 12px;
@@ -76,7 +71,6 @@ h2 {
   width: 24px;
 }
 
-/* remember me checkbox */
 .checkboxGroup {
   display: flex;
   align-items: center;
@@ -94,7 +88,6 @@ h2 {
   text-decoration: none;
 }
 
-/* Buttons for login and guest login */
 button.login-btn,
 button.guest-btn {
   padding: 12px;
@@ -128,7 +121,6 @@ button.guest-btn {
 
 }
 
-/* Footer*/
 .footerLinks {
   position: absolute;
   bottom: 20px;
@@ -139,14 +131,101 @@ button.guest-btn {
   font-size: 14px;
 }
 
-/* Link styles */
 .footerLinks a {
   text-decoration: none;
   color: #43526e;
   font-weight: 400;
 }
 
-/* Hover-Effekt für die Links */
 .footerLinks a:hover {
   color: #005dff;
+}
+
+
+@media (max-width: 600px) {
+  .JoinLogoHeader {
+    padding-left: 20px;
+    width: 80px;
+    height: auto;
+  }
+
+  .headerLogInFull {
+    width: auto;
+    padding-right: 20px;
+  }
+
+  .loginContainer {
+    padding: 20px;
+  }
+
+  .loginBox {
+    width: 90%; 
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .inputGroup input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .inputGroup img.input-icon {
+    height: 20px;
+    width: 20px;
+  }
+
+  button.login-btn,
+  button.guest-btn {
+    width: 100%; 
+    font-size: 14px;
+  }
+
+  .buttonGroup {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footerLinks {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    gap: 10px;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+  }
+
+  .headerJoinLogo {
+    padding-left: 38px;
+  }
+
+  .headerLogIn {
+    position: absolute;
+    bottom: 40px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 90%; 
+    max-width: 400px; 
+    overflow: hidden; 
+    box-sizing: border-box; 
+  }
+
+  .headerLogInFull {
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  
+  .headerJoinLogoSignUp {
+    max-width: 100%; 
+    height: auto; 
+    overflow: hidden; 
+    box-sizing: border-box; 
+  }
 }

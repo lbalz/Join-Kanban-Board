@@ -185,3 +185,80 @@ h2 {
       opacity: 1;
   }
 }
+
+
+@media (max-width: 600px) {
+  .signUpHeader {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+
+  .JoinLogoHeaderFrame {
+    padding-left: 10px; 
+  }
+
+  .headerJoinLogo {
+    width: 90px;
+    height: auto; 
+  }
+
+  .signUpBox {
+    width: 95%; 
+    padding: 25px; 
+    border-radius: 15px; 
+  }
+
+  .back-arrow {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    width: 30px; 
+    height: 30px; 
+  }
+
+  h2 {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .inputSignUp {
+    margin-bottom: 15px; 
+  }
+
+  .inputSignUp input {
+    padding: 12px;
+    font-size: 16px; 
+  }
+
+  .inputSignUp img.input-icon {
+    height: 22px; 
+    width: 22px;
+  }
+
+  .checkboxAccept {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    gap: 8px; 
+  }
+
+  .login-btn {
+    width: 100%; 
+    font-size: 16px; 
+    padding: 12px;
+    border-radius: 6px; 
+  }
+
+  .footerLinks {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px; 
+  }
+}
