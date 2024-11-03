@@ -14,9 +14,28 @@ function displayCurrentDate() {
   // Datum formatieren hier für DT: 'de-DE'
   const formattedDate = today.toLocaleDateString("en-US", options);
 
-  // Datum in das HTML-Element einsetzen
+  // setzt das Datum ein 
   dateElement.textContent = formattedDate;
 }
 
-// Funktion aufrufen, sobald das DOM geladen ist
-window.onload = displayCurrentDate;
+// Begrüßung nach Tageszeit
+function updateGreeting() {
+  const hour = new Date().getHours();
+  let greeting;
+
+  if (hour < 12) {
+    greeting = "Good morning,";
+  } else if (hour < 18) {
+    greeting = "Good afternoon,";
+  } else {
+    greeting = "Good evening,";
+  }
+
+  document.querySelector('.dashboardHeader h1').innerHTML = `${greeting}<span class="dashboardUsername"> Sofia Müller</span>`;
+}
+
+// ruft funktion auf sobald DOM geladen
+window.onload = function() {
+  displayCurrentDate();
+  updateGreeting();
+};
