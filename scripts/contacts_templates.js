@@ -60,6 +60,7 @@ function contactDetailsRenderTemplate(singleUser, index) {
 // contact details overlay ab einer max-width von 950px
 function contactDetailsOverlayTemplate(singleUser, index) {
     return /*html*/ `
+    
     <div class="contactDetailsOverlayForMaxWitdh950PX">
         <div class="contactInfoAndBlueArrowLeft">
             <span class="contactListInformation">Contact Information</span>
