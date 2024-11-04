@@ -62,8 +62,18 @@ function renderContactDetails(userId, index) {
     let contactDetails = document.querySelector("#contactDetails");
     contactDetails.innerHTML = "";
 
+    let contactOverlay = document.querySelector('.contactsOverlay');
+    contactOverlay.innerHTML = "";
+
     singleUser = userData.find(user => user.id === userId);
-    contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser, index);
+
+    if (window.innerWidth <= 1050) {
+        contactOverlay.style = "display: flex";
+        contactOverlay.innerHTML = contactDetailsOverlayTemplate(singleUser, index);
+    } else {
+        contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser, index);
+    }
+    
     editUserDetails = singleUser;
 }
 
@@ -73,6 +83,23 @@ function renderContactDetailsClear() {
     contactDetails.innerHTML = "";
 }
 
+
+// render contact details in overlay
+// function renderContactDetailsInOverlay(userId, index) {
+//     let contactDetails = document.querySelector("#contactDetails");
+//     contactDetails.innerHTML = "";
+
+//     singleUser = userData.find(user => user.id === userId);
+
+//     if (window.innerWidth <= 1050) {
+//         contactDetails.innerHTML = contactDetailsOverlayTemplate(singleUser, index);
+//         document.querySelector('.contactsOverlay')
+//     } else {
+//         contactDetails.innerHTML = contactDetailsRenderTemplate(singleUser, index);
+//     }
+    
+//     editUserDetails = singleUser;
+// }
 
 // add new contact form validation
 function checkContactFormValidation() {
