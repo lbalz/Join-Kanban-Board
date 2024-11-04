@@ -17,6 +17,7 @@ async function getUserDataForAddTask(path = "/users") {
           initials: userResponseJson[key].initials,
           name: userResponseJson[key].name,
           color: userResponseJson[key].color,
+          isToggled: false // hier is Toggled initalisieren
         });
       });
       console.log(addTaskUserData);
@@ -29,20 +30,20 @@ async function getUserDataForAddTask(path = "/users") {
 
 
 //! Template function for assigned to
-function assignedToSingleUserTemplate(singleUser) {
+function assignedToSingleUserTemplate(singleUser, i) {
   return /*html*/`
-                                  <li id="${singleUser.id}">
-                                    <div class="contact" onclick="toggleCheckbox(this)">
+                                  <li>
+                                    <div id="${singleUser.id}" class="contact" onclick="toggleCheckbox(this, ${i})">
                                         <div class="contactIformation">
                                             <span class="contactAvatar" style="background-color: ${singleUser.color}">${singleUser.initials}</span>
                                             <span>${singleUser.name}</span>
                                         </div>
 
                                         <div class="checkbox" id="checkbox">
-                                          <svg class="unchecked" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <svg id="unCheckedBox${i}" class="unchecked" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                               <rect x="4" y="4.96582" width="16" height="16" rx="3" stroke="#4589FF" stroke-width="2"/>
                                           </svg>
-                                          <svg class="checked hideCheckBox" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <svg id="checkedBox${i}" class="checked hideCheckBox" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                               <path d="M20 11.9658V17.9658C20 19.6227 18.6569 20.9658 17 20.9658H7C5.34315 20.9658 4 19.6227 4 17.9658V7.96582C4 6.30897 5.34315 4.96582 7 4.96582H15" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
                                               <path d="M8 12.9658L12 16.9658L20 5.46582" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                           </svg>
@@ -53,14 +54,24 @@ function assignedToSingleUserTemplate(singleUser) {
 }
 
 
-function renderAssignedToList(contactStatus) {
+function renderAssignedToList() {
   let ulItem = document.getElementById("assignedContactsUlItem");
   ulItem.innerHTML = "";
 
+  // const unchecked = document.getElementById('unCheckedBox');
+  // const checked = document.getElementById('checkedBox');
+
   for (let i = 0; i < addTaskUserData.length; i++) {
     const singleUser = addTaskUserData[i];
-    ulItem.innerHTML += assignedToSingleUserTemplate(singleUser);
-  } 
+    ulItem.innerHTML += assignedToSingleUserTemplate(singleUser, i);
+
+    // if (addTaskUserData[i].isToggled === false) {
+    //   unchecked.classList.remove('hideCheckBox');
+    //   checked.classList.add('hideCheckBox');
+    // }
+    const contactElement = document.getElementById(singleUser.id);
+    renderToggleCheckbox(contactElement, i);
+  }
 }
 
 
@@ -94,22 +105,68 @@ for (let i = 0; i < contacts.length; i++) {
 
 
 //! Funktion für Checkbox umschalten
-function toggleCheckbox(contactElement) {
+function toggleCheckbox(contactElement, i) {
 
-  const unchecked = contactElement.querySelector('.unchecked');
-  const checked = contactElement.querySelector('.checked');
+
+  const unchecked = document.getElementById(`unCheckedBox${i}`);
+  const checked = document.getElementById(`checkedBox${i}`);
+  // const unchecked = contactElement.querySelector('.unchecked');
+  // const checked = contactElement.querySelector('.checked');
 
   // Toggle Sichtbarkeit der Checkbox
-  if (unchecked.classList.contains('hideCheckBox')) {
+  if (addTaskUserData[i].isToggled) {
     unchecked.classList.remove('hideCheckBox');
     checked.classList.add('hideCheckBox');
+
+    // unchecked.classList.add('hideCheckBox');
+    // checked.classList.remove('hideCheckBox');
+    addTaskUserData[i].isToggled = false;
   } else {
     unchecked.classList.add('hideCheckBox');
     checked.classList.remove('hideCheckBox');
+
+    // unchecked.classList.remove('hideCheckBox');
+    // checked.classList.add('hideCheckBox');
+    addTaskUserData[i].isToggled = true;
   }
 
   // Markiere den Kontakt als aktiv (hellblau)
   contactElement.classList.toggle('active');
+
+}
+
+
+//! Funktion für Checkbox umschalten
+function renderToggleCheckbox(contactElement, i) {
+
+
+  const unchecked = document.getElementById(`unCheckedBox${i}`);
+  const checked = document.getElementById(`checkedBox${i}`);
+
+  // Toggle Sichtbarkeit der Checkbox
+  if (addTaskUserData[i].isToggled) {
+    // unchecked.classList.remove('hideCheckBox');
+    // checked.classList.add('hideCheckBox');
+
+    unchecked.classList.add('hideCheckBox');
+    checked.classList.remove('hideCheckBox');
+
+    // Füge die Klasse 'active' hinzu, wenn isToggled true ist
+    contactElement.classList.add('active');
+
+  } else {
+    // unchecked.classList.add('hideCheckBox');
+    // checked.classList.remove('hideCheckBox');
+
+    unchecked.classList.remove('hideCheckBox');
+    checked.classList.add('hideCheckBox');
+
+    // Entferne die Klasse 'active', wenn isToggled false ist
+    contactElement.classList.remove('active');
+  }
+
+  // Markiere den Kontakt als aktiv (hellblau)
+  // contactElement.classList.toggle('active');
 
 }
 
@@ -150,9 +207,9 @@ function updateSelectedContacts() {
 
   // Füge die Initialen jedes ausgewählten Kontakts hinzu
   activeContacts.forEach(contact => {
-      const contactAvatar = contact.querySelector('.contactAvatar').cloneNode(true); // Klont das Kontakt-Avatar
-      contactAvatar.classList.add('showncontactAvatar'); // Füge Klasse hinzu, falls nötig
-      selectedContactsContainer.appendChild(contactAvatar); // Füge Avatar zur Anzeige hinzu
+    const contactAvatar = contact.querySelector('.contactAvatar').cloneNode(true); // Klont das Kontakt-Avatar
+    contactAvatar.classList.add('showncontactAvatar'); // Füge Klasse hinzu, falls nötig
+    selectedContactsContainer.appendChild(contactAvatar); // Füge Avatar zur Anzeige hinzu
   });
 }
 
