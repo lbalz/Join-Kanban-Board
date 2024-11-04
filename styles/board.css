@@ -320,3 +320,14 @@
   font-size: 22px;
   color: #A8A8A8;
 }
+
+/* Drag and Drop */
+.rotateCard {
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+.containerGetHovered {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}

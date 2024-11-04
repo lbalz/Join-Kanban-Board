@@ -19,7 +19,7 @@
             <div class="JoinLogoHeader">
                 <img class="headerJoinLogo" src="../assets/icons/logInBigJoin.svg" alt="join logo">
             </div>
-    
+
             <!-- Sign Up Link Button -->
             <div class="headerLogIn">
                 <div class="headerLogInFull">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="inputGroup">
-                    <input type="password" id="password" name="password" placeholder="Password" required onfocus="fillDemoCredentials()">
+                    <input type="text" id="passwordField" name="password" placeholder="Password" required onfocus="fillDemoCredentials()" oninput="maskPassword()">
                     <img src="../assets/icons/logInLock.png" alt="Password Icon" class="input-icon">
                 </div>
 
@@ -67,29 +67,47 @@
     <script>
         function fillDemoCredentials() {
             const emailField = document.getElementById('email');
-            const passwordField = document.getElementById('password');
+            const passwordField = document.getElementById('passwordField');
 
             // sets values if empty
             if (!emailField.value) {
                 emailField.value = 'test@dv.com';
             }
-            if (!passwordField.value) {
-                passwordField.value = '12345678';
+            if (!passwordField.getAttribute('data-real-password')) {
+                passwordField.setAttribute('data-real-password', '12345678');
+                passwordField.value = '*'.repeat(8); // display the masked password
             }
+        }
+
+        function maskPassword() {
+            const inputField = document.getElementById('passwordField');
+            const realPassword = inputField.getAttribute('data-real-password') || ''; // Store the real password
+
+            // Capture new input character
+            const newChar = inputField.value.length > realPassword.length
+                ? inputField.value.slice(-1)
+                : '';
+
+            // Update the real password
+            const updatedPassword = newChar ? realPassword + newChar : realPassword.slice(0, -1);
+            inputField.setAttribute('data-real-password', updatedPassword);
+
+            // Replace input with masked characters
+            inputField.value = '*'.repeat(updatedPassword.length);
         }
 
         function validateLogin() {
             const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            const realPassword = document.getElementById('passwordField').getAttribute('data-real-password');
 
             // check if input matches test info
-            if (email === 'test@dv.com' && password === '12345678') {
+            if (email === 'test@dv.com' && realPassword === '12345678') {
                 // redirect to index.html if test infos are correct
                 window.location.href = '../index.html';
-                return false; 
+                return false;
             } else {
-                alert("Invalid credentials. Please use the demo credentials or sign up.");
-                return false; // prevent form login if demo infos are incorrect
+                alert("Invalid password. Please use the right password or sign up.");
+                return false; // rrevent form login if demo infos are incorrect
             }
         }
 

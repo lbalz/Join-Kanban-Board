@@ -7,6 +7,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 820px){
+    width: 820px;
+    align-items: flex-start;
+  }
 }
 
 .topContactList {
@@ -244,6 +248,31 @@ h1 {
   flex-direction: column;
   z-index: 1001; /* Pop-up Overlays Header */
   overflow: hidden;
+  @media (max-width: 950px){
+    width: 950px;
+  }
+  @media (max-width: 833px){
+    width: 833px;
+  }
+  @media (max-width: 720px){
+    width: 720px;
+  }
+  @media (max-width: 620px){
+    width: 620px;
+  }
+  @media (max-width: 531px){
+    width: 531px;
+  }
+  @media (max-width: 463px){
+    width: 463px;
+  }
+  @media (max-width: 400px){
+    width: 400px;
+  }
+  @media (max-width: 350px){
+    width: 350px;
+  }
+
 }
 
 /* Pop-up Top Blue-Area */
@@ -316,6 +345,8 @@ h1 {
   text-align: center;
 
 }
+
+/* sidebar ab 1050px footer */
 
 /* Pop-up Bottom, for the rest of the content  */
 /* .popUpBottom {
