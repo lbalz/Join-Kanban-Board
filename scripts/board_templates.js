@@ -12,7 +12,7 @@ function noTaskTemplate(category) {
 //! Tickets render Template noch fertig mit den Daten machen und gucken wie das mit Subtasks etc. am besten gemacht wird
 function taskTemplate(task) {
     return /*html*/`
-    <div class="taskSingleCard">
+    <div id="${task.id}" class="taskSingleCard" draggable="true" ondragstart="startDraggingElement('${task.id}'); addClassForRotation('${task.id}')" ondragend="removeClassForRotation('${task.id}')">
         <div class="taskSingleCardContentWrapper">
             <div class="taskTypeContainer">
                 <div id="taskTypeTextContainer" class="technicalTaskBG">
