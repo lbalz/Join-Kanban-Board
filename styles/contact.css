@@ -223,8 +223,14 @@ h1 {
   align-items: end;
   @media (max-width: 430px){
     height: 128px;
+  }
+}
+
+.textForDropDownOverlay{
+  @media (max-width: 950px){
     color: #4589FF;
   }
+  
 }
 
 
