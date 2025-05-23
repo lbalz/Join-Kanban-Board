@@ -13,12 +13,11 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/help_icon.css">
 
-
     <!-- Scripts -->
     <script src="./script.js"></script>
     <script src="./scripts/database.js"></script>
     <script src="./scripts/contacts.js"></script>
-    <script src="./scripts/overlay_functionality.js"></script>
+    <!-- <script src="./scripts/overlay_functionality.js"></script> -->
 </head>
 
 <body>
@@ -49,7 +48,6 @@
                     <a href="./privacy_policy.html" class="dropDownItem">Privacy Policy</a>
                     <a href="./pages/log_in.html" class="dropDownItem">Log Out</a>
                 </div>
-
             </div>
         </div>
     </header>
@@ -76,7 +74,6 @@
                             <img class="icon" src="./assets/icons/board_icon.svg" alt="Board icon">
                             <span class="text">Board</span>
                         </a>
-
                     </div>
                     <div class="menuItem">
                         <a class="menuLink" href="./pages/contact.html">
@@ -148,7 +145,6 @@
                         <p class="dashboardLabel">Awaiting Feedback</p>
                     </a>
 
-
                     <a href="./pages/board.html" class="dashboardStatItem">
                         <div class="dashboardIcon">
                             <img src="./assets/icons/icon_done.png" alt="Tasks done icon">
@@ -160,6 +156,29 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Script zum anzeigen des eingeloggten Users -->
+    <script>
+        // Abrufen der E-Mail des aktuell angemeldeten Benutzers
+        const loggedInUserEmail = localStorage.getItem("loggedInUser");
+
+        // Überprüfen, ob der Benutzer eingeloggt ist
+        if (loggedInUserEmail) {
+            const userData = JSON.parse(localStorage.getItem("user_" + loggedInUserEmail));
+            
+            if (userData && userData.name) {
+                console.log("Benutzername gefunden:", userData.name);  // Debugging-Ausgabe
+                document.querySelector(".dashboardUsername").textContent = userData.name;
+            } else {
+                console.error("Fehler: Benutzerdaten oder Name nicht gefunden.");
+            }
+        } else {
+            // Falls kein Benutzer eingeloggt ist, zur Login-Seite weiterleiten
+            console.warn("Kein Benutzer eingeloggt, Umleitung zur Login-Seite.");
+            window.location.href = "./pages/log_in.html";
+        }
+    </script>
 </body>
 
 </html>

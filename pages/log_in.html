@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join - Kanban Board</title>
-    <!-- fav -->
     <link rel="shortcut icon" href="../assets/icons/favicon_blue.png" type="image/x-icon">
-    <!-- styles -->
     <link rel="stylesheet" href="../styles/log_in.css">
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -36,12 +34,12 @@
             <h2>Log in</h2>
             <form action="#" method="post" class="login-form" onsubmit="return validateLogin()">
                 <div class="inputGroup">
-                    <input type="email" id="email" name="email" placeholder="Email" required onfocus="fillDemoCredentials()">
+                    <input type="email" id="email" name="email" placeholder="Email" required>
                     <img src="../assets/icons/logInMailIcon.png" alt="Email Icon" class="input-icon">
                 </div>
 
                 <div class="inputGroup">
-                    <input type="text" id="passwordField" name="password" placeholder="Password" required onfocus="fillDemoCredentials()" oninput="maskPassword()">
+                    <input type="text" id="passwordField" name="password" placeholder="Password" required oninput="maskPassword()">
                     <img src="../assets/icons/logInLock.png" alt="Password Icon" class="input-icon">
                 </div>
 
@@ -63,36 +61,18 @@
         <a class="linkNotice" href="../pages/legal_notice.html">Legal Notice</a>
     </footer>
 
-    <!-- js for filling test infos and login validation -->
+    <!-- JavaScript for login functionality -->
     <script>
-        function fillDemoCredentials() {
-            const emailField = document.getElementById('email');
-            const passwordField = document.getElementById('passwordField');
-
-            // sets values if empty
-            if (!emailField.value) {
-                emailField.value = 'test@dv.com';
-            }
-            if (!passwordField.getAttribute('data-real-password')) {
-                passwordField.setAttribute('data-real-password', '12345678');
-                passwordField.value = '*'.repeat(8); // display the masked password
-            }
-        }
-
         function maskPassword() {
             const inputField = document.getElementById('passwordField');
-            const realPassword = inputField.getAttribute('data-real-password') || ''; // Store the real password
+            const realPassword = inputField.getAttribute('data-real-password') || '';
 
-            // Capture new input character
             const newChar = inputField.value.length > realPassword.length
                 ? inputField.value.slice(-1)
                 : '';
 
-            // Update the real password
             const updatedPassword = newChar ? realPassword + newChar : realPassword.slice(0, -1);
             inputField.setAttribute('data-real-password', updatedPassword);
-
-            // Replace input with masked characters
             inputField.value = '*'.repeat(updatedPassword.length);
         }
 
@@ -100,19 +80,34 @@
             const email = document.getElementById('email').value;
             const realPassword = document.getElementById('passwordField').getAttribute('data-real-password');
 
-            // check if input matches test info
-            if (email === 'test@dv.com' && realPassword === '12345678') {
-                // redirect to index.html if test infos are correct
-                window.location.href = '../index.html';
+            const storedUser = localStorage.getItem("user_" + email);
+
+            if (!storedUser) {
+                alert("Diese E-Mail ist nicht registriert. Bitte melden Sie sich an.");
                 return false;
-            } else {
-                alert("Invalid password. Please use the right password or sign up.");
-                return false; // rrevent form login if demo infos are incorrect
             }
+
+            const userData = JSON.parse(storedUser);
+
+            if (userData.password === realPassword) {
+                // Setzt die E-Mail des angemeldeten Benutzers im Local Storage
+                localStorage.setItem("loggedInUser", email);
+                console.log("Benutzer eingeloggt mit E-Mail:", email);
+
+                // Weiterleitung zur Hauptseite nach erfolgreichem Login
+                window.location.href = "../index.html";
+            } else {
+                alert("Ungültiges Passwort. Bitte versuchen Sie es erneut.");
+            }
+            return false;
         }
 
         function guestLogin() {
-            // redirects the user to index.html for guest login
+            // Speichern des Gastes als eingeloggter Benutzer
+            localStorage.setItem("loggedInUser", "guest");
+            localStorage.setItem("user_guest", JSON.stringify({ name: "Guest" }));
+            
+            // Weiterleitung zur Hauptseite
             window.location.href = '../index.html';
         }
     </script>
